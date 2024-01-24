@@ -10,11 +10,7 @@ import NotificationMenu from "../../components/Notification/Notification";
 export default function Home() {
   return (
     <div>
-      <Imagebox/>
-      <ImageBox2/>
-      <FourBoxes/>
-      <Offer/>
-      <Footer/>
+      <Growth/>
     </div>
   );
 }
