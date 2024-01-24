@@ -1,10 +1,10 @@
 import Image from "next/image";
-import FourBoxes from "../../components/Landing/FourBoxes";
+import Offer from "../../components/Landing/Offer";
 
 export default function Home() {
   return (
     <div>
-      <FourBoxes/>
+      <Offer/>
     </div>
   );
 }
