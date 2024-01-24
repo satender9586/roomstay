@@ -14,10 +14,10 @@ const FourBoxes = () => {
             <h2 className='font-heading font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-14'>Get the Pepper Advantage</h2>
 
             <div className='grid grid-cols-4 gap-4 xl:gap-4'>
-                <Box bgColorHex={"#FFE599"} icon={arrowIcon} heading='Scale content creation' title='Create content at scale with on-demand expertise and generative AI' />
-                <Box  bgColorHex={"#BCF5D7"} icon={paperEyeIcon} heading='Reduced CAC' title='Grow your organic presence and reduce dependence on paid channels with optimised content' />
-                <Box bgColorHex={"#BCF5D7"} icon={tabsIcon} heading='Increase productivity' title='Bring your content, data, and SEO teams on a single platform that powers your content marketing lifecycle' />
-                <Box bgColorHex={"#D4BBF6"} icon={graphIcon} heading='Measure content RoI' title='Prove and improve your content RoI by using our AI-powered platform integrated with the best-in-class tools' />
+                <Box bgColorHex={"bg-[#FFE599]"} icon={arrowIcon} heading='Scale content creation' title='Create content at scale with on-demand expertise and generative AI' />
+                <Box  bgColorHex={"bg-[#FFCCE2]"} icon={paperEyeIcon} heading='Reduced CAC' title='Grow your organic presence and reduce dependence on paid channels with optimised content' />
+                <Box bgColorHex={"bg-[#BCF5D7]"} icon={tabsIcon} heading='Increase productivity' title='Bring your content, data, and SEO teams on a single platform that powers your content marketing lifecycle' />
+                <Box bgColorHex={"bg-[#D4BBF6]"} icon={graphIcon} heading='Measure content RoI' title='Prove and improve your content RoI by using our AI-powered platform integrated with the best-in-class tools' />
             </div>
 
 
@@ -29,10 +29,10 @@ const FourBoxes = () => {
 export default FourBoxes
 
 
-const Box = ({ bgColorHex = "#FFE599", icon = arrowIcon, heading = "", title = "" }) => {
-    const bgColor=`bg-[${bgColorHex}]`
+const Box = ({ bgColorHex = "bg-[#FFE599]", icon = arrowIcon, heading = "", title = "" }) => {
+    // const bgColor=`bg-[${bgColorHex}]`
     return (
-        <div className={`rounded-lg col-span-4 sm:col-span-2 xl:col-span-1 | px-6 py-8 | flex flex-col justify-between | ${bgColor} `}>
+        <div className={`rounded-lg col-span-4 sm:col-span-2 xl:col-span-1 | px-6 py-8 | flex flex-col justify-between | ${bgColorHex} `}>
             <div className='flex flex-col gap-6 md:gap-6 xl:gap-8'>
                 <h3 className='font-heading font-normal text-5xl sm:text-4xl  md:text-5xl xl:text-4xl | max-w-col-3 md:mr-1 '>{heading}</h3>
                 <p className='description | font-body text-lg sm:text-lg md:text-xl xl:text-xl'>{title}</p>
