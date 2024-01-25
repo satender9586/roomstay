@@ -8,7 +8,7 @@ import forth from "../../assests/sateimages/4.jpg";
 
 const Imagebox = () => {
   return (
-    <div className="container bg-green-500 ">
+    <div className="container bg-blue-200 ">
       <div className="p-4 border-red-100">
         <h2 className="font-heading font-medium text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-10">
           Let's Come Together
@@ -23,13 +23,13 @@ const Imagebox = () => {
                 top: "15%",
               }}
             >
-              <h1 className="font-heading font-bold text-white  text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
+              <h1 className="font-heading font-bold   text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
                 Stay with the
               </h1>
               <h1 className="font-heading font-bold text-gray-900  text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
                 your parter and
               </h1>
-              <h1 className="font-heading font-bold  text-blue-600 text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
+              <h1 className="font-heading font-bold  text-3xl sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
                 your family member
               </h1>
               <button className="bg-purple-600 text-white px-6 py-3 rounded-full mt-6">
