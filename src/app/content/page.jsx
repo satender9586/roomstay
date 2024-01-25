@@ -24,8 +24,8 @@ import { PaperPlaneIcon } from "@radix-ui/react-icons"
 const Content = () => {
     return (
 
-        <div className="w-[100%] flex flex-col items-center mt-6">
-            <div className="w-[700px]">
+        <div className="w-full flex flex-col items-center mt-6">
+            <div className="w-full md:w-[700px] xs:w-[500px]">
                 <div className="flex flex-col gap-2 mb-20">
                     <div className="flex items-center gap-2">
                         <div>
@@ -35,7 +35,7 @@ const Content = () => {
                     </div>
                     <div className=" text-4xl">The Content Marketing Platform for Bussiness Teams</div>
                 </div>
-                <Tabs defaultValue="strategise" className="w-full">
+                <Tabs defaultValue="strategise" className="w-full md:w-[700px] sm:w-[600px]  ">
                     <TabsList className="grid w-full grid-cols-5">
                         <TabsTrigger value="strategise">
                             <Image src={horseIcon} className="w-6 h-6 mr-2" />
@@ -69,7 +69,7 @@ const Content = () => {
                                                     </div>
                                                 </div>
                                                 <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
-                                                    <Image src={bussinessAnalyst} className="w-[280px] h-[240px] object-cover rounded-xl" />
+                                                    <Image src={bussinessAnalyst} className="w-full h-[240px] object-cover rounded-xl" />
                                                 </div>
                                             </div>
                                         </div>
