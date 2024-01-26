@@ -24,8 +24,8 @@ import { PaperPlaneIcon } from "@radix-ui/react-icons"
 const Content = () => {
     return (
 
-        <div className="w-full flex flex-col items-center mt-6">
-            <div className="w-full md:w-[700px] xs:w-[500px]">
+        <div className="w-full flex flex-col justify-center items-center mt-6">
+            <div className="w-full h-full lg:w-[1110px] md:w-[800px] sm:w-[700px] lg:bg-red-300 md:bg-green-300 sm:bg-pink-300 xs:bg-yellow-300 ">
                 <div className="flex flex-col gap-2 mb-20">
                     <div className="flex items-center gap-2">
                         <div>
@@ -35,7 +35,7 @@ const Content = () => {
                     </div>
                     <div className=" text-4xl">The Content Marketing Platform for Bussiness Teams</div>
                 </div>
-                <Tabs defaultValue="strategise" className="w-full md:w-[700px] sm:w-[600px]  ">
+                <Tabs defaultValue="strategise" className="w-full h-[600px]  md:w-[800px] lg:w-[1110px] sm:w-[600px]  ">
                     <TabsList className="grid w-full grid-cols-5">
                         <TabsTrigger value="strategise">
                             <Image src={horseIcon} className="w-6 h-6 mr-2" />
@@ -50,27 +50,43 @@ const Content = () => {
                         <TabsTrigger value="distribute">Distribute</TabsTrigger>
                         <TabsTrigger value="analyse">Analyse</TabsTrigger>
                     </TabsList>
-                    <TabsContent value="strategise">
-                        <div className="m-3">
-                            <Card>
-                                <CardContent className="space-y-2 p-0 w-full">
-                                    <div className="space-y-1">
-                                        <div className="h-[300px] w-full p-2" style={{ backgroundColor: "#F6F1FD" }}>
-                                            <div className="flex h-full items-center justify-center gap-3">
+
+                    {/* style={{ backgroundColor: "#F6F1FD" }} */}
+                    {/* <div className="flex h-full items-center justify-center gap-3 ">
                                                 <div className="flex-[0.45] p-2">
-                                                    <div className="font-bold text-xl font-mono"> Power your complete content lifecycle</div>
-                                                    <ul className=" list-disc text-xs font-sans flex flex-col gap-2 mt-4 pl-7 ">
+                                                    <div className="font-bold text-3xl "> Power your complete content lifecycle</div>
+                                                    <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
                                                         <li >Data-driven strategy to create impactful content</li>
                                                         <li>Efficient oprations to scale content creation</li>
                                                         <li>Actionable Insights to improve performance</li>
                                                     </ul>
-                                                    <div className="font-bold font-mono text-sm pt-4 text-violet-700 underline cursor-pointer">
+                                                    <div className="font-bold font-mono text-xl pt-4 text-violet-700 underline cursor-pointer">
                                                         Explore more
                                                     </div>
                                                 </div>
                                                 <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
                                                     <Image src={bussinessAnalyst} className="w-full h-[240px] object-cover rounded-xl" />
                                                 </div>
+                                            </div> */}
+                    <TabsContent value="strategise">
+                        <div className="m-3">
+                            <Card>
+                                <CardContent className="space-y-2 p-0 w-full flex flex-col justify-center items-center h-[540px]" style={{ backgroundColor: "#F6F1FD" }}>
+                                    <div className="space-y-1   " >
+                                        <div className="flex h-full items-center justify-center gap-3 " >
+                                            <div className="flex-[0.45] p-2">
+                                                <div className="font-bold text-3xl "> Power your complete content lifecycle</div>
+                                                <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
+                                                    <li >Data-driven strategy to create impactful content</li>
+                                                    <li>Efficient oprations to scale content creation</li>
+                                                    <li>Actionable Insights to improve performance</li>
+                                                </ul>
+                                                <div className="font-bold font-mono text-xl pt-4 text-violet-700 underline cursor-pointer">
+                                                    Explore more
+                                                </div>
+                                            </div>
+                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                                <Image src={bussinessAnalyst} className="w-full h-[300px] object-cover rounded-xl" />
                                             </div>
                                         </div>
                                     </div>
