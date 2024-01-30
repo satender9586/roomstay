@@ -27,7 +27,7 @@ const Content = () => {
 
         <div className="w-full flex flex-col justify-center items-center mt-6">
             <div className="w-full h-full lg:w-[1110px] md:w-[800px] sm:w-[700px]   ">
-                <div className="flex flex-col gap-2 mb-20">
+                <div className="flex flex-col gap-2 mb-20  px-8 md:pd-2 ">
                     <div className="flex items-center gap-2">
                         <div>
                             <PaperPlaneIcon className="w-3 h-3" />
@@ -58,9 +58,9 @@ const Content = () => {
                     <TabsContent value="strategise">
                         <div className="m-3 ">
                             <Card>
-                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] " style={{ backgroundColor: "#F6F1FD" }}>
+                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] sm:h-[650px]  " style={{ backgroundColor: "#F6F1FD" }}>
                                     <div className="space-y-1   " >
-                                        <div className="flex h-full items-center justify-center gap-3 " >
+                                        <div className="flex sm:flex-col md:flex-row h-full sm:h-[100%]  p-2  items-center justify-center gap-3 " >
                                             <div className="flex-[0.45] p-2 w-[600px]">
                                                 <div className="font-bold text-3xl "> Power your complete content lifecycle</div>
                                                 <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
@@ -72,7 +72,7 @@ const Content = () => {
                                                     Explore more
                                                 </div>
                                             </div>
-                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                            <div className="flex-[0.55]  h-full flex flex-col items-center justify-center">
                                                 <Image src={bussinessAnalyst} className="lg:w-[90%]  md:w-[100%] lg:h-[90%] md:h-[260px] object-cover rounded-xl " />
                                             </div>
                                         </div>
@@ -86,14 +86,13 @@ const Content = () => {
                     <TabsContent value="create">
                         <div className="m-3 ">
                             <Card>
-                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] " style={{ backgroundColor: "#F6F1FD" }}>
+                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] sm:h-[650px]  " style={{ backgroundColor: "#F6F1FD" }}>
                                     <div className="space-y-1   " >
-                                        <div className="flex h-full items-center justify-center gap-3 " >
-                                            <div className="flex-[0.45] p-2">
+                                        <div className="flex sm:flex-col md:flex-row h-full sm:h-[100%]  p-2  items-center justify-center gap-3 " >
+                                            <div className="flex-[0.45] p-2 w-[600px]">
                                                 <div className="font-bold text-3xl "> Create high-quality content, at scale</div>
                                                 <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
-                                                    <li >Search-optimized content, by default
-                                                    </li>
+                                                    <li >Search-optimized content, by default</li>
                                                     <li>AI-powered writing assistance</li>
                                                     <li>Automated content audits</li>
                                                 </ul>
@@ -101,7 +100,7 @@ const Content = () => {
                                                     Explore more
                                                 </div>
                                             </div>
-                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                            <div className="flex-[0.55]  h-full flex flex-col items-center justify-center">
                                                 <Image src={bussinessAnalyst} className="lg:w-[90%]  md:w-[100%] lg:h-[90%] md:h-[260px] object-cover rounded-xl " />
                                             </div>
                                         </div>
@@ -111,28 +110,27 @@ const Content = () => {
 
                             </Card>
                         </div>
+
+
                     </TabsContent>
                     <TabsContent value="manage">
                         <div className="m-3 ">
                             <Card>
-                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] " style={{ backgroundColor: "#F6F1FD" }}>
+                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] sm:h-[650px]  " style={{ backgroundColor: "#F6F1FD" }}>
                                     <div className="space-y-1   " >
-                                        <div className="flex h-full items-center justify-center gap-3 " >
+                                        <div className="flex sm:flex-col md:flex-row h-full sm:h-[100%]  p-2  items-center justify-center gap-3 " >
                                             <div className="flex-[0.45] p-2 w-[600px]">
-                                                <div className="font-bold text-3xl  "> Workflows that streamline your content marketing</div>
+                                                <div className="font-bold text-3xl ">  Workflows that streamline your content marketing</div>
                                                 <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
-                                                    <li >Quick feedback and approval process
-                                                    </li>
-                                                    <li>Single-dashboard visibility of the content pipeline
-                                                    </li>
-                                                    <li>Efficient collaboration between teams
-                                                    </li>
+                                                    <li >Quick feedback and approval process</li>
+                                                    <li>Single-dashboard visibility of the content pipeline</li>
+                                                    <li>Efficient collaboration between teams</li>
                                                 </ul>
                                                 <div className="font-bold font-mono text-xl pt-4 text-violet-700 underline cursor-pointer">
                                                     Explore more
                                                 </div>
                                             </div>
-                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                            <div className="flex-[0.55]  h-full flex flex-col items-center justify-center">
                                                 <Image src={bussinessAnalyst} className="lg:w-[90%]  md:w-[100%] lg:h-[90%] md:h-[260px] object-cover rounded-xl " />
                                             </div>
                                         </div>
@@ -142,27 +140,27 @@ const Content = () => {
 
                             </Card>
                         </div>
+
+
                     </TabsContent>
                     <TabsContent value="distribute">
                         <div className="m-3 ">
                             <Card>
-                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] " style={{ backgroundColor: "#F6F1FD" }}>
+                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] sm:h-[650px]  " style={{ backgroundColor: "#F6F1FD" }}>
                                     <div className="space-y-1   " >
-                                        <div className="flex h-full items-center justify-center gap-3 " >
+                                        <div className="flex sm:flex-col md:flex-row h-full sm:h-[100%]  p-2  items-center justify-center gap-3 " >
                                             <div className="flex-[0.45] p-2 w-[600px]">
-                                                <div className="font-bold text-3xl  "> Publish your content in a few clicks</div>
+                                                <div className="font-bold text-3xl "> Power your complete content lifecycle</div>
                                                 <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
-                                                    <li >Integration with your preferred CMS
-                                                    </li>
-                                                    <li>Quick distribution to reach your audience</li>
-                                                    <li>Hassle-free publishing with no additional formatting
-                                                    </li>
+                                                    <li >Data-driven strategy to create impactful content</li>
+                                                    <li>Efficient oprations to scale content creation</li>
+                                                    <li>Actionable Insights to improve performance</li>
                                                 </ul>
                                                 <div className="font-bold font-mono text-xl pt-4 text-violet-700 underline cursor-pointer">
                                                     Explore more
                                                 </div>
                                             </div>
-                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                            <div className="flex-[0.55]  h-full flex flex-col items-center justify-center">
                                                 <Image src={bussinessAnalyst} className="lg:w-[90%]  md:w-[100%] lg:h-[90%] md:h-[260px] object-cover rounded-xl " />
                                             </div>
                                         </div>
@@ -176,25 +174,21 @@ const Content = () => {
                     <TabsContent value="analyse">
                         <div className="m-3 ">
                             <Card>
-                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] " style={{ backgroundColor: "#F6F1FD" }}>
+                                <CardContent className="space-y-2 w-fill  p-10 flex flex-col justify-center items-center h-[540px] sm:h-[650px]  " style={{ backgroundColor: "#F6F1FD" }}>
                                     <div className="space-y-1   " >
-                                        <div className="flex h-full items-center justify-center gap-3 " >
+                                        <div className="flex sm:flex-col md:flex-row h-full sm:h-[100%]  p-2  items-center justify-center gap-3 " >
                                             <div className="flex-[0.45] p-2 w-[600px]">
-                                                <div className="font-bold text-3xl "> Measure your content ROI</div>
+                                                <div className="font-bold text-3xl "> Power your complete content lifecycle</div>
                                                 <ul className=" list-disc text-lg font-sans flex flex-col gap-2 mt-4 pl-7 ">
-                                                    <li >Content audit for the complete website
-
-                                                    </li>
-                                                    <li>Keyword position tracking without spreadsheets
-                                                    </li>
-                                                    <li>Actionable insights to improve existing content
-                                                    </li>
+                                                    <li >Data-driven strategy to create impactful content</li>
+                                                    <li>Efficient oprations to scale content creation</li>
+                                                    <li>Actionable Insights to improve performance</li>
                                                 </ul>
                                                 <div className="font-bold font-mono text-xl pt-4 text-violet-700 underline cursor-pointer">
                                                     Explore more
                                                 </div>
                                             </div>
-                                            <div className="flex-[0.55] h-full flex flex-col items-center justify-center">
+                                            <div className="flex-[0.55]  h-full flex flex-col items-center justify-center">
                                                 <Image src={bussinessAnalyst} className="lg:w-[90%]  md:w-[100%] lg:h-[90%] md:h-[260px] object-cover rounded-xl " />
                                             </div>
                                         </div>
