@@ -32,11 +32,11 @@ const Billing = () => {
                                     <div>
                                         <Image src={visaImg} alt="visa" width={67} height={38} />
                                     </div>
-                                    <div className="flex-[0.7]= text-indigo-950 text-base font-normal ">Visa ending in 2255</div>
-                                    <div className='flex-[0.2]='>
+                                    <div className="flex-[0.7] text-indigo-950 text-base font-normal ">Visa ending in 2255</div>
+                                    <div className='flex-[0.2]'>
 
-                                        <Button variant="outline" className='' >
-                                            <div className="text-indigo-950 text-base font-medium ">Remove</div>
+                                        <Button variant="outline" className="text-indigo-950 text-base font-medium ">
+                                            Remove
                                         </Button>
                                     </div>
                                 </div>
@@ -100,8 +100,8 @@ const TableRow = () => {
             <div className="text-indigo-950 text-base font-medium flex items-center">Oct. 21, 2021</div>
             <div className="  text-indigo-950 text-base font-medium flex items-center">Pro Annual</div>
             <div>
-                <Button variant="outline" >
-                    <div className="text-indigo-950 text-base font-medium ">Download</div>
+                <Button variant="outline" className="text-indigo-950 text-base font-medium ">
+                    Download
                 </Button>
             </div>
         </div>
