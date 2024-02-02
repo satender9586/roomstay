@@ -4,16 +4,14 @@ import Offer from "../../components/Landing/Offer";
 import Footer from "../../components/Footer/Footer";
 import Imagebox from "../../components/About/Imagesbox";
 import ImageBox2 from "../../components/About/ImageBox2";
-import NotificationMenu from "../../components/Notification/Notification";
+import ImageCarts from "../../components/About/carasoulIageCarts";
 
 
 export default function Home() {
   return (
     <div>
-      <div className="flex justify-center py-10">
-      <NotificationMenu/>
-      </div>
-      <Imagebox/>
+      <ImageCarts/>
+      {/* <Imagebox/> */}
       <ImageBox2/>
       <FourBoxes/>
       <Offer/>
