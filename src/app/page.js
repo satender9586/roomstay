@@ -10,9 +10,6 @@ import NotificationMenu from "../../components/Notification/Notification";
 export default function Home() {
   return (
     <div>
-      <div className="flex justify-center py-10">
-      <NotificationMenu/>
-      </div>
       <Imagebox/>
       <ImageBox2/>
       <FourBoxes/>
