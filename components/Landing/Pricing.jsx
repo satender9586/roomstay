@@ -3,25 +3,25 @@ import { CiIceCream } from "react-icons/ci";
 
 const Pricing = () => {
   return (
-    <div className="container">
+    <div className="container bg-[#F4F5FA] py-6">
       <div className="p-4 pb-[3rem]">
         <div class="md:p-4 flex flex-col items-start sm:items-center w-full">
           <h1 class="font-heading font-bold text-2xl sm:text-3xl md:text-4xl lg:text-4xl">
-            Get the most out of your{" "}
+            Get the most out of your
             <span class="sm:hidden">mobile with the right subscription</span>
           </h1>
           <h1 class="hidden sm:block font-heading font-bold text-2xl md:text-4xl lg:text-4xl">
             with the right subscription
           </h1>
           <div class="sm:p-4 flex flex-col items-start sm:items-center w-full">
-            <h1 class="font-heading font-normal font-poppins text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
+            <h1 class="font-heading font-normal  text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
               All devices come with free delivery on pickup as standard. See
               information on{" "}
               <span class="sm:hidden">
                 available shopping options for your location
               </span>
             </h1>
-            <h1 class="hidden sm:block font-heading font-normal font-poppins text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
+            <h1 class="hidden sm:block font-heading font-normal  text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
               available shopping options for your location
             </h1>
           </div>
@@ -38,21 +38,21 @@ const Pricing = () => {
                   alt="product-image"
                 />
                 <div>
-                  <h1 class="text-slate-900 text-lg font-semibold font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-lg font-semibold mt-2">
                     Ice Mobile 10Gb
                   </h1>
-                  <h1 class="text-slate-900 text-sm font-normal font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-sm font-normal mt-2">
                     Up to 100mbit/s
                   </h1>
                 </div>
                 <div>
-                  <h1 class="text-slate-900 text-2xl font-bold font-['Poppins']">
+                  <h1 class="text-slate-900 text-2xl font-bold">
                     299-/ Month
                   </h1>
                 </div>
-                <div class="flex justify-center items-center mt-2">
-                  <div class="w-[185px] h-14 px-6 py-4 bg-slate-100 rounded-[41px] shadow border border-gray-100 flex justify-center items-center gap-2.5">
-                    <button class="text-slate-900 text-base font-normal font-['Poppins']">
+                <div class="flex items-center mt-2">
+                  <div class=" h-14 px-6 py-4 bg-slate-100 rounded-[41px] shadow border border-gray-100 flex justify-center items-center gap-2.5">
+                    <button class="text-slate-900 text-base font-normal">
                       Add Subscribe
                     </button>
                   </div>
@@ -69,21 +69,21 @@ const Pricing = () => {
                   alt="product-image"
                 />
                 <div>
-                  <h1 class="text-slate-900 text-lg font-semibold font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-lg font-semibold mt-2">
                     Ice Mobile 10Gb
                   </h1>
-                  <h1 class="text-slate-900 text-sm font-normal font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-sm font-normal mt-2">
                     Up to 100mbit/s
                   </h1>
                 </div>
                 <div>
-                  <h1 class="text-slate-900 text-2xl font-bold font-['Poppins']">
+                  <h1 class="text-slate-900 text-2xl font-bold">
                     299-/ Month
                   </h1>
                 </div>
                 <div class="flex justify-center items-center mt-2">
                   <div class="w-[185px] h-14 px-6 py-4 bg-slate-100 rounded-[41px] shadow border border-gray-100 flex justify-center items-center gap-2.5">
-                    <button class="text-slate-900 text-base font-normal font-['Poppins']">
+                    <button class="text-slate-900 text-base font-normal">
                       Add Subscribe
                     </button>
                   </div>
@@ -100,21 +100,21 @@ const Pricing = () => {
                   alt="product-image"
                 />
                 <div>
-                  <h1 class="text-slate-900 text-lg font-semibold font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-lg font-semibold mt-2">
                     Ice Mobile 10Gb
                   </h1>
-                  <h1 class="text-slate-900 text-sm font-normal font-['Poppins'] mt-2">
+                  <h1 class="text-slate-900 text-sm font-normal mt-2">
                     Up to 100mbit/s
                   </h1>
                 </div>
                 <div>
-                  <h1 class="text-slate-900 text-2xl font-bold font-['Poppins']">
+                  <h1 class="text-slate-900 text-2xl font-bold">
                     299-/ Month
                   </h1>
                 </div>
                 <div class="flex justify-center items-center mt-2">
                   <div class="w-[185px] h-14 px-6 py-4 bg-slate-100 rounded-[41px] shadow border border-gray-100 flex justify-center items-center gap-2.5">
-                    <button class="text-slate-900 text-base font-normal font-['Poppins']">
+                    <button class="text-slate-900 text-base font-normal">
                       Add Subscribe
                     </button>
                   </div>
@@ -126,8 +126,8 @@ const Pricing = () => {
 
         <div className="flex justify-center mt-3 md:mt-5">
           <div className="w-[212px] h-14 px-6 py-4 bg-slate-900 rounded-[41px] justify-center items-start gap-2.5 inline-flex">
-            <button className="text-white text-base font-normal font-['Poppins']">
-              See All Subscribe
+            <button className="text-white text-base font-normal">
+              See All Plans
             </button>
           </div>
         </div>

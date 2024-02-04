@@ -12,11 +12,11 @@ const Landing = () => {
     return (
         <>
             <Main />
-            <Growth/>
+            <Pricing />
             <Cards/>
             <Offer />
+            <Growth/>
             <Content />
-            <Pricing />
             <FourBoxes />
             <Footer />
         </>

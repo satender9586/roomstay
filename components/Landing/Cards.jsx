@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa";
 const Cards = () => {
   const arryLength = Array.from({ length: 4 });
   return (
-    <div className="container">
+    <div className="container mt-16 mb-14">
       <div className="p-4">
         {/* image conatiner */}
         <div className=" grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
