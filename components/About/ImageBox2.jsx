@@ -27,7 +27,7 @@ const ImageBox2 = () => {
           </div>
         </div>
 
-        {/* carts */}
+        {/*Three Cards */}
         <div class="flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 xl:gap-18 py-4 lg:px-[12%]">
           <div class="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
             <div class="h-[326px] bg-[#FFFBEC] rounded-[14px] relative">
@@ -61,7 +61,7 @@ const ImageBox2 = () => {
             </div>
           </div>
           <div class="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
-            <div class="h-[326px] bg-[#FFFBEC] rounded-[14px] relative">
+            <div class="h-[326px] bg-indigo-50 rounded-[14px] relative">
               <div class="h-full p-10 bg-white rounded-[14px] shadow absolute top-5 left-0 right-0">
                 <img
                   class="w-[43.11px] h-[30px]"
@@ -92,7 +92,7 @@ const ImageBox2 = () => {
             </div>
           </div>
           <div class="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
-            <div class="h-[326px] bg-[#FFFBEC] rounded-[14px] relative">
+            <div class="h-[326px] bg-slate-100 rounded-[14px] relative">
               <div class="h-full p-10 bg-white rounded-[14px] shadow absolute top-5 left-0 right-0">
                 <img
                   class="w-[43.11px] h-[30px]"
