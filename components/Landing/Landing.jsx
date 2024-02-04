@@ -15,8 +15,8 @@ const Landing = () => {
             <Pricing />
             <Cards/>
             <Offer />
-            <Growth/>
             <Content />
+            <Growth/>
             <FourBoxes />
             <Footer />
         </>
