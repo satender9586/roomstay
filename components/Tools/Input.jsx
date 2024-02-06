@@ -10,7 +10,7 @@ const Input = ({ label = "", placeholder = "Default" }) => {
                 )
             }
 
-            <input type="text" placeholder={placeholder} className='border border-neutral-200 rounded-lg py-5 px-4 w-full focus:border-blue-400 focus:outline-none capitalize text-sm' />
+            <input type="text" placeholder={placeholder} className='border border-neutral-300 rounded-lg py-5 px-4 w-full focus:border-blue-400 focus:outline-none capitalize text-sm' />
         </div>
     )
 }

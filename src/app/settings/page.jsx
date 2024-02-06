@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
+import { Switch } from '@/components/ui/switch'
 import Dashboard from '../../../components/Dashboard/Dashboard'
-import CustomSwitch from '../../../components/Tools/CustomSwitch'
 import CustomCheckbox from '../../../components/Tools/CustomCheckbox'
 
 const Settings = () => {
@@ -44,5 +44,20 @@ const Settings = () => {
 export default Settings
 
 
+const CustomSwitch = ({ heading = "Weekly newsletter", text = "Default text" }) => {
+    return (
+        <div className='flex w-[60%]'>
+            <div className='flex-[0.8] flex flex-col gap-2'>
+                <div className="text-black text-lg font-semibold">{heading}</div>
+                <div className="w-[60%] text-black text-md font-normal ">{text}</div>
+            </div>
 
+            <div className='flex-[0.2] flex'>
+                <div className='pt-6'>
+                    <Switch id="airplane-mode" />
+                </div>
 
+            </div>
+        </div>
+    )
+}
