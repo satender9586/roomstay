@@ -14,7 +14,7 @@ const Main = () => {
           <div className="col-span-1 relative">
 
             <div className="absolute z-50 w-[600px] top-20" >
-              <div className="font-heading font-bold text-2xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
+              <div className="font-heading font-semibold text-2xl leading-10 sm:text-4xl md:text-5xl lg:text-6xl | mb-12 lg:mb-3">
                 You've got 99 problems, but brokerage ain't one
               </div>
 
