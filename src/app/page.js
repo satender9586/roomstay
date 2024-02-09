@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Growth from "./growth/page";
-import Content from "./content/page";
+import Content from "../../components/Landing/Content";
 export default function Home() {
   return (
     <div>
