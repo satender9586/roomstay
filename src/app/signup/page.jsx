@@ -70,7 +70,7 @@ const Signup = () => {
 
                         </div>
                     </div>
-                        <Button className="w-[450px] h-[60px] rounded-xl">Sign up</Button>
+                        <Button className="w-[450px] h-[60px] rounded-xl  bg-neutral-700 hover:bg-neutral-900" onClick={() => { router.push("/otp") }}>Sign up</Button>
 
                     <div className=" py-4">
                         <div className=" cursor-pointer">

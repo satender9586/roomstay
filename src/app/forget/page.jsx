@@ -53,7 +53,7 @@ const Forget = () => {
 
 
                     </div>
-                    <Button className="w-[450px] h-[60px] rounded-xl">Forget</Button>
+                    <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900" onClick={() => { router.push("/otp") }}>Forget</Button>
 
                     <div className="py-10">
                         <div className=" cursor-pointer">

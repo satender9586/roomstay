@@ -48,7 +48,7 @@ const PaymentSucess = () => {
                 <p className="text-gray-600 font-semibold">Thank you for your payment. Your transaction was successful.</p>
             </div> */}
 
-            {/* 3rd */}
+            {/* 3rd -first */}
             {/* <div className="bg-green-200 border-green-500 border p-4 rounded-md shadow-md">
       <div className="flex items-center">
         <svg
@@ -70,7 +70,7 @@ const PaymentSucess = () => {
       <p className="text-gray-600 mt-2">Thank you for your payment. Your transaction was successful.</p>
     </div> */}
 
-            <div className=" border-red-500 border-[1px] hover:border-[3px] p-8 rounded-3xl hover:bg-red-100 bg-red-50 cursor-pointer shadow-xl max-w-xl mx-auto mt-16"> 
+            {/* <div className=" border-red-500 border-[1px] hover:border-[3px] p-8 rounded-3xl hover:bg-red-100 bg-red-50 cursor-pointer shadow-xl max-w-xl mx-auto mt-16"> 
                 <div className="flex flex-col items-center">
                     <svg
                         className="h-10 w-10 bg-red-500 rounded-full text-white mr-2"
@@ -89,7 +89,7 @@ const PaymentSucess = () => {
                     <p className="text-red-500  font-semibold text-[30px]">Payment cancelled!</p>
                 </div>
                 <p className="text-red-800 mt-2 flex flex-col items-center">Your payment has been cancelled.</p>
-            </div>
+            </div> */}
         </div>
     )
 }
