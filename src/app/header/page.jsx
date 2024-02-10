@@ -12,23 +12,18 @@ const Header = () => {
 
     return (
 
-        <div className="w-[100%] h-[100%] flex flex-col justify-center items-center bg-[#F4F3FD] p-5">
-
-            {/* header */}
-            <div className="w-full flex justify-between ">
-                <div>
-                    logo
-                </div>
-                <div>
-                    Hotel
-                </div>
-                <div className="flex items-center gap-2">
-                    <div><Button>Signup</Button></div>
-                    <div><Button>Login</Button></div>
-                </div>
+        <header className="bg-gray-800 text-white p-4 flex items-center justify-between" >
+            <div className="hidden sm:block">
+                <img src="/logo.svg" alt="Logo" className="h-8" />
             </div>
-
-        </div>
+            <div>
+                <span className="text-lg font-semibold hover:underline cursor-pointer">Hotel</span>
+            </div>
+            <div className=" sm:flex space-x-4">
+                <Button className=" bg-cyan-600 hover:bg-gray-600" onClick={() => router.push('/login')}>Login</Button>
+                <Button className=" bg-orange-600 hover:bg-gray-600 sm:flex hidden" onClick={() => router.push('/signup')}>Signup</Button>
+            </div>
+        </header>
     )
 }
 

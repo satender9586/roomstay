@@ -13,7 +13,7 @@ const Signup = () => {
     const router = useRouter();
     return (
 
-        <div className="w-[100%] h-[100%] flex flex-col justify-center items-center bg-[#F4F3FD] p-5">
+        <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200 p-5">
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white rounded-3xl shadow-lg  ">
                 <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20"
                  style={{background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}

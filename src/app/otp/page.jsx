@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
-const Forget = () => {
+const Otp = () => {
 
     const router = useRouter();
 
@@ -17,7 +17,39 @@ const Forget = () => {
 
         <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200 p-5">
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white rounded-3xl  shadow-lg  ">
+                <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
+                    <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
+                        <div className="text-3xl pb-4">
+                            Forget your Password
+                        </div>
 
+                        <div>
+                            <Label className=" font-semibold" >Verify OTP</Label>
+                            <Input type="number" placeholder="Enter the OTP" className="h-[50px]" />
+                        </div>
+
+                        <div>
+                            <Label className=" font-semibold" >Password</Label>
+                            <Input type="password" placeholder="Enter your password" className="h-[50px]" />
+                        </div>
+
+                        <div>
+                            <Label className=" font-semibold" >Confirm Password</Label>
+                            <Input type="password" placeholder="Enter your confirm password" className="h-[50px]" />
+                        </div>
+
+
+                    </div>
+                    
+                    <Button className="w-[450px] h-[60px] rounded-xl">Forget</Button>
+
+                    <div className="py-10">
+                        <div className=" cursor-pointer">
+                            <span className="text-green-500"> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
+                        </div>
+                    </div>
+
+                </div>
                 <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
@@ -40,33 +72,12 @@ const Forget = () => {
                         </div>
                     </div>
                 </div>
-                <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
-                        <div className="text-3xl pb-4">
-                            Forget your account
-                        </div>
 
-                        <div>
-                            <Label className=" font-semibold" >Email</Label>
-                            <Input type="email" placeholder="Enter your email address" className="h-[50px]" />
-                        </div>
-
-
-                    </div>
-                    <Button className="w-[450px] h-[60px] rounded-xl">Forget</Button>
-
-                    <div className="py-10">
-                        <div className=" cursor-pointer">
-                            Have an Account ? <span className="text-green-500" onClick={() => { router.push("/login") }}>Login</span>
-                        </div>
-                    </div>
-
-                </div>
 
             </div>
         </div>
     )
 }
 
-export default Forget;
+export default Otp;
 
