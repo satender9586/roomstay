@@ -4,7 +4,7 @@ const PaymentSucess = () => {
     return (
         <div>
             {/* 1st */}
-            {/* <div className="bg-white border-green-500 border-[2px] p-8 rounded-3xl hover:bg-green-50 hover:border-green-500 hover:border-[4px] cursor-pointer shadow-xl max-w-xl mx-auto mt-16">
+            <div className="bg-white border-green-500 border-[2px] p-8 rounded-3xl hover:bg-green-50 hover:border-green-500 hover:border-[4px] cursor-pointer shadow-xl max-w-xl mx-auto mt-16">
                 <div className="flex flex-col items-center">
                     <svg
                         className="h-10 w-10 bg-green-500 rounded-full text-white mr-2"
@@ -24,7 +24,7 @@ const PaymentSucess = () => {
                 </div>
                 <p className="flex flex-col items-center font-semibold font-sans">Transaction Number: 12345678</p>
                 <p className="text-gray-600 mt-2">Thank you for your payment. Your transaction was successful.</p>
-            </div> */}
+            </div>
 
             {/* 2nd */}
             {/* <div className="bg-green-200 border-green-400 border p-8 rounded-md shadow-xl max-w-xl mx-auto mt-16">
