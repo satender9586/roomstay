@@ -26,13 +26,13 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import CustomTextArea from '../../../components/Tools/CustomTextArea'
 import CityJson from "../../../utils/cities"
+import CustomCheckbox from '../../../components/Tools/CustomCheckbox'
 
 const Billing = () => {
   return (
     <>
       <Dashboard>
         <div>
-          <CreateFloorModal />
           <div className="text-indigo-950 text-[32px] font-bold">Billing</div>
 
           <div className='mt-10 flex'>
@@ -135,6 +135,97 @@ const TableRow = () => {
 
 
 
+// hotelid, floorid, roomNumber, roomType, price, maxPeople, description, amenities
+const CreateRoomModal = () => {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Create Room</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="text-lg">Create Room</DialogTitle>
+          <DialogDescription>
+            You can create 3 floor for free
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+
+        <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Hotel
+            </Label>
+            <Input id="name" value="" placeholder="Enter name" className="col-span-3" />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Room No
+            </Label>
+            <div className='col-span-3'>
+              <RoomSelect roomArr={[1, 2, 3, 4]} />
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Room Type
+            </Label>
+            <div className='col-span-3'>
+              <RoomTypeSelect roomArr={["Individual", "Couple", "Family"]} />
+            </div>
+          </div>
+
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Price
+            </Label>
+            <Input id="name" value="" placeholder="Enter name" className="col-span-3" />
+          </div>
+
+        
+
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <div className='h-full'>
+              <Label htmlFor="name" className="text-right">
+                Amenities
+              </Label>
+            </div>
+            <div className='col-span-3 flex flex-wrap gap-3 gap-y-4'>
+              <CustomCheckbox title="Tv" labelText='follower' />
+              <CustomCheckbox title="Ac" labelText='post' />
+              <CustomCheckbox title="Free Wifi" labelText='test' />
+              <CustomCheckbox title="Power backup" labelText='dddd' />
+              <CustomCheckbox title="Geyser" labelText='ytggt' />
+              <CustomCheckbox title="CCTV" labelText='gdgdg' />
+              <CustomCheckbox title="Parking" labelText='gdddgdg' />
+              {/* <CustomCheckbox title="Elevator" labelText='afsdgf' /> */}
+            </div>
+          </div>
+
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <div className='h-full'>
+              <Label htmlFor="username" className="text-right">
+                Description
+              </Label>
+            </div>
+            <CustomTextArea placeholder='Enter Description' />
+          </div>
+
+
+        </div>
+        <DialogFooter>
+          <Button type="submit" className="">Create</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+
 const CreateFloorModal = () => {
   return (
     <Dialog>
@@ -161,7 +252,7 @@ const CreateFloorModal = () => {
               Floor No
             </Label>
             <div className='col-span-3'>
-              <FloorSelect floorArr={[1,2,3,4]} />
+              <FloorSelect floorArr={[1, 2, 3, 4]} />
             </div>
           </div>
         </div>
@@ -228,6 +319,46 @@ const CreateHotelModal = () => {
   )
 }
 
+
+const RoomSelect = ({ roomArr = [] }) => {
+  return (
+    <Select>
+      <SelectTrigger className="min-w-[180px]">
+        <SelectValue placeholder="Select room" />
+      </SelectTrigger>
+      <SelectContent >
+        <SelectGroup>
+          <SelectLabel>Select new room</SelectLabel>
+          {
+            roomArr?.map((obj) => {
+              return <SelectItem key={obj} value={obj}>{obj}</SelectItem>
+            })
+          }
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  )
+}
+
+const RoomTypeSelect = ({ roomArr = [] }) => {
+  return (
+    <Select>
+      <SelectTrigger className="min-w-[180px]">
+        <SelectValue placeholder="Select room" />
+      </SelectTrigger>
+      <SelectContent >
+        <SelectGroup>
+          <SelectLabel>Select new room</SelectLabel>
+          {
+            roomArr?.map((obj) => {
+              return <SelectItem key={obj} value={obj}>{obj}</SelectItem>
+            })
+          }
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  )
+}
 
 const FloorSelect = ({ floorArr = [] }) => {
   return (
