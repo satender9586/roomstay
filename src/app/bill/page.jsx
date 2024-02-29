@@ -3,12 +3,34 @@ import Dashboard from '../../../components/Dashboard/Dashboard'
 import visaImg from "../../../assests/Images/visa.png"
 import React from 'react'
 import Image from 'next/image'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import CustomTextArea from '../../../components/Tools/CustomTextArea'
 
 const Billing = () => {
     return (
         <>
             <Dashboard>
                 <div>
+                    <DialogDemo/>
                     <div className="text-indigo-950 text-[32px] font-bold">Billing</div>
 
                     <div className='mt-10 flex'>
@@ -107,3 +129,81 @@ const TableRow = () => {
         </div>
     )
 }
+
+
+
+
+export function DialogDemo() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Create Hotel</Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle className="text-lg">Create Hotel</DialogTitle>
+          <DialogDescription>
+            Host your hotel with Roomstay
+          </DialogDescription>
+        </DialogHeader>
+        <div className="grid gap-4 py-4">
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="name" className="text-right">
+              Name
+            </Label>
+            <Input id="name" value="Pedro Duarte" className="col-span-3" />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Location
+            </Label>
+            <div className='col-span-3'>
+            <SelectDemo/>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <Label htmlFor="username" className="text-right">
+              Image
+            </Label>
+            <Input placeholder="Enter image url" id="username" value="" className="col-span-3" />
+          </div>
+
+          <div className="grid grid-cols-4 items-center gap-4">
+            <div className='h-full'>
+            <Label htmlFor="username" className="text-right">
+              Description
+            </Label>
+            </div>
+            <CustomTextArea/>
+          </div>
+        </div>
+        <DialogFooter>
+          <Button type="submit" className="">Create</Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  )
+}
+
+
+function SelectDemo() {
+    return (
+      <Select>
+        <SelectTrigger className="min-w-[180px]">
+          <SelectValue placeholder="Select a fruit" />
+        </SelectTrigger>
+        <SelectContent >
+          <SelectGroup>
+            <SelectLabel>Fruits</SelectLabel>
+            <SelectItem value="apple">Apple</SelectItem>
+            <SelectItem value="banana">Banana</SelectItem>
+            <SelectItem value="blueberry">Blueberry</SelectItem>
+            <SelectItem value="grapes">Grapes</SelectItem>
+            <SelectItem value="pineapple">Pineapple</SelectItem>
+          </SelectGroup>
+        </SelectContent>
+      </Select>
+    )
+  }
