@@ -1,13 +1,9 @@
 "use client"
 import React from 'react'
 import userImg from "../../assests/Images/user.png"
-import generalIcon from "../../assests/Icons/general.svg"
-import passwordIcon from "../../assests/Icons/password.svg"
-import invitationIcon from "../../assests/Icons/invitation.svg"
-import billingIcon from "../../assests/Icons/billing.svg"
-import appsIcon from "../../assests/Icons/apps.svg"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
+import { LockOpen1Icon, EnvelopeClosedIcon, HomeIcon, MixIcon } from '@radix-ui/react-icons'
 
 const SideBar = () => {
     const router = useRouter()
@@ -20,55 +16,48 @@ const SideBar = () => {
     }
     return (
 
-        <div className='w-72 h-[100dvh] | px-6  bg-[#F7F7FF]'>
+        <div className='w-72 h-[100dvh] | px-6  bg-[#ed4b35]'>
 
             <div className='flex py-8'>
 
                 <div className='flex gap-4'>
-                    <div>
-                        <Image src={userImg} width={55} height={55} alt='user' />
+                    <div className='ml-2'>
+                        <Image src={userImg} width={55} height={55} alt='user' className='rounded-full' />
                     </div>
-                    <div className='flex flex-col justify-center'>
-                        <div className="text-indigo-950 text-base font-bold ">Ahirwar</div>
-                        <div className="text-slate-500 text-sm font-normal">@ahirwar</div>
+                    <div className='text-white flex flex-col justify-center'>
+                        <div className="font-bold">OYO</div>
+                        <div className="text-slate-100 text-base ">Ahirwar</div>
                     </div>
                 </div>
             </div>
 
-            <div className='flex flex-col gap-1'>
+            <div className='flex flex-col gap-1 text-white text-lg'>
 
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/dashboard")}>
                     <HoverLine />
-                    <Image src={generalIcon} width={26} height={26} alt='general' />
-                    <div className="text-slate-500 text-sm font-normal">General</div>
+                    <HomeIcon className="size-4"/>
+                    <div className=" font-normal">Dashboard</div>
                 </div>
 
 
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
                     <HoverLine />
-                    <Image src={passwordIcon} width={26} height={26} alt='general' />
-                    <div className="text-slate-500 text-sm font-normal">Password</div>
+                    <LockOpen1Icon className="size-4"/>
+                    <div className=" font-normal">Password</div>
                 </div>
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/profile")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
                     <HoverLine />
-                    <Image src={invitationIcon} width={26} height={26} alt='general' />
-                    <div className="text-slate-500 text-sm font-normal">Invitations</div>
+                    <EnvelopeClosedIcon className="size-4"/>
+                    <div className=" font-normal">Invitations</div>
                 </div>
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer">
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
                     <HoverLine />
-                    <Image src={billingIcon} width={26} height={26} alt='general' />
-                    <div className="text-slate-500 text-sm font-normal">Billing</div>
+                    <MixIcon className="size-4"/>
+                    <div className=" font-normal">Billing</div>
                 </div>
-
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer">
-                    <HoverLine />
-                    <Image src={appsIcon} width={26} height={26} alt='general' />
-                    <div className="text-slate-500 text-sm font-normal">Apps</div>
-                </div>
-
             </div>
 
         </div>
@@ -77,7 +66,7 @@ const SideBar = () => {
 
 const HoverLine = () => {
     return (
-        <div className={`w-1.5 h-12  rounded-3xl group-hover:bg-red-500`} />
+        <div className={`w-1.5 h-12  rounded-3xl group-hover:bg-white`} />
     )
 }
 
