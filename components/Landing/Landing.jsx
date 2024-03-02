@@ -7,14 +7,15 @@ import Pricing from './Pricing'
 import Content from './Content'
 import Cards from './Cards'
 import Growth from './Growth'
-import DashboardTable from '../Table/DashboardTable'
+import RoomInfo from './RoomInfo'
+
 
 
 
 const Landing = () => {
     return (
         <>
-           <DashboardTable/>
+           <RoomInfo/>
             <Main />
             <Pricing />
             <Cards/>
