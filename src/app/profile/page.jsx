@@ -76,7 +76,7 @@ const ProfileSettings = () => {
 
             <TextArea label='Bio' placeholder="Something about yourself" />
 
-            <div className="text-black text-lg font-bold mt-5 ">Personal Website</div>
+            <div className="text-black text-lg font-bold mt-2 ">Personal Website</div>
 
 
             <div className='mt-2'>

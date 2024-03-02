@@ -3,7 +3,7 @@ import React from 'react'
 import userImg from "../../assests/Images/user.png"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
-import { LockOpen1Icon, EnvelopeClosedIcon, HomeIcon, MixIcon } from '@radix-ui/react-icons'
+import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
 
 const SideBar = () => {
     const router = useRouter()
@@ -41,23 +41,30 @@ const SideBar = () => {
                 </div>
 
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/profile")}>
                     <HoverLine />
-                    <LockOpen1Icon className="size-4"/>
-                    <div className=" font-normal">Password</div>
+                    <PersonIcon className="size-4"/>
+                    <div className=" font-normal">Profile</div>
                 </div>
-
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
-                    <HoverLine />
-                    <EnvelopeClosedIcon className="size-4"/>
-                    <div className=" font-normal">Invitations</div>
-                </div>
-
+                
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
                     <HoverLine />
                     <MixIcon className="size-4"/>
                     <div className=" font-normal">Billing</div>
                 </div>
+
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
+                    <HoverLine />
+                    <GearIcon className="size-4"/>
+                    <div className=" font-normal">Settings</div>
+                </div>
+
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
+                    <HoverLine />
+                    <ExitIcon className="size-4"/>
+                    <div className=" font-normal">Log out</div>
+                </div>
+
             </div>
 
         </div>
