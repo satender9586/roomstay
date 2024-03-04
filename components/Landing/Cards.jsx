@@ -9,8 +9,8 @@ const Cards = () => {
       <div className="p-4">
         {/* image conatiner */}
         <div className=" grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
-          {arryLength.map((data) => (
-            <div className="bg-white rounded-sm">
+          {arryLength.map((data,index) => (
+            <div key={index} className="bg-white rounded-sm">
               <div className="relative">
                 <img
                   width={"100%"}
