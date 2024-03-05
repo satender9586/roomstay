@@ -9,6 +9,7 @@ import { signup } from "../../../api/authentication";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { createAccount } from "../../../redux/reducers/userSlice";
+import { getToken } from "../../../utils/auth";
 const Signup = () => {
     const router = useRouter();
     const dispatch = useDispatch()
@@ -31,6 +32,7 @@ const Signup = () => {
             "firstName": formValues.fName,
             "lastName": formValues.lName
         }
+        
         try {
             const response = await signup(apiData)
 
