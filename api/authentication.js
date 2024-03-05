@@ -16,7 +16,7 @@ export const signup = async (data) => {
     return response.data
 }
 
-export const otpVerfiy = async (data) => {
+export const otpVerify = async (data) => {
     const response = await axios.post(`/otpVerify`, data, headerData);
     if (!response.statusText === "OK") {
         throw new Error("Something is wrong.");

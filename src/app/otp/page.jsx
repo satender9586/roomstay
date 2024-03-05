@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { otpVerfiy } from "../../../api/authentication";
+import { otpVerify } from "../../../api/authentication";
 
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
@@ -30,12 +30,12 @@ const Otp = () => {
 
 
         const dummyData = {
-            "otp": formValues.number,
+            "otp": formValues.otp,
             "email": emailRex
         }
 
         try {
-            const response = await otpVerfiy(dummyData);
+            const response = await otpVerify(dummyData);
             if (response.success) {
                 router.push("/")
             }
