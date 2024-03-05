@@ -1,17 +1,18 @@
 "use client"
 import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
-// import  Label from "@/components/ui/label"x
 import { useRouter } from "next/navigation";
 import { signup } from "../../../api/authentication";
 import { useState } from "react";
-
+import { useDispatch } from 'react-redux';
+import { createAccount } from "../../../redux/reducers/userSlice";
 const Signup = () => {
     const router = useRouter();
+    const dispatch = useDispatch()
+
     const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '' });
 
 
@@ -34,6 +35,7 @@ const Signup = () => {
             const response = await signup(apiData)
 
             if (response.success) {
+                dispatch(createAccount(apiData))
                 router.push("/otp")
             }
         } catch (error) {
@@ -129,8 +131,8 @@ const Signup = () => {
                                 <Label className=" font-semibold" >Get updates and notification about our product.</Label>
 
                             </div>
-                        </div>
                         <Button className="w-[450px] h-[60px] rounded-xl  bg-neutral-700 hover:bg-neutral-900" onClick={handleSubmit}>Sign up</Button>
+                        </div>
                     </form>
                     <div className=" py-4">
                         <div className=" cursor-pointer">
