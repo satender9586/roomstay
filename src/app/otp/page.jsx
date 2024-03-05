@@ -1,16 +1,50 @@
 "use client"
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import  Label from "@/components/ui/label"
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { otpVerfiy } from "../../../api/authentication";
 
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
 const Otp = () => {
-
+    // const userObj = useSelector((state) => state.user.userObj)
+    const emailRex = useSelector((state) => state.user.userObj.email);
     const router = useRouter();
+
+
+    const [formValues, setFormValues] = useState({ otp: '' });
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const newObject = { ...formValues, [name]: value };
+        setFormValues({ ...newObject });
+    }
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+
+        const dummyData = {
+            "otp": formValues.number,
+            "email": emailRex
+        }
+
+        try {
+            const response = await otpVerfiy(dummyData);
+            if (response.success) {
+                router.push("/")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
 
 
     return (
@@ -18,17 +52,18 @@ const Otp = () => {
         <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200 p-5">
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white rounded-3xl  shadow-lg  ">
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
-                        <div className="text-3xl pb-4">
-                            Forget your Password
-                        </div>
+                    <form onSubmit={handleSubmit}>
+                        <div className="flex flex-col items-center justify-center gap-8  w-full  h-full ">
+                            <div className="text-3xl pb-4 w-full ">
+                                Verify Account
+                            </div>
 
-                        <div>
-                            <Label className=" font-semibold" >Verify OTP</Label>
-                            <Input type="number" placeholder="Enter the OTP" className="h-[50px]" />
-                        </div>
+                            <div className="w-full my-5 pb-5">
+                                <Label className=" font-semibold" >Verify OTP</Label>
+                                <Input type="number" value={formValues.otp} name="otp" onChange={handleChange} placeholder="Enter the OTP" className="h-[50px]" />
+                            </div>
 
-                        <div>
+                            {/* <div>
                             <Label className=" font-semibold" >Password</Label>
                             <Input type="password" placeholder="Enter your password" className="h-[50px]" />
                         </div>
@@ -36,13 +71,13 @@ const Otp = () => {
                         <div>
                             <Label className=" font-semibold" >Confirm Password</Label>
                             <Input type="password" placeholder="Enter your confirm password" className="h-[50px]" />
+                        </div> */}
+
+
                         </div>
 
-
-                    </div>
-                    
-                    <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Forget</Button>
-
+                        <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Verify</Button>
+                    </form>
                     <div className="py-10">
                         <div className=" cursor-pointer">
                             <span className="text-green-500"> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
