@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "./axios";
 
 const headerData =
 {
@@ -9,7 +9,7 @@ const headerData =
 
 
 export const signup = async (data) => {
-    const response = await axios.post(`http://localhost:3000/signup`, data, headerData);
+    const response = await axios.post(`/signup`, data, headerData);
     if (!response.statusText === "OK") {
         throw new Error("Something is wrong.");
     }
