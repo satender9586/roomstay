@@ -10,26 +10,19 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import CityJson from "../../utils/cities"
 import CustomTextArea from '../Tools/CustomTextArea'
+import CustomSelect from '../Tools/CustomSelect'
 
 
 const CreateHotelModal = () => {
     const [form, setForm] = useState({ name: "", location: "", image: "", description: "" })
 
     const handleFormChange = (e) => {
-        setForm({ ...form, [e.target.name]: e.target.value })
+        const { name, value } = e.target
+        setForm({ ...form, [name]: value })
     }
 
     const handleDropDown = ({ name, value }) => {
@@ -61,7 +54,7 @@ const CreateHotelModal = () => {
                             Location
                         </Label>
                         <div className='col-span-3'>
-                            <CitySelect cityArr={CityJson} name="location" value={form?.location} handleChange={handleDropDown} />
+                            <CustomSelect listArr={CityJson} name="location" value={form?.location} handleChange={handleDropDown} placeholder="Select one city" selectLabel="Choose any city"/>
                         </div>
                     </div>
 
@@ -91,23 +84,3 @@ const CreateHotelModal = () => {
 
 export default CreateHotelModal;
 
-const CitySelect = ({ cityArr = [], name, value, handleChange }) => {
-
-    return (
-        <Select value={value} onValueChange={(value) => handleChange({ name, value })} name={name}>
-            <SelectTrigger className="min-w-[180px]">
-                <SelectValue placeholder="Select city" />
-            </SelectTrigger>
-            <SelectContent >
-                <SelectGroup >
-                    <SelectLabel>Create New Hotel</SelectLabel>
-                    {
-                        cityArr?.map((obj) => {
-                            return <SelectItem key={obj?.id} value={obj?.name}>{obj?.name}</SelectItem>
-                        })
-                    }
-                </SelectGroup>
-            </SelectContent>
-        </Select>
-    )
-}
