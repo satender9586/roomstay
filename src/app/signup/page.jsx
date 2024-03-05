@@ -1,18 +1,19 @@
 "use client"
 import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
-// import  Label from "@/components/ui/label"x
 import { useRouter } from "next/navigation";
 import { signup } from "../../../api/authentication";
 import { useState } from "react";
-
+import { useDispatch } from 'react-redux';
+import { createAccount } from "../../../redux/reducers/userSlice";
 const Signup = () => {
     const router = useRouter();
-    const [formValues, setFormValues] = useState({ name: '', email: '', password: '', confirmPassword: '' });
+    const dispatch = useDispatch()
+
+    const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '' });
 
 
     const handleChange = (e) => {
@@ -23,11 +24,18 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        const apiData = {
+            "email": formValues.email,
+            "password": formValues.password,
+            "confirmPassword": formValues.confirmPassword,
+            "firstName": formValues.fName,
+            "lastName": formValues.lName
+        }
         try {
-            const response = await signup(formValues)
+            const response = await signup(apiData)
 
-            if (response.status) {
+            if (response.success) {
+                dispatch(createAccount(apiData))
                 router.push("/otp")
             }
         } catch (error) {
@@ -69,6 +77,27 @@ const Signup = () => {
                                 Create your account
                             </div>
 
+                            <div className="flex gap-2 justify-evenly">
+                                <div>
+                                    <Label className=" font-semibold" >First name</Label>
+                                    <Input type="text" placeholder="Enter your full name" className="h-[50px]"
+                                        name='fName'
+                                        value={formValues.fName}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+
+                                <div>
+                                    <Label className=" font-semibold" >Last name</Label>
+                                    <Input type="text" placeholder="Enter your full name" className="h-[50px]"
+                                        name='lName'
+                                        value={formValues.lName}
+                                        onChange={handleChange}
+                                    />
+                                </div>
+                            </div>
+
+
                             <div>
                                 <Label className=" font-semibold" >Email</Label>
                                 <Input type="email" placeholder="Enter your email address" className="h-[50px]"
@@ -79,38 +108,20 @@ const Signup = () => {
                             </div>
 
                             <div>
-                                <Label className=" font-semibold" >Full name</Label>
-                                <Input type="text" placeholder="Enter your full name" className="h-[50px]"
-                                 name='name'
-                                 value={formValues.name}
-                                 onChange={handleChange}
-                                />
-                            </div>
-
-                            <div>
-                                <Label className=" font-semibold" >Full name</Label>
-                                <Input type="text" placeholder="Enter your full name" className="h-[50px]"
-                                 name='name'
-                                 value={formValues.name}
-                                 onChange={handleChange}
-                                />
-                            </div>
-
-                            <div>
                                 <Label className=" font-semibold" >Password</Label>
-                                <Input type="password" placeholder="Enter password here" className="h-[50px]" 
-                                 name='password'
-                                 value={formValues.password}
-                                 onChange={handleChange}
+                                <Input type="password" placeholder="Enter password here" className="h-[50px]"
+                                    name='password'
+                                    value={formValues.password}
+                                    onChange={handleChange}
                                 />
                             </div>
 
                             <div>
                                 <Label className=" font-semibold" >Confirm Password</Label>
-                                <Input type="password" placeholder="Enter confirm password here" className="h-[50px]" 
-                                 name='confirmPassword'
-                                 value={formValues.confirmPassword}
-                                 onChange={handleChange}
+                                <Input type="password" placeholder="Enter confirm password here" className="h-[50px]"
+                                    name='confirmPassword'
+                                    value={formValues.confirmPassword}
+                                    onChange={handleChange}
                                 />
 
                             </div>
@@ -120,8 +131,8 @@ const Signup = () => {
                                 <Label className=" font-semibold" >Get updates and notification about our product.</Label>
 
                             </div>
-                        </div>
                         <Button className="w-[450px] h-[60px] rounded-xl  bg-neutral-700 hover:bg-neutral-900" onClick={handleSubmit}>Sign up</Button>
+                        </div>
                     </form>
                     <div className=" py-4">
                         <div className=" cursor-pointer">
