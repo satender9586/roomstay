@@ -1,6 +1,6 @@
 import SideBar from '../Sidebar/Sidebar'
 
-const Dashboard = ({ children }) => {
+const DashboardContainer = ({ children }) => {
     return (
         <div className="w-full h-[100dvh] | flex | rounded-[32px] shadow ">
             <SideBar />
@@ -13,5 +13,5 @@ const Dashboard = ({ children }) => {
     )
 }
 
-export default Dashboard
+export default DashboardContainer
 

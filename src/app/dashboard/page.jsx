@@ -1,8 +1,8 @@
 "use client"
 import { Button } from '@/components/ui/button'
-import Dashboard from '../../../components/Dashboard/Dashboard'
+import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import visaImg from "../../../assests/Images/visa.png"
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import {
     Dialog,
@@ -22,6 +22,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import CreateHotelModal from '../../../components/Dashboard/CreateHotelModal'
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import CustomTextArea from '../../../components/Tools/CustomTextArea'
@@ -41,24 +42,19 @@ import {
 
 const DashboardPage = () => {
     return (
-        <>
-            <Dashboard>
-                <div>
+        <DashboardContainer>
+            <div>
+                <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
 
-                   
-
-                    <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
-
-                    <div className='my-8 flex gap-4'>
-                        <CreateHotelModal/>
-                        <CreateFloorModal/>
-                        <CreateRoomModal/>
-                    </div>
-                    <TableDemo />
-
+                <div className='my-8 flex gap-4'>
+                    <CreateHotelModal />
+                    <CreateFloorModal />
+                    <CreateRoomModal />
                 </div>
-            </Dashboard>
-        </>
+                <TableDemo />
+
+            </div>
+        </DashboardContainer>
     )
 }
 
@@ -273,59 +269,6 @@ const CreateFloorModal = () => {
 }
 
 
-const CreateHotelModal = () => {
-    return (
-        <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline">Create Hotel</Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                    <DialogTitle className="text-lg">Create Hotel</DialogTitle>
-                    <DialogDescription>
-                        Host your hotel with Roomstay
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Name
-                        </Label>
-                        <Input id="name" value="" placeholder="Enter name" className="col-span-3" />
-                    </div>
-
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Location
-                        </Label>
-                        <div className='col-span-3'>
-                            <CitySelect cityArr={CityJson} />
-                        </div>
-                    </div>
-
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Image
-                        </Label>
-                        <Input placeholder="Enter image url" id="username" value="" className="col-span-3" />
-                    </div>
-
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <div className='h-full'>
-                            <Label htmlFor="username" className="text-right">
-                                Description
-                            </Label>
-                        </div>
-                        <CustomTextArea placeholder='Enter Description' />
-                    </div>
-                </div>
-                <DialogFooter>
-                    <Button type="submit" className="">Create</Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
-    )
-}
 
 
 const RoomSelect = ({ roomArr = [] }) => {
@@ -388,22 +331,3 @@ const FloorSelect = ({ floorArr = [] }) => {
     )
 }
 
-const CitySelect = ({ cityArr = [] }) => {
-    return (
-        <Select>
-            <SelectTrigger className="min-w-[180px]">
-                <SelectValue placeholder="Select city" />
-            </SelectTrigger>
-            <SelectContent >
-                <SelectGroup>
-                    <SelectLabel>Create New Hotel</SelectLabel>
-                    {
-                        cityArr?.map((obj) => {
-                            return <SelectItem key={obj?.id} value={obj?.name}>{obj?.name}</SelectItem>
-                        })
-                    }
-                </SelectGroup>
-            </SelectContent>
-        </Select>
-    )
-}

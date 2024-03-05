@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Input from '../../../components/Tools/Input'
 import TextArea from '../../../components/Tools/TextArea'
-import Dashboard from '../../../components/Dashboard/Dashboard'
+import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import { Button } from '@/components/ui/button'
 
 const Profile = () => {
@@ -13,7 +13,7 @@ const Profile = () => {
     }
 
     return (
-        <Dashboard>
+        <DashboardContainer>
             <div>
 
                 <div className="text-indigo-950 text-[32px] font-bold">Account Settings</div>
@@ -52,7 +52,7 @@ const Profile = () => {
 
 
             </div>
-        </Dashboard>
+        </DashboardContainer>
     )
 }
 
