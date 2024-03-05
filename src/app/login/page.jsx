@@ -1,44 +1,72 @@
 "use client"
 import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
-// import  Label from "@/components/ui/label"
 import { useRouter } from "next/navigation";
+import { login } from "../../../api/authentication";
 import Image from "next/image";
+import { useState } from "react";
 
 
 const Login = () => {
 
     const router = useRouter();
+    const [formValues, setFormValues] = useState({ email: '', password: "" });
 
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const newObject = { ...formValues, [name]: value };
+        setFormValues({ ...newObject });
+    }
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+
+        const dummyData = {
+            "email": formValues.email,
+            "password": formValues.password
+        }
+
+        try {
+            const response = await login(dummyData);
+            if (response.success) {
+                router.push("/dashboard")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
     return (
 
         <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200  p-5">
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white  rounded-3xl shadow-lg  ">
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
-                        <div className="text-3xl pb-4">
-                            Login your account
+                    <form onSubmit={handleSubmit}>
+                        <div className="flex flex-col justify-center gap-8  w-full h-full ">
+                            <div className="text-3xl pb-4">
+                                Login your account
+                            </div>
+
+                            <div>
+                                <Label className=" font-semibold" >Email</Label>
+                                <Input type="email" name={"email"} value={formValues.email} placeholder="Enter your email address" onChange={handleChange} className="h-[50px]" />
+                            </div>
+
+                            <div >
+                                <Label className=" font-semibold" >Password</Label>
+                                <Input type="password" name={"password"} value={formValues.password} placeholder="Enter password here" onChange={handleChange} className="h-[50px]" />
+                            </div>
                         </div>
-
-                        <div>
-                            <Label className=" font-semibold" >Email</Label>
-                            <Input type="email" placeholder="Enter your email address" className="h-[50px]" />
+                        <div className="mt-10">
+                            <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Login</Button>
                         </div>
-
-                        <div>
-                            <Label className=" font-semibold" >Password</Label>
-                            <Input type="password" placeholder="Enter password here" className="h-[50px]" />
-                        </div>
-
-
-
-
-                    </div>
-                    <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Login</Button>
+                    </form>
                     <div className="flex items-start pt-4">
                         <div className=" cursor-pointer">
                             Forget Account ? <span className="text-green-500" onClick={() => { router.push("/forget") }}> Forget</span>
