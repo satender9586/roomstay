@@ -7,8 +7,6 @@ const basePublicUrl = "http://localhost:3000"
 const instance = axios.create({
     baseURL: basePublicUrl
 });
-const token=getToken()
-console.log(token)
 
 // Add request interceptor
 instance.interceptors.request.use(
