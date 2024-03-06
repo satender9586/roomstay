@@ -16,7 +16,7 @@ const Header = () => {
                     <span className="text-xl cursor-pointer">RoomStay</span>
                 </div>
                 <div className=" sm:flex space-x-4">
-                    <Button variant="ghost" onClick={() => router.push('/dashboard')}>Dashboard</Button>
+                    <Button variant="ghost" onClick={() => { router.push('/dashboard'); setToken() }}>Dashboard</Button>
                     <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
                     <Button className="sm:flex hidden" onClick={() => router.push('/signup')}>Signup</Button>
                 </div>
