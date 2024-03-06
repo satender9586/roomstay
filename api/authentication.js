@@ -31,3 +31,12 @@ export const login = async (data) => {
     }
     return response.data
 }
+
+
+export const resendOtp = async (data) => {
+    const response = await axios.post(`/resendOtp`, data, headerData);
+    if (!response.statusText === "OK") {
+        throw new Error("Something is wrong.");
+    }
+    return response.data
+}

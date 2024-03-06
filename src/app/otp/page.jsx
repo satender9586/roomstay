@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
-import { otpVerify } from "../../../api/authentication";
+import { otpVerify, resendOtp } from "../../../api/authentication";
 
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
@@ -28,7 +28,7 @@ const Otp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        if(!(formValues.otp)){
+        if (!(formValues.otp)) {
             alert("Please fill otp field")
             return
         }
@@ -41,7 +41,26 @@ const Otp = () => {
         try {
             const response = await otpVerify(dummyData);
             if (response.success) {
-                router.push("/")
+                router.push("/dashboard")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const resendOtpHandler = async (e) => {
+        e.preventDefault();
+
+        const dummyData = {
+            "email": emailRex
+        }
+
+        try {
+            const response = await resendOtp(dummyData);
+            if (response.success) {
+                alert("OTP resent successfully")
+                return
             }
         } catch (error) {
             console.log(error)
@@ -84,7 +103,7 @@ const Otp = () => {
                     </form>
                     <div className="py-10">
                         <div className=" cursor-pointer">
-                            <span className="text-green-500"> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
+                            <span className="text-green-500" onClick={resendOtpHandler}> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
                         </div>
                     </div>
 
