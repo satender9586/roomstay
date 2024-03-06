@@ -25,6 +25,12 @@ const Signup = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        if(!(formValues.fName && formValues.lName && formValues.email && formValues.password && formValues.confirmPassword)){
+            alert("Please fill all the fields")
+            return
+        }
+
         const apiData = {
             "email": formValues.email,
             "password": formValues.password,

@@ -28,6 +28,10 @@ const Otp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(!(formValues.otp)){
+            alert("Please fill otp field")
+            return
+        }
 
         const dummyData = {
             "otp": formValues.otp,

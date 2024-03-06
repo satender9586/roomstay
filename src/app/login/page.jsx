@@ -26,6 +26,10 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if(!(formValues.email && formValues.password)){
+            alert("Please fill all the fields")
+            return
+        }
 
         const dummyData = {
             "email": formValues.email,
