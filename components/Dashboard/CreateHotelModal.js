@@ -16,9 +16,9 @@ import CityJson from "../../utils/cities"
 import CustomTextArea from '../Tools/CustomTextArea'
 import CustomSelect from '../Tools/CustomSelect'
 import { createHotelApi } from '../../api/hotel'
-import { setToken } from '../../utils/auth'
 
 const CreateHotelModal = () => {
+    const [open,setOpen]=useState(false)
     const [form, setForm] = useState({ name: "", location: "", image: "", description: "" })
 
     const handleFormChange = (e) => {
@@ -36,7 +36,6 @@ const CreateHotelModal = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setToken()
         try {
             const apiData = {
                 "name": form?.name,
@@ -47,7 +46,7 @@ const CreateHotelModal = () => {
             }
             const response = await createHotelApi(apiData)
             if (response?.success) {
-                console.log(response)
+                setOpen(false)
             }
         } catch (error) {
             console.log(error)
@@ -57,7 +56,7 @@ const CreateHotelModal = () => {
     }
 
     return (
-        <Dialog>
+        <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
                 <Button variant="outline">Create Hotel</Button>
             </DialogTrigger>

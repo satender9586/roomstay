@@ -8,6 +8,10 @@ export const amenitiesArr = [
         labelText: "Ac"
     },
     {
+        title: "tv",
+        labelText: "Tv"
+    },
+    {
         title: "cctv",
         labelText: "CCTV"
     },

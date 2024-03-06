@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/table"
 import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
 import { getAdminHotelsApi } from '../../../api/hotel'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 
 const DashboardPage = () => {
@@ -58,9 +58,8 @@ const DashboardPage = () => {
                 <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
 
                 <div className='my-8 flex gap-4'>
-                    <CreateHotelModal />
-                    {/* <CreateFloorModal /> */}
-                    <CreateRoomModal />
+                    <CreateHotelModal />                    
+                    <CreateRoomModal/>
                 </div>
                 <TableDemo />
 
