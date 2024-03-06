@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { login } from "../../../api/authentication";
 import Image from "next/image";
 import { useState } from "react";
+import { setToken } from "../../../utils/auth";
 
 
 const Login = () => {
@@ -34,6 +35,7 @@ const Login = () => {
         try {
             const response = await login(dummyData);
             if (response.success) {
+                setToken(response.token);
                 router.push("/dashboard")
             }
         } catch (error) {
