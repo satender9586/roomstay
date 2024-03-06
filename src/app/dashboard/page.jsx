@@ -1,27 +1,5 @@
 "use client"
-import { Button } from '@/components/ui/button'
-import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import CreateHotelModal from '../../../components/Dashboard/CreateHotelModal'
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import {
     Table,
     TableBody,
@@ -35,115 +13,121 @@ import {
 import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
 import { getAdminHotelsApi } from '../../../api/hotel'
 import { useEffect, useState } from 'react'
-
+import { useSearchParams } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+import { getAdminRoomByHotelApi } from '../../../api/room'
 
 const DashboardPage = () => {
 
-    const fetchAllHotel = async () => {
-        try {
-            const response = await getAdminHotelsApi();
-            console.log(response, "datatt")
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
-    useEffect(() => {
-        fetchAllHotel()
-    }, [])
 
     return (
-        <DashboardContainer>
-            <div>
-                <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
+        <div>
+            <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
 
-                <div className='my-8 flex gap-4'>
-                    <CreateHotelModal />                    
-                    <CreateRoomModal/>
-                </div>
-                <TableDemo />
-
+            <div className='my-8 flex gap-4'>
+                <CreateHotelModal />
+                <CreateRoomModal />
             </div>
-        </DashboardContainer>
+            <TableDemo />
+
+        </div>
     )
 }
 
 export default DashboardPage
 
 
-const invoices = [
-    {
-        invoice: "INV001",
-        paymentStatus: "Paid",
-        totalAmount: "$250.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV002",
-        paymentStatus: "Pending",
-        totalAmount: "$150.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV003",
-        paymentStatus: "Unpaid",
-        totalAmount: "$350.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV004",
-        paymentStatus: "Paid",
-        totalAmount: "$450.00",
-        paymentMethod: "Credit Card",
-    },
-    {
-        invoice: "INV005",
-        paymentStatus: "Paid",
-        totalAmount: "$550.00",
-        paymentMethod: "PayPal",
-    },
-    {
-        invoice: "INV006",
-        paymentStatus: "Pending",
-        totalAmount: "$200.00",
-        paymentMethod: "Bank Transfer",
-    },
-    {
-        invoice: "INV007",
-        paymentStatus: "Unpaid",
-        totalAmount: "$300.00",
-        paymentMethod: "Credit Card",
-    },
-]
-
 export function TableDemo() {
+    const searchParams = useSearchParams()
+    const hotelId = searchParams.get("hotelId") || false
+    const router = useRouter()
+    const [hotelArr, setHotelArr] = useState([])
+    const [roomArr, setRoomArr] = useState([])
+
+    const fetchAllHotel = async () => {
+        try {
+            const response = await getAdminHotelsApi();
+            if (response.success) {
+                setHotelArr(response.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const fetchMyRooms = async (hotelId) => {
+        try {
+            const response = await getAdminRoomByHotelApi(hotelId);
+            if (response.success) {
+                setRoomArr(response.data)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const handleRoomRoute = (hotelId) => {
+        router.push(`/dashboard?hotelId=${hotelId}`)
+    }
+
+    useEffect(() => {
+        if (hotelId) {
+            fetchMyRooms(hotelId)
+        } else {
+            fetchAllHotel()
+        }
+    }, [hotelId])
+
     return (
         <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
+            <TableCaption>{hotelId?"A list of your rooms":"A list of your hotels"}</TableCaption>
             <TableHeader>
                 <TableRow>
-                    <TableHead className="w-[200px]">Hotel</TableHead>
-                    <TableHead>Location</TableHead>
+
+                    <TableHead className="w-[200px]">{hotelId ? "Room No" : "Hotel"}</TableHead>
+                    <TableHead>{hotelId ? "Type" : "Location"}</TableHead>
                     <TableHead >Description</TableHead>
                     <TableHead className="text-right">Earning</TableHead>
+
                 </TableRow>
             </TableHeader>
             <TableBody>
-                {invoices.map((invoice) => (
-                    <TableRow key={invoice.invoice}>
-                        <TableCell className="font-medium">{invoice.invoice}</TableCell>
-                        <TableCell>{invoice.paymentStatus}</TableCell>
-                        <TableCell>{invoice.paymentMethod}</TableCell>
-                        <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-                    </TableRow>
-                ))}
+                {hotelId ?
+                    (
+                        roomArr.map((obj) => (
+                            <TableRow key={obj?._id} handleClick={() => { handleRoomRoute(obj?._id) }} className="cursor-pointer">
+                                <TableCell className="font-medium" >{obj?.roomNumber}</TableCell>
+                                <TableCell>{obj?.roomType}</TableCell>
+                                <TableCell>
+                                    {obj?.description.length > 100 ? `${obj?.description?.slice(0, 100)}...` : obj?.description}
+                                </TableCell>
+                                <TableCell className="text-right">₹ {obj?.price}</TableCell>
+                            </TableRow>
+                        ))
+                    ) : (
+                        hotelArr.map((obj) => (
+                            <TableRow key={obj?._id} handleClick={() => { handleRoomRoute(obj?._id) }} className="cursor-pointer">
+                                <TableCell className="font-medium" >{obj?.name}</TableCell>
+                                <TableCell>{obj?.location}</TableCell>
+                                <TableCell>
+                                    {obj?.description.length > 100 ? `${obj?.description?.slice(0, 100)}...` : obj?.description}
+                                </TableCell>
+                                <TableCell className="text-right">{0}</TableCell>
+                            </TableRow>
+                        ))
+                    )
+                }
+
             </TableBody>
-            <TableFooter>
+
+
+            {/* <TableFooter>
                 <TableRow>
                     <TableCell colSpan={3}>Total</TableCell>
                     <TableCell className="text-right">$2,500.00</TableCell>
                 </TableRow>
-            </TableFooter>
+            </TableFooter> */}
         </Table>
     )
 }
@@ -151,64 +135,5 @@ export function TableDemo() {
 
 
 
-const CreateFloorModal = () => {
-    return (
-        <Dialog>
-            <DialogTrigger asChild>
-                <Button variant="outline">Create Floor</Button>
-            </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
-                <DialogHeader>
-                    <DialogTitle className="text-lg">Create Floor</DialogTitle>
-                    <DialogDescription>
-                        You can create 3 floor for free
-                    </DialogDescription>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="name" className="text-right">
-                            Hotel
-                        </Label>
-                        <Input id="name" value="" placeholder="Enter name" className="col-span-3" />
-                    </div>
-
-                    <div className="grid grid-cols-4 items-center gap-4">
-                        <Label htmlFor="username" className="text-right">
-                            Floor No
-                        </Label>
-                        <div className='col-span-3'>
-                            <FloorSelect floorArr={[1, 2, 3, 4]} />
-                        </div>
-                    </div>
-                </div>
-                <DialogFooter>
-                    <Button type="submit" className="">Create</Button>
-                </DialogFooter>
-            </DialogContent>
-        </Dialog>
-    )
-}
-
-
-
-const FloorSelect = ({ floorArr = [] }) => {
-    return (
-        <Select>
-            <SelectTrigger className="min-w-[180px]">
-                <SelectValue placeholder="Select floor" />
-            </SelectTrigger>
-            <SelectContent >
-                <SelectGroup>
-                    <SelectLabel>Select new floor</SelectLabel>
-                    {
-                        floorArr?.map((obj) => {
-                            return <SelectItem key={obj} value={obj}>{obj}</SelectItem>
-                        })
-                    }
-                </SelectGroup>
-            </SelectContent>
-        </Select>
-    )
-}
 
 

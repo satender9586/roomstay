@@ -15,8 +15,8 @@ export const createRoomApi = async (data) => {
     return response.data
 }
 
-export const getAdminHotelsApi = async () => {
-    const response = await axios.get(`/getHotels`, headerData);
+export const getAdminRoomByHotelApi = async (hotelId) => {
+    const response = await axios.get(`/getMyHotelRooms/${hotelId}`, headerData);
     if (!response.statusText === "OK") {
         throw new Error("Something is wrong.");
     }
