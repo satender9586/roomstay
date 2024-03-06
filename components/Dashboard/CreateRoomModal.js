@@ -1,58 +1,18 @@
 "use client"
 import { Button } from '@/components/ui/button'
 import React, { useState } from 'react'
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle,DialogTrigger } from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import CustomTextArea from '../Tools/CustomTextArea'
 import CustomCheckbox from '../Tools/CustomCheckbox'
 import CustomSelect from '../Tools/CustomSelect'
-
-const listArr = [
-    {
-        title: "wifi",
-        labelText: "Wifi"
-    },
-    {
-        title: "ac",
-        labelText: "Ac"
-    },
-    {
-        title: "cctv",
-        labelText: "CCTV"
-    },
-    {
-        title: "parking",
-        labelText: "Parking"
-    },
-    {
-        title: "geyser",
-        labelText: "Geyser"
-    }
-]
-
-const roomTypeArr = [
-    { id: "Individual", name: "Individual" },
-    { id: "Couple", name: "Couple" },
-    { id: "Family", name: "Family" }
-]
-
-const roomNoArr = [
-    { id: "101", name: "101" },
-    { id: "102", name: "102" },
-    { id: "103", name: "103" }
-]
+import { amenitiesArr, roomNoArr, roomTypeArr } from '../../utils/constants'
 
 const CreateRoomModal = () => {
+
     const [form, setForm] = useState({ hotel: "", roomNo: "", roomType: "", price: "", description: "" })
+    
     const [checkBoxForm, setCheckBoxForm] = useState({ wifi: false, tv: false, cctv: false, parking: false, geyser: false })
 
     const handleFormChange = (e) => {
@@ -60,12 +20,12 @@ const CreateRoomModal = () => {
         setForm((prev) => ({ ...prev, [name]: value }))
     }
 
-    const handleCheckBox = ({ name, value }) => {
-        setCheckBoxForm((prev) => ({ ...prev, [name]: value }))
-    }
-
     const handleDropDown = ({ name, value }) => {
         setForm({ ...form, [name]: value })
+    }
+    
+    const handleCheckBox = ({ name, value }) => {
+        setCheckBoxForm((prev) => ({ ...prev, [name]: value }))
     }
 
     return (
@@ -125,7 +85,7 @@ const CreateRoomModal = () => {
                             </Label>
                         </div>
                         <div className='col-span-3 flex flex-wrap gap-3 gap-y-4'>
-                            <CustomCheckBoxList checkBoxForm={checkBoxForm} handleCheckBox={handleCheckBox} listArr={listArr} />
+                            <CustomCheckBoxList checkBoxForm={checkBoxForm} handleCheckBox={handleCheckBox} listArr={amenitiesArr} />
                         </div>
                     </div>
 
