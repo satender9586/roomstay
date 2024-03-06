@@ -30,6 +30,10 @@ const CreateHotelModal = () => {
         setForm({ ...form, [name]: value })
     }
 
+    const clearForm = () => {
+        setForm({ name: "", location: "", image: "", description: "" })
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
         setToken()
@@ -47,6 +51,8 @@ const CreateHotelModal = () => {
             }
         } catch (error) {
             console.log(error)
+        } finally {
+            clearForm()
         }
     }
 

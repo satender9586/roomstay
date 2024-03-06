@@ -33,9 +33,25 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
+import { getAdminHotelsApi } from '../../../api/hotel'
+import { useEffect } from 'react'
 
 
 const DashboardPage = () => {
+
+    const fetchAllHotel = async () => {
+        try {
+            const response = await getAdminHotelsApi();
+            console.log(response, "datatt")
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchAllHotel()
+    }, [])
+
     return (
         <DashboardContainer>
             <div>
