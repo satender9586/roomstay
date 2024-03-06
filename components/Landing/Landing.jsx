@@ -15,7 +15,7 @@ import RoomInfo from './RoomInfo'
 const Landing = () => {
     return (
         <>
-           <RoomInfo/>
+            <RoomInfo/>
             <Main />
             <Pricing />
             <Cards/>

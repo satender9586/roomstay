@@ -17,11 +17,11 @@ const RoomInfo = () => {
                     className="rounded-[0px] h-[400px]"
                     src='https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' />
             </div>
-            {/* sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */}
+           
             <div className="grid grid-cols-3 gap-6 my-5">
                 <div className='col-span-2'>
                     <div>
-                        <h1 className='font-bold font-popplins text-sm md:text-[2rem]'>Flagship White Diamond</h1>
+                        <h1 className='font-bold  text-sm md:text-[2rem]'>Flagship White Diamond</h1>
                         <h1 className='mt-[15px] font-normal text-[#4C7F97] font-popplins text-sm md:text-[1.1rem]'>Flagship White Diamond Saare Jaha Se Acha Hindustan Hamara Hum BullBulle hai uske</h1>
                     </div>
                     <div className='mt-[24px]'>
@@ -87,12 +87,8 @@ const RoomInfo = () => {
                 </div>
                 <div className='col-span-1'>
                     <div className='bg-[#F5F5F5] px-5  py-8 rounded-md' style={{ border: "1px solid #E9E9E9" }}>
-                        <h1 className='font-normal md:font-[400] text-[#222222] font-popplins text-sm md:text-[1.3rem]'>Select Various Tier</h1>
-                        <div className='mt-[1.5rem] w-[100%] flex justify-between'>
-                            <button className='px-5 py-1 text-[14px] ' style={{ border: "1px solid #CBCDD4", borderRadius: "12px" }}>Basic</button>
-                            <button className='px-5 py-1 text-[14px] ' style={{ border: "1px solid #CBCDD4", borderRadius: "12px" }}>Basic</button>
-                            <button className='px-5 py-1 text-[14px]' style={{ border: "1px solid #CBCDD4", borderRadius: "12px" }}>Basic</button>
-                        </div>
+                        <h1 className='font-normal md:font-[400] text-[#222222] font-popplins text-sm md:text-[1.3rem]'>Individual Plan</h1>
+                      
                         <div className='mt-[1.5rem]' style={{ borderTop: "1px solid #CBCDD4" }}>         
                         </div>
                         <div className='mt-[2.5rem]'>
@@ -114,7 +110,7 @@ const RoomInfo = () => {
                             </div>
                         </div>
                         <div className='mt-[2.5rem] flex item-center justify-center'>
-                            <button className='p-[1.2rem] px-[2rem]  bg-[green] text-[20px]' style={{ border: "1px solid #CBCDD4", borderRadius: "25px" }}>Continue($500)</button>
+                            <button className='p-[1.1rem] px-[2rem]  bg-green-500 rounded-full text-lg text-white ' >Continue($500)</button>
                         </div>
                     </div>
 
