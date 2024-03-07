@@ -40,3 +40,19 @@ export const resendOtp = async (data) => {
     }
     return response.data
 }
+
+export const forget = async (data) => {
+    const response = await axios.post(`/forget`, data, headerData);
+    if (!response.statusText === "OK") {
+        throw new Error("Something is wrong.");
+    }
+    return response.data
+}
+
+export const changePassword = async (data) => {
+    const response = await axios.post(`/changePassword`, data, headerData);
+    if (!response.statusText === "OK") {
+        throw new Error("Something is wrong.");
+    }
+    return response.data
+}
