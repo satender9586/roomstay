@@ -11,7 +11,7 @@ import { amenitiesArr, roomNoArr, roomTypeArr } from '../../utils/constants'
 import { createRoomApi } from '../../api/room'
 import { useSearchParams } from 'next/navigation'
 
-const CreateRoomModal = ({handleSuccess=false}) => {
+const CreateRoomModal = ({ handleSuccess = false }) => {
     const searchParams = useSearchParams()
     const hotelId = searchParams.get("hotelId") || false
     const [isMounted, setIsMounted] = useState(false)
@@ -36,7 +36,7 @@ const CreateRoomModal = ({handleSuccess=false}) => {
 
 
     const clearForm = () => {
-        setForm({ hotel: "", roomNo: "", roomType: "", price: "", description: "" })
+        setForm({ hotel: form?.hotel, roomNo: "", roomType: "", price: "", description: "" })
         setCheckBoxForm({ wifi: false, tv: false, cctv: false, parking: false, geyser: false })
     }
 
@@ -56,8 +56,7 @@ const CreateRoomModal = ({handleSuccess=false}) => {
             if (response?.success) {
                 console.log(response)
                 setOpen(false)
-                if(handleSuccess)
-                {
+                if (handleSuccess) {
                     handleSuccess()
                 }
             }
@@ -72,12 +71,11 @@ const CreateRoomModal = ({handleSuccess=false}) => {
         setIsMounted(true)
     }, [])
 
-    useEffect(()=>{
-        if(hotelId)
-        {
-            setForm({...form,hotel:hotelId})
+    useEffect(() => {
+        if (hotelId) {
+            setForm({ ...form, hotel: hotelId })
         }
-    },[hotelId])
+    }, [hotelId])
 
     if (!isMounted) {
         return null
@@ -102,7 +100,7 @@ const CreateRoomModal = ({handleSuccess=false}) => {
                             <Label htmlFor="name" className="text-right">
                                 Hotel
                             </Label>
-                            <Input id="name" name={"hotel"} value={form?.hotel} onChange={handleFormChange} placeholder="Enter name" className="col-span-3" />
+                            <Input id="name" name={"hotel"} disabled value={form?.hotel} onChange={handleFormChange} placeholder="Enter name" className="col-span-3" />
                         </div>
 
 

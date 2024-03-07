@@ -23,7 +23,7 @@ const SideBar = () => {
 
     return (
 
-        <div className='w-72 h-[100dvh] | px-6  bg-[#ed4b35]'>
+        <div className='w-72 h-[100dvh] | px-6  bg-[#e8442e]'>
 
             <div className='flex py-8'>
 

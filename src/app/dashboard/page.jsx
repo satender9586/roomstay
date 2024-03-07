@@ -34,8 +34,9 @@ const DashboardPage = () => {
         }
     }
 
-    const fetchAllRooms = async (hotelId) => {
+    const fetchAllRooms = async () => {
         try {
+            console.warn(hotelId,"hotel ki idd")
             const response = await getAdminRoomByHotelApi(hotelId);
             if (response.success) {
                 setRoomArr(response.data)
@@ -58,10 +59,11 @@ const DashboardPage = () => {
             <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
 
             <div className='my-8 flex gap-4 justify-end'>
-                <CreateHotelModal handleSuccess={fetchAllHotel} />
                 {
-                    hotelId && (
+                    hotelId ? (
                         <CreateRoomModal handleSuccess={fetchAllRooms} />
+                    ) : (
+                        <CreateHotelModal handleSuccess={fetchAllHotel} />
                     )
                 }
             </div>
