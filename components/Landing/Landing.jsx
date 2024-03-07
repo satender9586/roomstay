@@ -18,12 +18,12 @@ const Landing = () => {
         <>
            {/* <RoomInfo/> */}
             <Header/>
-            <Main />
-            <Pricing />
-            <Cards/>
+            {/* <Main /> */}
             <Offer />
+            <Pricing />
             <Content />
             <Growth/>
+            <Cards/>
             <FourBoxes />
             <Footer />
         </>

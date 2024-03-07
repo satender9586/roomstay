@@ -5,12 +5,13 @@ import { FaHeart } from "react-icons/fa";
 const Cards = () => {
   const arryLength = Array.from({ length: 4 });
   return (
-    <div className="container mt-16 mb-14">
-      <div className="p-4">
+    <div className="  bg-[#8926e5] py-20">
+      <div className="container ">
         {/* image conatiner */}
-        <div className=" grid  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
+        <div className="text-6xl font-medium text-white">Featured Rooms</div>
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
           {arryLength.map((data,index) => (
-            <div key={index} className="bg-white rounded-sm">
+            <div key={index} className="bg-white p-2">
               <div className="relative">
                 <img
                   width={"100%"}

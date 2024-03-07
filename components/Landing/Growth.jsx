@@ -9,7 +9,7 @@ import analyst from "../../assests/Icons/analyst.png"
 import Image from 'next/image'
 const Growth = () => {
     return (
-        <div className='w-[100%] h-[100dvh] my-16' >
+        <div className='my-16' >
             <div className='flex flex-1 flex-col h-[100%]'>
                 <div className=' flex-[0.15]  '>
                     <div className='w-full h-full flex flex-col items-center text-center justify-center '>

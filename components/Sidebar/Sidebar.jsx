@@ -4,6 +4,7 @@ import userImg from "../../assests/Images/user.png"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
+import { removeCredentials } from '../../utils/auth'
 
 const SideBar = () => {
     const router = useRouter()
@@ -14,6 +15,12 @@ const SideBar = () => {
             router.push(route)
         }
     }
+
+    const handleLogOut=()=>{
+        removeCredentials()
+        router.push("/")
+    }
+
     return (
 
         <div className='w-72 h-[100dvh] | px-6  bg-[#ed4b35]'>
@@ -59,7 +66,7 @@ const SideBar = () => {
                     <div className=" font-normal">Settings</div>
                 </div>
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={handleLogOut}>
                     <HoverLine />
                     <ExitIcon className="size-4"/>
                     <div className=" font-normal">Log out</div>

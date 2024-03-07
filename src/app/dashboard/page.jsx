@@ -18,30 +18,8 @@ import { useRouter } from 'next/navigation'
 import { getAdminRoomByHotelApi } from '../../../api/room'
 
 const DashboardPage = () => {
-
-
-
-    return (
-        <div>
-            <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
-
-            <div className='my-8 flex gap-4'>
-                <CreateHotelModal />
-                <CreateRoomModal />
-            </div>
-            <TableDemo />
-
-        </div>
-    )
-}
-
-export default DashboardPage
-
-
-export function TableDemo() {
     const searchParams = useSearchParams()
     const hotelId = searchParams.get("hotelId") || false
-    const router = useRouter()
     const [hotelArr, setHotelArr] = useState([])
     const [roomArr, setRoomArr] = useState([])
 
@@ -56,7 +34,7 @@ export function TableDemo() {
         }
     }
 
-    const fetchMyRooms = async (hotelId) => {
+    const fetchAllRooms = async (hotelId) => {
         try {
             const response = await getAdminRoomByHotelApi(hotelId);
             if (response.success) {
@@ -67,21 +45,48 @@ export function TableDemo() {
         }
     }
 
-    const handleRoomRoute = (hotelId) => {
-        router.push(`/dashboard?hotelId=${hotelId}`)
-    }
-
     useEffect(() => {
         if (hotelId) {
-            fetchMyRooms(hotelId)
+            fetchAllRooms(hotelId)
         } else {
             fetchAllHotel()
         }
     }, [hotelId])
 
     return (
+        <div>
+            <div className="text-indigo-950 text-[32px] font-bold">Dashboard</div>
+
+            <div className='my-8 flex gap-4 justify-end'>
+                <CreateHotelModal handleSuccess={fetchAllHotel} />
+                {
+                    hotelId && (
+                        <CreateRoomModal handleSuccess={fetchAllRooms} />
+                    )
+                }
+            </div>
+            <TableDemo hotelId={hotelId} hotelArr={hotelArr} roomArr={roomArr} />
+
+        </div>
+    )
+}
+
+export default DashboardPage
+
+
+export function TableDemo({ hotelArr, roomArr, hotelId }) {
+    const router = useRouter()
+
+
+    const handleRoomRoute = (hotelId) => {
+        router.push(`/dashboard?hotelId=${hotelId}`)
+    }
+
+
+
+    return (
         <Table>
-            <TableCaption>{hotelId?"A list of your rooms":"A list of your hotels"}</TableCaption>
+            <TableCaption>{hotelId ? "A list of your rooms" : "A list of your hotels"}</TableCaption>
             <TableHeader>
                 <TableRow>
 
