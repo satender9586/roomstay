@@ -8,6 +8,7 @@ import Content from './Content'
 import Cards from './Cards'
 import Growth from './Growth'
 import RoomInfo from './RoomInfo'
+import RoomListing from './RoomListing'
 
 
 
@@ -15,6 +16,7 @@ import RoomInfo from './RoomInfo'
 const Landing = () => {
     return (
         <>
+            <RoomListing/>
             <RoomInfo/>
             <Main />
             <Pricing />
