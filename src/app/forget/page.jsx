@@ -5,12 +5,49 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 // import  Label from "@/components/ui/label"
 import { useRouter } from "next/navigation";
-
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
+import { useState } from "react";
+import { forget } from "../../../api/authentication";
+import { setEmail } from "../../../redux/reducers/userSlice";
+import { useDispatch } from "react-redux";
 const Forget = () => {
 
     const router = useRouter();
+    const dispatch = useDispatch();
+    const [formValues, setFormValues] = useState({ email: '' });
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        const newObject = { ...formValues, [name]: value };
+        setFormValues({ ...newObject });
+    }
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        if (!(formValues.email)) {
+            alert("Please fill all the fields")
+            return
+        }
+
+        const dummyData = {
+            "email": formValues.email,
+        }
+
+        try {
+            const response = await forget(dummyData);
+            if (response.success) {
+                dispatch(setEmail(formValues.email))
+                router.push(`/otp?type=forget`);
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
 
     return (
@@ -41,19 +78,23 @@ const Forget = () => {
                     </div>
                 </div>
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
-                        <div className="text-3xl pb-4">
-                            Forget your account
+                    
+                    <form onSubmit={handleSubmit}>
+
+                        <div className="flex flex-col justify-center gap-8 my-8 w-full h-full ">
+                            <div className="text-3xl pb-4">
+                                Forget your account
+                            </div>
+
+                            <div>
+                                <Label className=" font-semibold" >Email</Label>
+                                <Input type="email" value={formValues.email} name="email" onChange={handleChange} placeholder="Enter your email address" className="h-[50px]" />
+                            </div>
+
+
                         </div>
-
-                        <div>
-                            <Label className=" font-semibold" >Email</Label>
-                            <Input type="email" placeholder="Enter your email address" className="h-[50px]" />
-                        </div>
-
-
-                    </div>
-                    <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900" onClick={() => { router.push("/otp") }}>Forget</Button>
+                        <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900" >Forget</Button>
+                    </form>
 
                     <div className="py-10">
                         <div className=" cursor-pointer">

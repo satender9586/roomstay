@@ -3,19 +3,21 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { changePassword, forget, otpVerify, resendOtp } from "../../../api/authentication";
 import { useSelector } from "react-redux";
-import { otpVerfiy } from "../../../api/authentication";
-
 import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
 import Image from "next/image";
 const Otp = () => {
-    // const userObj = useSelector((state) => state.user.userObj)
-    const emailRex = useSelector((state) => state.user.userObj.email);
+
+    const emailRex = useSelector((state) => state?.user?.userObj?.email);
+    const emailForgetRex = useSelector((state) => state?.user?.email);
     const router = useRouter();
+    const searchParams = useSearchParams()
+    const type = searchParams?.get('type') || false
 
 
-    const [formValues, setFormValues] = useState({ otp: '' });
+    const [formValues, setFormValues] = useState({ otp: '', password: "", confirmPassword: "" });
 
 
     const handleChange = (e) => {
@@ -28,16 +30,84 @@ const Otp = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (type === "forget") {
+            if (!(formValues.password && formValues.confirmPassword && formValues.otp)) {
+                alert("Please fill all the fields")
+                return
+            }
+            if (formValues.password !== formValues.confirmPassword) {
+                alert("Passwords do not match")
+                return
+            }
+
+            const dummyData = {
+                "otp": formValues.otp,
+                "email": emailForgetRex,
+                "password": formValues.password,
+                "confirmPassword": formValues.confirmPassword
+            }
+
+            try {
+                const response = await changePassword(dummyData);
+                if (response.success) {
+                    router.push("/login")
+                    alert("Password changed successfully")
+                    return
+                }
+            } catch (error) {
+                console.log(error)
+            }
+
+        }
+
+        if (!(formValues.otp)) {
+            alert("Please fill otp field")
+            return
+        }
 
         const dummyData = {
-            "otp": formValues.number,
+            "otp": formValues.otp,
             "email": emailRex
         }
 
         try {
-            const response = await otpVerfiy(dummyData);
+            const response = await otpVerify(dummyData);
             if (response.success) {
-                router.push("/")
+                router.push("/dashboard")
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const resendOtpHandler = async (e) => {
+        e.preventDefault();
+
+        if (type === "forget") {
+            const dummyData = {
+                "email": emailForgetRex,
+            }
+
+            try {
+                const response = await forget(dummyData);
+                if (response.success) {
+                    alert("OTP resent successfully")
+                    return
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        const dummyData = {
+            "email": emailRex
+        }
+
+        try {
+            const response = await resendOtp(dummyData);
+            if (response.success) {
+                alert("OTP resent successfully")
+                return
             }
         } catch (error) {
             console.log(error)
@@ -53,34 +123,37 @@ const Otp = () => {
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white rounded-3xl  shadow-lg  ">
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
                     <form onSubmit={handleSubmit}>
-                        <div className="flex flex-col items-center justify-center gap-8  w-full  h-full ">
+                        <div className="flex flex-col items-center justify-center gap-5  w-full  h-full ">
                             <div className="text-3xl pb-4 w-full ">
                                 Verify Account
                             </div>
 
-                            <div className="w-full my-5 pb-5">
+                            <div className="w-full">
                                 <Label className=" font-semibold" >Verify OTP</Label>
                                 <Input type="number" value={formValues.otp} name="otp" onChange={handleChange} placeholder="Enter the OTP" className="h-[50px]" />
                             </div>
+                            {
+                                type === "forget" &&
+                                <div className="w-full">
+                                    <div className="w-full mb-5">
+                                        <Label className=" font-semibold" >Password</Label>
+                                        <Input type="password" placeholder="Enter your password" name={"password"} value={formValues.password} className="h-[50px]" onChange={handleChange} />
+                                    </div>
 
-                            {/* <div>
-                            <Label className=" font-semibold" >Password</Label>
-                            <Input type="password" placeholder="Enter your password" className="h-[50px]" />
+                                    <div className="w-full">
+                                        <Label className=" font-semibold" >Confirm Password</Label>
+                                        <Input type="password" value={formValues.confirmPassword} name={"confirmPassword"} placeholder="Enter your confirm password" className="h-[50px]" onChange={handleChange} />
+                                    </div>
+                                </div>
+                            }
+
                         </div>
 
-                        <div>
-                            <Label className=" font-semibold" >Confirm Password</Label>
-                            <Input type="password" placeholder="Enter your confirm password" className="h-[50px]" />
-                        </div> */}
-
-
-                        </div>
-
-                        <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Verify</Button>
+                        <Button className="w-[450px] h-[60px] mt-10 rounded-xl bg-neutral-700 hover:bg-neutral-900">Verify</Button>
                     </form>
                     <div className="py-10">
                         <div className=" cursor-pointer">
-                            <span className="text-green-500"> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
+                            <span className="text-green-500" onClick={resendOtpHandler}> Resend OTP /</span> <span className="text-green-500" onClick={() => { router.push("/login") }}> Back to Login</span>
                         </div>
                     </div>
 
