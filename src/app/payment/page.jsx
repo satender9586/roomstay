@@ -1,10 +1,6 @@
 "use client"
-import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import  Label from "@/components/ui/label"
-import { useRouter } from "next/navigation";
 import {
     Select,
     SelectContent,
@@ -15,15 +11,9 @@ import {
     SelectValue,
 } from "@/components/ui/select"
 
-import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
-import Image from "next/image";
 const Payment = () => {
 
-    const router = useRouter();
-
-
     return (
-
         <div className="w-[100dvw] h-[100vh] flex flex-row justify-center items-center  p-5">
             <div className="flex justify-between border-[1px] items-center border-gray-200 shadow-md  rounded-xl p-10 w-[980px]">
                 <div >
