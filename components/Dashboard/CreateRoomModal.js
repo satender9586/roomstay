@@ -9,12 +9,15 @@ import CustomCheckbox from '../Tools/CustomCheckbox'
 import CustomSelect from '../Tools/CustomSelect'
 import { amenitiesArr, roomNoArr, roomTypeArr } from '../../utils/constants'
 import { createRoomApi } from '../../api/room'
+import { useSearchParams } from 'next/navigation'
 
-const CreateRoomModal = () => {
+const CreateRoomModal = ({ handleSuccess = false }) => {
+    const searchParams = useSearchParams()
+    const hotelId = searchParams.get("hotelId") || false
     const [isMounted, setIsMounted] = useState(false)
     const [open, setOpen] = useState(false);
 
-    const [form, setForm] = useState({ hotel: "65d87ac8575320f932b1d267", roomNo: "", roomType: "", price: "", description: "" })
+    const [form, setForm] = useState({ hotel: hotelId, roomNo: "", roomType: "", price: "", description: "" })
 
     const [checkBoxForm, setCheckBoxForm] = useState({ wifi: false, tv: false, cctv: false, parking: false, geyser: false })
 
@@ -33,7 +36,7 @@ const CreateRoomModal = () => {
 
 
     const clearForm = () => {
-        setForm({ hotel: "", roomNo: "", roomType: "", price: "", description: "" })
+        setForm({ hotel: form?.hotel, roomNo: "", roomType: "", price: "", description: "" })
         setCheckBoxForm({ wifi: false, tv: false, cctv: false, parking: false, geyser: false })
     }
 
@@ -53,6 +56,9 @@ const CreateRoomModal = () => {
             if (response?.success) {
                 console.log(response)
                 setOpen(false)
+                if (handleSuccess) {
+                    handleSuccess()
+                }
             }
         } catch (error) {
             console.log(error)
@@ -64,6 +70,12 @@ const CreateRoomModal = () => {
     useEffect(() => {
         setIsMounted(true)
     }, [])
+
+    useEffect(() => {
+        if (hotelId) {
+            setForm({ ...form, hotel: hotelId })
+        }
+    }, [hotelId])
 
     if (!isMounted) {
         return null
@@ -88,7 +100,7 @@ const CreateRoomModal = () => {
                             <Label htmlFor="name" className="text-right">
                                 Hotel
                             </Label>
-                            <Input id="name" name={"hotel"} value={form?.hotel} onChange={handleFormChange} placeholder="Enter name" className="col-span-3" />
+                            <Input id="name" name={"hotel"} disabled value={form?.hotel} onChange={handleFormChange} placeholder="Enter name" className="col-span-3" />
                         </div>
 
 

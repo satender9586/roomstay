@@ -6,8 +6,9 @@ import { Label } from "@/components/ui/label";
 import { useRouter, useSearchParams } from "next/navigation";
 import { changePassword, forget, otpVerify, resendOtp } from "../../../api/authentication";
 import { useSelector } from "react-redux";
-import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
-import Image from "next/image";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
+
+
 const Otp = () => {
 
     const emailRex = useSelector((state) => state?.user?.userObj?.email);
@@ -161,19 +162,19 @@ const Otp = () => {
                 <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
                             <div className="text-xl text-white">Quick and free log-in</div>
                             <div className="text-sm text-white">Enter your email address to login an account.</div>
                         </div>
                         <div className="flex flex-col  w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
 
                             <div className="text-xl text-white">Cross-platform soluation</div>
                             <div className="text-sm text-white">Preview your newsletters on any device before sending them out</div>
                         </div>
 
                         <div className="flex flex-col w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
 
                             <div className="text-xl text-white">Start sending emails</div>
                             <div className="text-sm text-white">Use our API or pick our pre-built templates.</div>

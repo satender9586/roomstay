@@ -17,7 +17,7 @@ import CustomTextArea from '../Tools/CustomTextArea'
 import CustomSelect from '../Tools/CustomSelect'
 import { createHotelApi } from '../../api/hotel'
 
-const CreateHotelModal = () => {
+const CreateHotelModal = ({handleSuccess=false}) => {
     const [open,setOpen]=useState(false)
     const [form, setForm] = useState({ name: "", location: "", image: "", description: "" })
 
@@ -47,6 +47,9 @@ const CreateHotelModal = () => {
             const response = await createHotelApi(apiData)
             if (response?.success) {
                 setOpen(false)
+                if(handleSuccess){
+                    handleSuccess()
+                }
             }
         } catch (error) {
             console.log(error)

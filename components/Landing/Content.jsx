@@ -21,9 +21,8 @@ import { PaperPlaneIcon } from "@radix-ui/react-icons"
 
 const Content = () => {
     return (
-
-        <div className="w-full flex flex-col justify-center items-center my-20">
-            <div className="w-full h-full lg:w-[1110px] md:w-[800px] sm:w-[700px]">
+        <div className="bg-[#26e599] py-16 w-full flex flex-col justify-center items-center ">
+            <div className="w-full h-full container">
                 <div className="flex flex-col gap-2 mb-20">
                     <div className="flex items-center gap-2">
                         <div>
@@ -31,9 +30,9 @@ const Content = () => {
                         </div>
                         <div className="text-violet-700 font-bold text-sm">PEPPER CONTENT PLATFORM</div>
                     </div>
-                    <div className=" text-4xl">The Content Marketing Platform for Bussiness Teams</div>
+                    <div className=" text-5xl text-white font-medium">The Content Marketing Platform for Bussiness Teams</div>
                 </div>
-                <Tabs defaultValue="strategise" className="w-full h-[600px]  md:w-[800px] lg:w-[1110px] sm:w-[600px]  ">
+                <Tabs defaultValue="strategise" className="">
                     <TabsList className="grid w-full grid-cols-5">
                         <TabsTrigger value="strategise">
                             <Image src={horseIcon} className="w-6 h-6 mr-2" />

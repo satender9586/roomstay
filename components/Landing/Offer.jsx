@@ -4,16 +4,16 @@ import telegramImg from "../../assests/Icons/telegram.webp"
 
 const Offer = () => {
     return (
-        <section className='bg-[#050033]'>
+        <section className=' bg-[#265fe5]'>
             <div className='container | font-heading | flex | relative | py-16 md:py-18 xl:py-24 '>
 
 
-                <div className=' text-white | text-4xl lg:text-6xl xl:text-8xl font-normal |  w-[50%]'>
+                <div className=' text-white | text-4xl lg:text-6xl xl:text-8xl font-normal |  w-[45%]'>
                     <span className='text-cyan-300 leading-10'>
-                        Ready to power
+                        Ready to host{" "}
                     </span>
-                    <span className='ml-2 leading-10'>
-                        your content marketing lifecycle?
+                    <span className='leading-10'>
+                        your rooms with RoomStay
                     </span>
                 </div>
 

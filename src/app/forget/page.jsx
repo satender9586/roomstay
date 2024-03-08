@@ -1,16 +1,15 @@
 "use client"
 import { Button } from "@/components/ui/button"
-// import Image from "next/image"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-// import  Label from "@/components/ui/label"
 import { useRouter } from "next/navigation";
-import checkCircleIcon from "../../../assests/Icons/checkcircleicon.png"
-import Image from "next/image";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
 import { forget } from "../../../api/authentication";
 import { setEmail } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
+
+
 const Forget = () => {
 
     const router = useRouter();
@@ -58,19 +57,19 @@ const Forget = () => {
                 <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
                             <div className="text-xl text-white">Quick and free log-in</div>
                             <div className="text-sm text-white">Enter your email address to login an account.</div>
                         </div>
                         <div className="flex flex-col  w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
 
                             <div className="text-xl text-white">Cross-platform soluation</div>
                             <div className="text-sm text-white">Preview your newsletters on any device before sending them out</div>
                         </div>
 
                         <div className="flex flex-col w-[240px] gap-2">
-                            <Image src={checkCircleIcon} alt="email" width={32} height={32} className="bg-white rounded-full p-[1px] " />
+                            <CheckCircledIcon color="white" width={32} height={32} />
 
                             <div className="text-xl text-white">Start sending emails</div>
                             <div className="text-sm text-white">Use our API or pick our pre-built templates.</div>
@@ -78,7 +77,7 @@ const Forget = () => {
                     </div>
                 </div>
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    
+
                     <form onSubmit={handleSubmit}>
 
                         <div className="flex flex-col justify-center gap-8 my-8 w-full h-full ">
