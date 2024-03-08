@@ -5,13 +5,13 @@ import { FaHeart } from "react-icons/fa";
 const Cards = () => {
   const arryLength = Array.from({ length: 4 });
   return (
-    <div className="  bg-[#8926e5] py-20">
+    <div className="  bg-purple-500 py-24">
       <div className="container ">
         {/* image conatiner */}
         <div className="text-6xl font-medium text-white">Featured Rooms</div>
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
           {arryLength.map((data,index) => (
-            <div key={index} className="bg-white p-2">
+            <div key={index} className="bg-white p-2 rounded-lg">
               <div className="relative">
                 <img
                   width={"100%"}
@@ -23,21 +23,21 @@ const Cards = () => {
                   <FaHeart className="size-6" />
                 </div>
               </div>
-              <div className="flex justify-between">
-                <h1 className="font-bold text-[#304553] font-popplins">
+              <div className="flex justify-between mt-2">
+                <h1 className="font-bold text-lg text-[#304553]">
                   Palkot, Thailand
                 </h1>
-                <div className="flex justify-between items-center gap-1">
+                {/* <div className="flex justify-between items-center gap-1">
                   <FaStar /> <span>5.0</span>
-                </div>
+                </div> */}
               </div>
-              <h1 className="font-normal text-[#71719F] font-popplins">
+              <h1 className="font-normal text-sm text-[#71719F]">
                 3019 kilometeraway
               </h1>
-              <h1 className="font-normal text-[#71719F] font-popplins">
+              <h1 className="font-normal text-sm text-[#71719F]">
                 20-25 Feb
               </h1>
-              <h1 className="font-bold text-[#304553] font-popplins">
+              <h1 className="font-bold text-sm text-[#268029] mb-2">
                 1,49,650 per night
               </h1>
             </div>

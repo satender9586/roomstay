@@ -7,9 +7,9 @@ import priceThreeImg from "../../assests/Images/price3.png"
 
 const Pricing = () => {
   return (
-    <div className=" py-16">
-      <div className="p-4 pb-[3rem] container">
-        <div className="md:p-4 flex flex-col items-start sm:items-center w-full">
+    <div className="py-16 bg-gray-50">
+      <div className=" container">
+        <div className="flex flex-col items-start sm:items-center w-full">
           <h1 className="font-heading font-bold text-4xl sm:text-3xl md:text-4xl lg:text-4xl">
             Get the most out of your
             <span className="sm:hidden">mobile with the right subscription</span>
@@ -18,28 +18,22 @@ const Pricing = () => {
             with the right subscription
           </h1>
           <div className="sm:p-4 flex flex-col items-start sm:items-center w-full">
-            <div className="font-heading font-semibold text-black text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
+            <div className="font-heading font-semibold text-black text-base sm:text-2xl md:text-2xl opacity-35 text-center lg:w-[70%]">
               All devices come with free delivery on pickup as standard. See
-              information on{" "}
-              <span className="sm:hidden">
-                available shopping options for your location
-              </span>
-            </div>
-            <div className="hidden sm:block font-heading font-semibold  text-base sm:text-2xl md:text-2xl lg:text-base opacity-35">
-              available shopping options for your location
+              information on available shopping options for your location
             </div>
           </div>
         </div>
 
         {/*Three Cards */}
         <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 xl:gap-18 py-4 lg:px-[12%]">
-          <div className="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
+          <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
             <PriceCard image={priceOneImg} heading={"Ice Mobile 10Gb"} text={'Up to 100mbit/s'} price={'299'} cardColor={"bg-[#FFFBEC]"}/>
           </div>
-          <div className="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
+          <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
             <PriceCard image={priceTwoImg} heading={"Telia Mobil 15GB"} text={'Up to 200mbit/s'} price={'350'} cardColor={"bg-[#F9ECFF]"}/>
           </div>
-          <div className="w-full sm:w-[48%] md:w-[48%] lg:w-[30%] xl:w-[30%] mb-6">
+          <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
             <PriceCard image={priceThreeImg} heading={"Ice Mobile 10Gb"} text={'Up to 400mbit/s'} price={'400'} cardColor={"bg-[#ECEEFF]"}/>
           </div>
         </div>

@@ -8,7 +8,7 @@ import { ChevronRightIcon } from '@radix-ui/react-icons'
 
 const FourBoxes = () => {
     return (
-        <div className='container py-20'>
+        <div className='container py-20 bg-gray-50'>
             <h2 className='font-heading font-medium text-3xl md:text-6xl | mb-12 lg:mb-14'>Get the Pepper Advantage</h2>
 
             <div className='flex justify-between '>
