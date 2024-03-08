@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <footer className='bg-[#e23a7d] py-12'>
+        <footer className='bg-[#ff881f] py-12'>
 
             <div className='container | grid grid-cols-5 | py-4  sm:py-6 md:py-8 lg:py-10 xl:py-12'>
 
