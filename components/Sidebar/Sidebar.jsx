@@ -23,7 +23,7 @@ const SideBar = () => {
 
     return (
 
-        <div className='w-72 h-[100dvh] | px-6  bg-[#e8442e]'>
+        <div className='w-72 h-[100dvh] | px-6  bg-[#e8502e]'>
 
             <div className='flex py-8'>
 
@@ -51,7 +51,7 @@ const SideBar = () => {
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/profile")}>
                     <HoverLine />
                     <PersonIcon className="size-4"/>
-                    <div className=" font-normal">Profile</div>
+                    <div className=" font-normal">Account</div>
                 </div>
                 
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
