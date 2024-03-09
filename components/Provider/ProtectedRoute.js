@@ -1,9 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import Loader from "../Tools/Loader";
-import { tokenVerificationAsync } from "../../redux/reducers/userSlice";
-// import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { tokenVerification } from "../../api/userApi";
 import { getToken } from "../../utils/auth";
 import { useRouter } from "next/navigation";
@@ -21,7 +17,7 @@ const UNPROTECTEDROUTEOBJ = Object.freeze({
   LANDING: "/",
   LOGIN: "/login",
   SIGN_UP: "/signup",
-  FORGET:'/forget'
+  FORGET: '/forget'
 
 });
 
@@ -38,6 +34,11 @@ const ProtectedRoute = ({ children }) => {
       try {
         const response = await tokenVerification();
         console.log(response, "response");
+        // If response is success then check if user is admin or user. 
+        // If user is admin then find in admin route check function. 
+        // If user is user then find in user route check function. 
+        // If user is not admin or user then check for unprotected routes
+
         if (response?.success) {
           if (response?.user?.isAdmin) {
             adminProtectedRoutesFun();
@@ -49,6 +50,8 @@ const ProtectedRoute = ({ children }) => {
         }
       } catch (error) {
         console.log(error, "error");
+        // check in unprotected routes
+        unprotecedRoutesFun();
       }
 
       setIsLoading(false);
@@ -76,10 +79,10 @@ const ProtectedRoute = ({ children }) => {
     let myRoutes = [USERROUTEOBJ.LANDING];
 
     let currentPath = location.pathname;
-    
+
     let pathNotFound = myRoutes.indexOf(currentPath) === -1;
-    
-    console.log(currentPath,pathNotFound,myRoutes, "currentPath");
+
+    console.log(currentPath, pathNotFound, myRoutes, "currentPath");
     // When path not found in my routes make it redirect to index page
     if (isBrowser() && pathNotFound) {
       router.replace(UNPROTECTEDROUTEOBJ.LANDING);
@@ -111,7 +114,7 @@ const ProtectedRoute = ({ children }) => {
   }, []);
 
   if (isLoading) {
-    return null;
+    return null; // Ignore this loading or you can implement loading functionality
   } else {
     return children;
   }
