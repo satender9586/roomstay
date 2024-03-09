@@ -14,12 +14,14 @@ export const ADMINROUTEOBJ = Object.freeze({
 
 export const USERROUTEOBJ = Object.freeze({
   BILL: "/bill",
+  LANDING: "/"
 });
 
 const UNPROTECTEDROUTEOBJ = Object.freeze({
   LANDING: "/",
   LOGIN: "/login",
   SIGN_UP: "/signup",
+  FORGET:'/forget'
 });
 
 //check if you are on the client (browser) or server
@@ -70,7 +72,7 @@ const ProtectedRoute = ({ children }) => {
 
   const userProtectedRoutesFun = () => {
     // User logged In
-    let myRoutes = [UNPROTECTEDROUTEOBJ.LANDING, USERROUTEOBJ.BILL];
+    let myRoutes = [USERROUTEOBJ.LANDING, USERROUTEOBJ.BILL];
 
     let currentPath = location.pathname;
     
@@ -98,7 +100,7 @@ const ProtectedRoute = ({ children }) => {
 
     // When path not found in my routes make it redirect to index page
     if (isBrowser() && pathNotFound) {
-      // navigate(NORMALROUTES.LANDING);
+      router.replace(UNPROTECTEDROUTEOBJ.LANDING);
     }
   };
 
