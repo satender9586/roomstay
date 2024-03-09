@@ -10,10 +10,10 @@ import { useRouter } from "next/navigation";
 
 export const ADMINROUTEOBJ = Object.freeze({
   DASHBOARD: "/dashboard",
+  BILL: "/bill",
 });
 
 export const USERROUTEOBJ = Object.freeze({
-  BILL: "/bill",
   LANDING: "/"
 });
 
@@ -22,7 +22,7 @@ const UNPROTECTEDROUTEOBJ = Object.freeze({
   LOGIN: "/login",
   SIGN_UP: "/signup",
   FORGET:'/forget'
-  
+
 });
 
 //check if you are on the client (browser) or server
@@ -60,20 +60,20 @@ const ProtectedRoute = ({ children }) => {
 
   const adminProtectedRoutesFun = () => {
     // Admin logged In
-    let myRoutes = [ADMINROUTEOBJ.DASHBOARD];
+    let myRoutes = [ADMINROUTEOBJ.DASHBOARD, ADMINROUTEOBJ.BILL];
 
     let currentPath = location.pathname;
     let pathNotFound = myRoutes.indexOf(currentPath) === -1;
 
     //If path not found then redirect admin to dashboard
     if (isBrowser() && pathNotFound) {
-      // navigate(ADMINPROTECTEDROUTES.DASHBOARD);
+      router.replace(ADMINPROTECTEDROUTES.DASHBOARD);
     }
   };
 
   const userProtectedRoutesFun = () => {
     // User logged In
-    let myRoutes = [USERROUTEOBJ.LANDING, USERROUTEOBJ.BILL];
+    let myRoutes = [USERROUTEOBJ.LANDING];
 
     let currentPath = location.pathname;
     
