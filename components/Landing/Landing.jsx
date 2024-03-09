@@ -9,6 +9,7 @@ import Cards from './Cards'
 import Growth from './Growth'
 import RoomInfo from './RoomInfo'
 import RoomListing from './RoomListing'
+import Header from './Header'
 
 
 
@@ -19,11 +20,14 @@ const Landing = () => {
             <RoomListing/>
             <RoomInfo/>
             <Main />
-            <Pricing />
-            <Cards/>
+           {/* <RoomInfo/> */}
+            <Header/>
+            {/* <Main /> */}
             <Offer />
+            <Pricing />
             <Content />
             <Growth/>
+            <Cards/>
             <FourBoxes />
             <Footer />
         </>

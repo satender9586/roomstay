@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import Input from '../../../components/Tools/Input'
 import TextArea from '../../../components/Tools/TextArea'
-import Dashboard from '../../../components/Dashboard/Dashboard'
+import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import { Button } from '@/components/ui/button'
 
 const Profile = () => {
@@ -13,17 +13,17 @@ const Profile = () => {
     }
 
     return (
-        <Dashboard>
+        <DashboardContainer>
             <div>
 
                 <div className="text-indigo-950 text-[32px] font-bold">Account Settings</div>
 
-                <div class="bg-white mt-4">
-                    <nav class="flex flex-col sm:flex-row">
-                        <button class={`text-gray-600 py-4 px-12 block hover:text-blue-500 focus:outline-none ${activeTab === 0 && "text-blue-500  border-blue-500"} border-b-2 font-medium0`} onClick={() => handleTabs(0)}>
+                <div className="bg-white mt-4">
+                    <nav className="flex flex-col sm:flex-row">
+                        <button className={`text-gray-600 py-4 px-12 block hover:text-blue-500 focus:outline-none ${activeTab === 0 && "text-blue-500  border-blue-500"} border-b-2 font-medium0`} onClick={() => handleTabs(0)}>
                             Profile
                         </button>
-                        <button class={`text-gray-600 py-4 px-12 block hover:text-blue-500 focus:outline-none ${activeTab === 1 && "text-blue-500  border-blue-500"} border-b-2 font-medium0`} onClick={() => handleTabs(1)}>
+                        <button className={`text-gray-600 py-4 px-12 block hover:text-blue-500 focus:outline-none ${activeTab === 1 && "text-blue-500  border-blue-500"} border-b-2 font-medium0`} onClick={() => handleTabs(1)}>
                             Privacy
                         </button>
 
@@ -52,7 +52,7 @@ const Profile = () => {
 
 
             </div>
-        </Dashboard>
+        </DashboardContainer>
     )
 }
 
@@ -76,7 +76,7 @@ const ProfileSettings = () => {
 
             <TextArea label='Bio' placeholder="Something about yourself" />
 
-            <div className="text-black text-lg font-bold mt-5 ">Personal Website</div>
+            <div className="text-black text-lg font-bold mt-2 ">Personal Website</div>
 
 
             <div className='mt-2'>

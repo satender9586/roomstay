@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
-import Dashboard from '../../../components/Dashboard/Dashboard'
+import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import CustomCheckbox from '../../../components/Tools/CustomCheckbox'
 
 const Settings = () => {
     return (
-        <Dashboard>
+        <DashboardContainer>
             <div>
                 <div className="text-indigo-950 text-[32px] font-bold">Settings</div>
 
@@ -37,7 +37,7 @@ const Settings = () => {
                 </div>
 
             </div>
-        </Dashboard>
+        </DashboardContainer>
     )
 }
 

@@ -1,11 +1,8 @@
+import Image from "next/image";
 import Landing from "../../components/Landing/Landing";
 
-const Home=()=>{
-  return(
-    <>
-      <Landing/>
-    </>
-  )
+export default function Home() {
+  return (
+    <Landing/>
+  );
 }
-
-export default Home;
