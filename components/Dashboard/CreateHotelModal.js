@@ -15,7 +15,7 @@ import { Label } from "@/components/ui/label"
 import CityJson from "../../utils/cities"
 import CustomTextArea from '../Tools/CustomTextArea'
 import CustomSelect from '../Tools/CustomSelect'
-import { createHotelApi } from '../../api/hotel'
+import { createHotelApi } from '../../api/hotelApi'
 
 const CreateHotelModal = ({handleSuccess=false}) => {
     const [open,setOpen]=useState(false)

@@ -7,7 +7,7 @@ import { setToken } from "../../utils/auth";
 
 const Header = () => {
     const router = useRouter();
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTk4ZjA1NGY3MTcxNWU0NDcwMWFjNiIsImlhdCI6MTcwOTgzMTE0MiwiZXhwIjoxNzA5OTE3NTQyfQ.zzA8CDqbKXztMUWkSaONkTbguaJzxU7wVVD_ZA2hr-I"
+    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZTk4ZjA1NGY3MTcxNWU0NDcwMWFjNiIsImlhdCI6MTcwOTk2OTQ4OCwiZXhwIjoxNzEwMDU1ODg4fQ.z6MAz2rrMub2OpyN2uq5H7ccgzMbLyjlUukKmuHthoc"
 
     return (
 

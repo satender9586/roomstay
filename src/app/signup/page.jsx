@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { signup } from "../../../api/authentication";
+import { signup } from "../../../api/userApi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { createAccount } from "../../../redux/reducers/userSlice";

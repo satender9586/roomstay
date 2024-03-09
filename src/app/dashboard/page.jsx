@@ -11,11 +11,11 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
-import { getAdminHotelsApi } from '../../../api/hotel'
+import { getAdminHotelsApi } from '../../../api/hotelApi'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { getAdminRoomByHotelApi } from '../../../api/room'
+import { getAdminRoomByHotelApi } from '../../../api/roomApi'
 
 const DashboardPage = () => {
     const searchParams = useSearchParams()

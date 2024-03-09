@@ -1,5 +1,5 @@
 
-const Input = ({ label = "", placeholder = "Default" }) => {
+const Input = ({ label = "", ...props }) => {
     return (
         <div className='w-full space-y-2'>
             {
@@ -10,7 +10,7 @@ const Input = ({ label = "", placeholder = "Default" }) => {
                 )
             }
 
-            <input type="text" placeholder={placeholder} className='border border-neutral-300 rounded-lg py-4 px-4 w-full focus:border-blue-400 focus:outline-none capitalize text-sm' />
+            <input type="text" className='border border-neutral-300 rounded-lg py-4 px-4 w-full focus:border-blue-400 focus:outline-none capitalize text-sm' {...props} />
         </div>
     )
 }
