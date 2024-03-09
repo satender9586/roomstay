@@ -13,7 +13,11 @@ const Signup = () => {
     const router = useRouter();
     const dispatch = useDispatch()
 
-    const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '' });
+    const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '', isAdmin: "" });
+
+    const handleChecked = (e) =>{
+        setFormValues({...formValues, isAdmin: e.target.checked})
+    }
 
 
     const handleChange = (e) => {
@@ -35,7 +39,8 @@ const Signup = () => {
             "password": formValues.password,
             "confirmPassword": formValues.confirmPassword,
             "firstName": formValues.fName,
-            "lastName": formValues.lName
+            "lastName": formValues.lName,
+            "isAdmin": formValues.isAdmin
         }
 
         try {
@@ -134,8 +139,8 @@ const Signup = () => {
                             </div>
 
                             <div className="flex items-center justify-start gap-2">
-                                <input type="checkbox" className="size-6" />
-                                <Label className=" font-semibold" >Get updates and notification about our product.</Label>
+                                <input type="checkbox" className="size-6" checked={formValues.isAdmin} name="isAdmin"  onChange={handleChecked} />
+                                <Label className=" font-semibold" >Join as property owner </Label>
 
                             </div>
                             <Button className="w-[450px] h-[60px] rounded-xl  bg-neutral-700 hover:bg-neutral-900" onClick={handleSubmit}>Sign up</Button>
