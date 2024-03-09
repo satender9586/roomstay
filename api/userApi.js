@@ -56,3 +56,11 @@ export const changePassword = async (data) => {
     }
     return response.data
 }
+
+export const tokenVerification = async () => {
+    const response = await axios.get(`/tokenVerify`, headerData);
+    if (!response.statusText === "OK") {
+        throw new Error("Something is wrong.");
+    }
+    return response.data
+}
