@@ -6,6 +6,7 @@ import DashboardContainer from '../../../components/Dashboard/DashboardContainer
 import { Button } from '@/components/ui/button'
 import { accountDeleteApi } from '../../../api/roomApi'
 import WarningModal from '../../../components/Modals/WarningModal'
+import { useRouter } from 'next/navigation'
 
 const Profile = () => {
     const [activeTab, setActiveTab] = useState(0)
@@ -113,13 +114,17 @@ const ProfileSettings = ({ form, handleChange }) => {
 
 
 const PrivacySettings = ({ form, handleChange }) => {
+    const router=useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const [showDeleteModal,setDeleteModal]=useState(false)
 
     const handleDeleteAccount=async()=>{
         try{
             const response=await accountDeleteApi()
-            console.log(response,"account delete")
+            if(response?.success)
+            {
+                router.push('/')
+            }
         }catch(error)
         {
             console.log(error)
