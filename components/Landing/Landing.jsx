@@ -8,7 +8,6 @@ import Content from './Content'
 import Cards from './Cards'
 import Growth from './Growth'
 import RoomInfo from './RoomInfo'
-import RoomListing from './RoomListing'
 import Header from './Header'
 
 
@@ -17,9 +16,6 @@ import Header from './Header'
 const Landing = () => {
     return (
         <>
-            <RoomListing/>
-            <RoomInfo/>
-            <Main />
            {/* <RoomInfo/> */}
             <Header/>
             {/* <Main /> */}
