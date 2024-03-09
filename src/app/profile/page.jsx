@@ -114,7 +114,8 @@ const ProfileSettings = ({ form, handleChange }) => {
 
 const PrivacySettings = ({ form, handleChange }) => {
     const [showPassword, setShowPassword] = useState(false)
-    
+    const [showDeleteModal,setDeleteModal]=useState(false)
+
     const handleDeleteAccount=async()=>{
         try{
             const response=await accountDeleteApi()
@@ -143,7 +144,9 @@ const PrivacySettings = ({ form, handleChange }) => {
 
                 </div>
             </div>
-            <WarningModal/>
+
+            <WarningModal show={showDeleteModal} buttonName='Delete' title='Permanent Delete Account' description='Are you sure you want to delete your account permanently?' handleSuccess={handleDeleteAccount}/>
+
             {
                 showPassword && (
                     <div className='mt-8 flex flex-col gap-2'>
@@ -203,7 +206,7 @@ const PrivacySettings = ({ form, handleChange }) => {
                         This account contains 1388 posts. Deleting your account will remove all the content associated with it.
                     </div>
                 </div>
-                <Button variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
+                <Button onClick={()=>setDeleteModal(true)} variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
 
             </div>
 
