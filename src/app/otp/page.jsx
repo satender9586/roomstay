@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter, useSearchParams } from "next/navigation";
-import { changePassword, forget, otpVerify, resendOtp } from "../../../api/authentication";
+import { changePassword, forget, otpVerify, resendOtp } from "../../../api/userApi";
 import { useSelector } from "react-redux";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 

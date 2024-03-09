@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
-import { login } from "../../../api/authentication";
+import { login } from "../../../api/userApi";
 import { useState } from "react";
 import { setToken } from "../../../utils/auth";
 

@@ -8,7 +8,7 @@ import CustomTextArea from '../Tools/CustomTextArea'
 import CustomCheckbox from '../Tools/CustomCheckbox'
 import CustomSelect from '../Tools/CustomSelect'
 import { amenitiesArr, roomNoArr, roomTypeArr } from '../../utils/constants'
-import { createRoomApi } from '../../api/room'
+import { createRoomApi } from '../../api/roomApi'
 import { useSearchParams } from 'next/navigation'
 
 const CreateRoomModal = ({ handleSuccess = false }) => {

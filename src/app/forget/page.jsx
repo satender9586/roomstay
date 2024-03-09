@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useState } from "react";
-import { forget } from "../../../api/authentication";
+import { forget } from "../../../api/userApi";
 import { setEmail } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
 
