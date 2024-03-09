@@ -11,18 +11,17 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 
-const WarningModal = ({title="",description="",buttonName="",handleSuccess=false}) => {
+const WarningModal = ({ show = false, title = "", description = "", buttonName = "", handleSuccess = false }) => {
     return (
-        <Dialog>
+        <Dialog open={show}>
             <DialogTrigger asChild>
-                <Button variant="outline">Delete Account</Button>
+                <Button variant="outline">{title}</Button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
                 <DialogHeader>
-                    <DialogTitle className="text-lg">Delete Account</DialogTitle>
+                    <DialogTitle className="text-lg">{title}</DialogTitle>
                     <DialogDescription>
-                        This action cannot be undone. This will permanently delete your account
-                        and remove your data from our servers.
+                        {description}
                     </DialogDescription>
                 </DialogHeader>
 
@@ -30,7 +29,7 @@ const WarningModal = ({title="",description="",buttonName="",handleSuccess=false
                     <DialogClose asChild>
                         <Button variant="secondary" className="">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" className="">Delete</Button>
+                    <Button variant="destructive" type="submit" onClick={() => { handleSuccess && handleSuccess() }}>{buttonName}</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog>
