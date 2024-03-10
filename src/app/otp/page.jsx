@@ -8,7 +8,6 @@ import { changePassword, forget, otpVerify, resendOtp } from "../../../api/userA
 import { useSelector } from "react-redux";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
-
 const Otp = () => {
 
     const emailRex = useSelector((state) => state?.user?.userObj?.email);
