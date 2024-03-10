@@ -4,7 +4,7 @@ import { tokenVerification } from "../../api/userApi";
 import { getToken } from "../../utils/auth";
 import { useRouter } from "next/navigation";
 
-export const ADMINROUTEOBJ = Object.freeze({
+export const ADMINROUTEOBJ = Object.freeze({ 
   DASHBOARD: "/dashboard",
   BILL: "/bill",
 });
