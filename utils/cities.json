@@ -1,0 +1,1248 @@
+[
+    {
+        "id": "1",
+        "name": "Mumbai",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "2",
+        "name": "Delhi",
+        "state": "Delhi"
+    },
+    {
+        "id": "3",
+        "name": "Bengaluru",
+        "state": "Karnataka"
+    },
+    {
+        "id": "4",
+        "name": "Ahmedabad",
+        "state": "Gujarat"
+    },
+    {
+        "id": "5",
+        "name": "Hyderabad",
+        "state": "Telangana"
+    },
+    {
+        "id": "6",
+        "name": "Chennai",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "7",
+        "name": "Kolkata",
+        "state": "West Bengal"
+    },
+    {
+        "id": "8",
+        "name": "Pune",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "9",
+        "name": "Jaipur",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "10",
+        "name": "Surat",
+        "state": "Gujarat"
+    },
+    {
+        "id": "11",
+        "name": "Lucknow",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "12",
+        "name": "Kanpur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "13",
+        "name": "Nagpur",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "14",
+        "name": "Patna",
+        "state": "Bihar"
+    },
+    {
+        "id": "15",
+        "name": "Indore",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "16",
+        "name": "Thane",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "17",
+        "name": "Bhopal",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "18",
+        "name": "Visakhapatnam",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "19",
+        "name": "Vadodara",
+        "state": "Gujarat"
+    },
+    {
+        "id": "20",
+        "name": "Firozabad",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "21",
+        "name": "Ludhiana",
+        "state": "Punjab"
+    },
+    {
+        "id": "22",
+        "name": "Rajkot",
+        "state": "Gujarat"
+    },
+    {
+        "id": "23",
+        "name": "Agra",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "24",
+        "name": "Siliguri",
+        "state": "West Bengal"
+    },
+    {
+        "id": "25",
+        "name": "Nashik",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "26",
+        "name": "Faridabad",
+        "state": "Haryana"
+    },
+    {
+        "id": "27",
+        "name": "Patiala",
+        "state": "Punjab"
+    },
+    {
+        "id": "28",
+        "name": "Meerut",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "29",
+        "name": "Kalyan-Dombivali",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "30",
+        "name": "Vasai-Virar",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "31",
+        "name": "Varanasi",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "32",
+        "name": "Srinagar",
+        "state": "Jammu and Kashmir"
+    },
+    {
+        "id": "33",
+        "name": "Dhanbad",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "34",
+        "name": "Jodhpur",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "35",
+        "name": "Amritsar",
+        "state": "Punjab"
+    },
+    {
+        "id": "36",
+        "name": "Raipur",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "37",
+        "name": "Allahabad",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "38",
+        "name": "Coimbatore",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "39",
+        "name": "Jabalpur",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "40",
+        "name": "Gwalior",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "41",
+        "name": "Vijayawada",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "42",
+        "name": "Madurai",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "43",
+        "name": "Guwahati",
+        "state": "Assam"
+    },
+    {
+        "id": "44",
+        "name": "Chandigarh",
+        "state": "Chandigarh"
+    },
+    {
+        "id": "45",
+        "name": "Hubli-Dharwad",
+        "state": "Karnataka"
+    },
+    {
+        "id": "46",
+        "name": "Amroha",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "47",
+        "name": "Moradabad",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "48",
+        "name": "Gurgaon",
+        "state": "Haryana"
+    },
+    {
+        "id": "49",
+        "name": "Aligarh",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "50",
+        "name": "Solapur",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "51",
+        "name": "Ranchi",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "52",
+        "name": "Jalandhar",
+        "state": "Punjab"
+    },
+    {
+        "id": "53",
+        "name": "Tiruchirappalli",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "54",
+        "name": "Bhubaneswar",
+        "state": "Odisha"
+    },
+    {
+        "id": "55",
+        "name": "Salem",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "56",
+        "name": "Warangal",
+        "state": "Telangana"
+    },
+    {
+        "id": "57",
+        "name": "Mira-Bhayandar",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "58",
+        "name": "Thiruvananthapuram",
+        "state": "Kerala"
+    },
+    {
+        "id": "59",
+        "name": "Bhiwandi",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "60",
+        "name": "Saharanpur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "61",
+        "name": "Guntur",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "62",
+        "name": "Amravati",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "63",
+        "name": "Bikaner",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "64",
+        "name": "Noida",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "65",
+        "name": "Jamshedpur",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "66",
+        "name": "Bhilai Nagar",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "67",
+        "name": "Cuttack",
+        "state": "Odisha"
+    },
+    {
+        "id": "68",
+        "name": "Kochi",
+        "state": "Kerala"
+    },
+    {
+        "id": "69",
+        "name": "Udaipur",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "70",
+        "name": "Bhavnagar",
+        "state": "Gujarat"
+    },
+    {
+        "id": "71",
+        "name": "Dehradun",
+        "state": "Uttarakhand"
+    },
+    {
+        "id": "72",
+        "name": "Asansol",
+        "state": "West Bengal"
+    },
+    {
+        "id": "73",
+        "name": "Nanded-Waghala",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "74",
+        "name": "Ajmer",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "75",
+        "name": "Jamnagar",
+        "state": "Gujarat"
+    },
+    {
+        "id": "76",
+        "name": "Ujjain",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "77",
+        "name": "Sangli",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "78",
+        "name": "Loni",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "79",
+        "name": "Jhansi",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "80",
+        "name": "Pondicherry",
+        "state": "Puducherry"
+    },
+    {
+        "id": "81",
+        "name": "Nellore",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "82",
+        "name": "Jammu",
+        "state": "Jammu and Kashmir"
+    },
+    {
+        "id": "83",
+        "name": "Belagavi",
+        "state": "Karnataka"
+    },
+    {
+        "id": "84",
+        "name": "Raurkela",
+        "state": "Odisha"
+    },
+    {
+        "id": "85",
+        "name": "Mangaluru",
+        "state": "Karnataka"
+    },
+    {
+        "id": "86",
+        "name": "Tirunelveli",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "87",
+        "name": "Malegaon",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "88",
+        "name": "Gaya",
+        "state": "Bihar"
+    },
+    {
+        "id": "89",
+        "name": "Tiruppur",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "90",
+        "name": "Davanagere",
+        "state": "Karnataka"
+    },
+    {
+        "id": "91",
+        "name": "Kozhikode",
+        "state": "Kerala"
+    },
+    {
+        "id": "92",
+        "name": "Akola",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "93",
+        "name": "Kurnool",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "94",
+        "name": "Bokaro Steel City",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "95",
+        "name": "Rajahmundry",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "96",
+        "name": "Ballari",
+        "state": "Karnataka"
+    },
+    {
+        "id": "97",
+        "name": "Agartala",
+        "state": "Tripura"
+    },
+    {
+        "id": "98",
+        "name": "Bhagalpur",
+        "state": "Bihar"
+    },
+    {
+        "id": "99",
+        "name": "Latur",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "100",
+        "name": "Dhule",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "101",
+        "name": "Korba",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "102",
+        "name": "Bhilwara",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "103",
+        "name": "Brahmapur",
+        "state": "Odisha"
+    },
+    {
+        "id": "104",
+        "name": "Mysore",
+        "state": "Karnataka"
+    },
+    {
+        "id": "105",
+        "name": "Muzaffarpur",
+        "state": "Bihar"
+    },
+    {
+        "id": "106",
+        "name": "Ahmednagar",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "107",
+        "name": "Kollam",
+        "state": "Kerala"
+    },
+    {
+        "id": "108",
+        "name": "Raghunathganj",
+        "state": "West Bengal"
+    },
+    {
+        "id": "109",
+        "name": "Bilaspur",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "110",
+        "name": "Shahjahanpur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "111",
+        "name": "Thrissur",
+        "state": "Kerala"
+    },
+    {
+        "id": "112",
+        "name": "Alwar",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "113",
+        "name": "Kakinada",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "114",
+        "name": "Nizamabad",
+        "state": "Telangana"
+    },
+    {
+        "id": "115",
+        "name": "Sagar",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "116",
+        "name": "Tumkur",
+        "state": "Karnataka"
+    },
+    {
+        "id": "117",
+        "name": "Hisar",
+        "state": "Haryana"
+    },
+    {
+        "id": "118",
+        "name": "Rohtak",
+        "state": "Haryana"
+    },
+    {
+        "id": "119",
+        "name": "Panipat",
+        "state": "Haryana"
+    },
+    {
+        "id": "120",
+        "name": "Darbhanga",
+        "state": "Bihar"
+    },
+    {
+        "id": "121",
+        "name": "Kharagpur",
+        "state": "West Bengal"
+    },
+    {
+        "id": "122",
+        "name": "Aizawl",
+        "state": "Mizoram"
+    },
+    {
+        "id": "123",
+        "name": "Ichalkaranji",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "124",
+        "name": "Tirupati",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "125",
+        "name": "Karnal",
+        "state": "Haryana"
+    },
+    {
+        "id": "126",
+        "name": "Bathinda",
+        "state": "Punjab"
+    },
+    {
+        "id": "127",
+        "name": "Rampur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "128",
+        "name": "Shivamogga",
+        "state": "Karnataka"
+    },
+    {
+        "id": "129",
+        "name": "Ratlam",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "130",
+        "name": "Modinagar",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "131",
+        "name": "Durg",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "132",
+        "name": "Shillong",
+        "state": "Meghalaya"
+    },
+    {
+        "id": "133",
+        "name": "Imphal",
+        "state": "Manipur"
+    },
+    {
+        "id": "134",
+        "name": "Hapur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "135",
+        "name": "Ranipet",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "136",
+        "name": "Anantapur",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "137",
+        "name": "Arrah",
+        "state": "Bihar"
+    },
+    {
+        "id": "138",
+        "name": "Karimnagar",
+        "state": "Telangana"
+    },
+    {
+        "id": "139",
+        "name": "Parbhani",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "140",
+        "name": "Etawah",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "141",
+        "name": "Bharatpur",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "142",
+        "name": "Begusarai",
+        "state": "Bihar"
+    },
+    {
+        "id": "143",
+        "name": "New Delhi",
+        "state": "Delhi"
+    },
+    {
+        "id": "144",
+        "name": "Chhapra",
+        "state": "Bihar"
+    },
+    {
+        "id": "145",
+        "name": "Kadapa",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "146",
+        "name": "Ramagundam",
+        "state": "Telangana"
+    },
+    {
+        "id": "147",
+        "name": "Pali",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "148",
+        "name": "Satna",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "149",
+        "name": "Vizianagaram",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "150",
+        "name": "Katihar",
+        "state": "Bihar"
+    },
+    {
+        "id": "151",
+        "name": "Hardwar",
+        "state": "Uttarakhand"
+    },
+    {
+        "id": "152",
+        "name": "Sonipat",
+        "state": "Haryana"
+    },
+    {
+        "id": "153",
+        "name": "Nagercoil",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "154",
+        "name": "Thanjavur",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "155",
+        "name": "Murwara (Katni)",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "156",
+        "name": "Naihati",
+        "state": "West Bengal"
+    },
+    {
+        "id": "157",
+        "name": "Sambhal",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "158",
+        "name": "Nadiad",
+        "state": "Gujarat"
+    },
+    {
+        "id": "159",
+        "name": "Yamunanagar",
+        "state": "Haryana"
+    },
+    {
+        "id": "160",
+        "name": "English Bazar",
+        "state": "West Bengal"
+    },
+    {
+        "id": "161",
+        "name": "Eluru",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "162",
+        "name": "Munger",
+        "state": "Bihar"
+    },
+    {
+        "id": "163",
+        "name": "Panchkula",
+        "state": "Haryana"
+    },
+    {
+        "id": "164",
+        "name": "Raayachuru",
+        "state": "Karnataka"
+    },
+    {
+        "id": "165",
+        "name": "Panvel",
+        "state": "Maharashtra"
+    },
+    {
+        "id": "166",
+        "name": "Deoghar",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "167",
+        "name": "Ongole",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "168",
+        "name": "Nandyal",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "169",
+        "name": "Morena",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "170",
+        "name": "Bhiwani",
+        "state": "Haryana"
+    },
+    {
+        "id": "171",
+        "name": "Porbandar",
+        "state": "Gujarat"
+    },
+    {
+        "id": "172",
+        "name": "Palakkad",
+        "state": "Kerala"
+    },
+    {
+        "id": "173",
+        "name": "Anand",
+        "state": "Gujarat"
+    },
+    {
+        "id": "174",
+        "name": "Purnia",
+        "state": "Bihar"
+    },
+    {
+        "id": "175",
+        "name": "Baharampur",
+        "state": "West Bengal"
+    },
+    {
+        "id": "176",
+        "name": "Barmer",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "177",
+        "name": "Morvi",
+        "state": "Gujarat"
+    },
+    {
+        "id": "178",
+        "name": "Orai",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "179",
+        "name": "Bahraich",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "180",
+        "name": "Sikar",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "181",
+        "name": "Vellore",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "182",
+        "name": "Singrauli",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "183",
+        "name": "Khammam",
+        "state": "Telangana"
+    },
+    {
+        "id": "184",
+        "name": "Mahesana",
+        "state": "Gujarat"
+    },
+    {
+        "id": "185",
+        "name": "Silchar",
+        "state": "Assam"
+    },
+    {
+        "id": "186",
+        "name": "Sambalpur",
+        "state": "Odisha"
+    },
+    {
+        "id": "187",
+        "name": "Rewa",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "188",
+        "name": "Unnao",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "189",
+        "name": "Hugli-Chinsurah",
+        "state": "West Bengal"
+    },
+    {
+        "id": "190",
+        "name": "Raiganj",
+        "state": "West Bengal"
+    },
+    {
+        "id": "191",
+        "name": "Phusro",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "192",
+        "name": "Adityapur",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "193",
+        "name": "Alappuzha",
+        "state": "Kerala"
+    },
+    {
+        "id": "194",
+        "name": "Bahadurgarh",
+        "state": "Haryana"
+    },
+    {
+        "id": "195",
+        "name": "Machilipatnam",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "196",
+        "name": "Rae Bareli",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "197",
+        "name": "Jalpaiguri",
+        "state": "West Bengal"
+    },
+    {
+        "id": "198",
+        "name": "Bharuch",
+        "state": "Gujarat"
+    },
+    {
+        "id": "199",
+        "name": "Pathankot",
+        "state": "Punjab"
+    },
+    {
+        "id": "200",
+        "name": "Hoshiarpur",
+        "state": "Punjab"
+    },
+    {
+        "id": "201",
+        "name": "Baramula",
+        "state": "Jammu and Kashmir"
+    },
+    {
+        "id": "202",
+        "name": "Adoni",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "203",
+        "name": "Jind",
+        "state": "Haryana"
+    },
+    {
+        "id": "204",
+        "name": "Tonk",
+        "state": "Rajasthan"
+    },
+    {
+        "id": "205",
+        "name": "Tenali",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "206",
+        "name": "Kancheepuram",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "207",
+        "name": "Vapi",
+        "state": "Gujarat"
+    },
+    {
+        "id": "208",
+        "name": "Sirsa",
+        "state": "Haryana"
+    },
+    {
+        "id": "209",
+        "name": "Navsari",
+        "state": "Gujarat"
+    },
+    {
+        "id": "210",
+        "name": "Mahbubnagar",
+        "state": "Telangana"
+    },
+    {
+        "id": "211",
+        "name": "Puri",
+        "state": "Odisha"
+    },
+    {
+        "id": "212",
+        "name": "Robertson Pet",
+        "state": "Karnataka"
+    },
+    {
+        "id": "213",
+        "name": "Erode",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "214",
+        "name": "Batala",
+        "state": "Punjab"
+    },
+    {
+        "id": "215",
+        "name": "Haldwani-cum-Kathgodam",
+        "state": "Uttarakhand"
+    },
+    {
+        "id": "216",
+        "name": "Vidisha",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "217",
+        "name": "Saharsa",
+        "state": "Bihar"
+    },
+    {
+        "id": "218",
+        "name": "Thanesar",
+        "state": "Haryana"
+    },
+    {
+        "id": "219",
+        "name": "Chittoor",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "220",
+        "name": "Veraval",
+        "state": "Gujarat"
+    },
+    {
+        "id": "221",
+        "name": "Lakhimpur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "222",
+        "name": "Sitapur",
+        "state": "Uttar Pradesh"
+    },
+    {
+        "id": "223",
+        "name": "Hindupur",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "224",
+        "name": "Santipur",
+        "state": "West Bengal"
+    },
+    {
+        "id": "225",
+        "name": "Balurghat",
+        "state": "West Bengal"
+    },
+    {
+        "id": "226",
+        "name": "Ganjbasoda",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "227",
+        "name": "Moga",
+        "state": "Punjab"
+    },
+    {
+        "id": "228",
+        "name": "Proddatur",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "230",
+        "name": "Medinipur",
+        "state": "West Bengal"
+    },
+    {
+        "id": "231",
+        "name": "Habra",
+        "state": "West Bengal"
+    },
+    {
+        "id": "232",
+        "name": "Sasaram",
+        "state": "Bihar"
+    },
+    {
+        "id": "233",
+        "name": "Hajipur",
+        "state": "Bihar"
+    },
+    {
+        "id": "234",
+        "name": "Bhuj",
+        "state": "Gujarat"
+    },
+    {
+        "id": "235",
+        "name": "Shivpuri",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "236",
+        "name": "Ranaghat",
+        "state": "West Bengal"
+    },
+    {
+        "id": "237",
+        "name": "Shimla",
+        "state": "Himachal Pradesh"
+    },
+    {
+        "id": "238",
+        "name": "Tiruvannamalai",
+        "state": "Tamil Nadu"
+    },
+    {
+        "id": "239",
+        "name": "Kaithal",
+        "state": "Haryana"
+    },
+    {
+        "id": "240",
+        "name": "Rajnandgaon",
+        "state": "Chhattisgarh"
+    },
+    {
+        "id": "241",
+        "name": "Godhra",
+        "state": "Gujarat"
+    },
+    {
+        "id": "242",
+        "name": "Hazaribag",
+        "state": "Jharkhand"
+    },
+    {
+        "id": "243",
+        "name": "Bhimavaram",
+        "state": "Andhra Pradesh"
+    },
+    {
+        "id": "244",
+        "name": "Mandsaur",
+        "state": "Madhya Pradesh"
+    },
+    {
+        "id": "245",
+        "name": "Dibrugarh",
+        "state": "Assam"
+    },
+    {
+        "id": "246",
+        "name": "Kolar",
+        "state": "Karnataka"
+    },
+    {
+        "id": "247",
+        "name": "Bankura",
+        "state": "West Bengal"
+    },
+    {
+        "id": "248",
+        "name": "Mandya",
+        "state": "Karnataka"
+    },
+    {
+        "id": "249",
+        "name": "Dehri-on-Sone",
+        "state": "Bihar"
+    },
+    {
+        "id": "250",
+        "name": "Madanapalle",
+        "state": "Andhra Pradesh"
+    }
+   
+]

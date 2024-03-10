@@ -7,16 +7,23 @@ import Pricing from './Pricing'
 import Content from './Content'
 import Cards from './Cards'
 import Growth from './Growth'
+import RoomInfo from './RoomInfo'
+import Header from './Header'
+
+
+
 
 const Landing = () => {
     return (
         <>
-            <Main />
-            <Pricing />
-            <Cards/>
+           {/* <RoomInfo/> */}
+            <Header/>
+            {/* <Main /> */}
             <Offer />
+            <Pricing />
             <Content />
             <Growth/>
+            <Cards/>
             <FourBoxes />
             <Footer />
         </>
