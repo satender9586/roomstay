@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { getToken } from '../utils/auth';
 
-
-const basePublicUrl = "http://localhost:3000"
+const basePublicUrl = process.env.NEXT_PUBLIC_URL
 
 const instance = axios.create({
     baseURL: basePublicUrl
