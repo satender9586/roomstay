@@ -98,7 +98,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Create</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -121,7 +121,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Manage</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -144,7 +144,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Distribute</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -167,7 +167,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Analyse</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">

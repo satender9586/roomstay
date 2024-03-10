@@ -12,6 +12,7 @@ const RoomInfo = () => {
             {/* background image attached    */}
             <div>
                 <img
+                alt='Room'
                     width={"100%"}
                     height={"auto"}
                     className="rounded-[0px] h-[400px]"
@@ -65,6 +66,7 @@ const RoomInfo = () => {
                                 </div>
                                 <div>
                                     <img
+                                    alt='room2'
                                         width={"100%"}
                                         height={"auto"}
                                         className="rounded-[2px] h-[100px]"
