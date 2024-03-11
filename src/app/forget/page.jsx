@@ -54,7 +54,7 @@ const Forget = () => {
         <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200 p-5">
             <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white rounded-3xl  shadow-lg  ">
 
-                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
+                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-lime-400 to-lime-500">
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />

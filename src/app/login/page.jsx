@@ -48,8 +48,8 @@ const Login = () => {
 
     return (
 
-        <div className="w-[100dvw] h-[100vh] flex flex-col justify-center items-center bg-gray-200  p-5">
-            <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white  rounded-3xl shadow-lg  ">
+        <div className="flex flex-col justify-center items-center p-5 bg-slate-50 h-[100dvh]">
+            <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white border rounded-3xl shadow-sm  ">
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
                     <form onSubmit={handleSubmit}>
                         <div className="flex flex-col justify-center gap-8  w-full h-full ">
@@ -71,20 +71,23 @@ const Login = () => {
                             <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Login</Button>
                         </div>
                     </form>
-                    <div className="flex items-start pt-4">
-                        <div className=" cursor-pointer">
-                            Forget Account ? <span className="text-green-500" onClick={() => { router.push("/forget") }}> Forget</span>
-                        </div>
-                    </div>
 
-                    <div className="py-2">
+                    <div className="pt-6 pb-4">
                         <div className=" cursor-pointer">
                             Don’t Have an Account ? <span className="text-green-500" onClick={() => { router.push("/signup") }}>Sign up</span>
                         </div>
                     </div>
 
+                    <div className="flex items-start">
+                        <div className=" cursor-pointer">
+                            Forget Account ? <span className="text-green-500" onClick={() => { router.push("/forget") }}> Forget</span>
+                        </div>
+                    </div>
+
+                   
+
                 </div>
-                <div className="h-[800px] w-full bg-blue-500  rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
+                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-500" >
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />
