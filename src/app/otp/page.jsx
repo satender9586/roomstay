@@ -158,7 +158,7 @@ const Otp = () => {
                     </div>
 
                 </div>
-                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
+                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#ec008c, #fc6767" }}>
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />
