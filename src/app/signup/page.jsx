@@ -8,15 +8,18 @@ import { signup } from "../../../api/userApi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { createAccount } from "../../../redux/reducers/userSlice";
+import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 
 const Signup = () => {
     const router = useRouter();
     const dispatch = useDispatch()
 
     const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '', isAdmin: "" });
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    const handleChecked = (e) =>{
-        setFormValues({...formValues, isAdmin: e.target.checked})
+    const handleChecked = (e) => {
+        setFormValues({ ...formValues, isAdmin: e.target.checked })
     }
 
 
@@ -120,25 +123,59 @@ const Signup = () => {
 
                             <div>
                                 <Label className=" font-semibold" >Password</Label>
-                                <Input type="password" placeholder="Enter password here" className="h-[50px]"
-                                    name='password'
-                                    value={formValues.password}
-                                    onChange={handleChange}
-                                />
+
+                                <div className="relative">
+                                    <Input
+                                        type={showPassword ? "text" : "password"}
+                                        placeholder="Enter password here"
+                                        className="h-[50px]"
+                                        name='password'
+                                        value={formValues.password}
+                                        onChange={handleChange}
+                                    />
+
+                                    <div className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer" onClick={() => { setShowPassword(!showPassword) }}>
+
+                                        {
+                                            showPassword ? (
+                                                <EyeOpenIcon width={20} height={20} />
+                                            ) : (
+                                                <EyeClosedIcon width={20} height={20} />
+                                            )
+                                        }
+
+                                    </div>
+                                </div>
                             </div>
 
                             <div>
                                 <Label className=" font-semibold" >Confirm Password</Label>
-                                <Input type="password" placeholder="Enter confirm password here" className="h-[50px]"
-                                    name='confirmPassword'
-                                    value={formValues.confirmPassword}
-                                    onChange={handleChange}
-                                />
+
+                                <div className="relative">
+
+                                    <Input type={showConfirmPassword ? "text" : "password"} placeholder="Enter confirm password here" className="h-[50px]"
+                                        name='confirmPassword'
+                                        value={formValues.confirmPassword}
+                                        onChange={handleChange}
+                                    />
+                                    <div className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer" onClick={() => { setShowConfirmPassword(!showConfirmPassword) }}>
+
+                                        {
+                                            showConfirmPassword ? (
+                                                <EyeOpenIcon width={20} height={20} />
+                                            ) : (
+                                                <EyeClosedIcon width={20} height={20} />
+                                            )
+                                        }
+
+                                    </div>
+                                    
+                                </div>
 
                             </div>
 
                             <div className="flex items-center justify-start gap-2">
-                                <input type="checkbox" className="size-6" checked={formValues.isAdmin} name="isAdmin"  onChange={handleChecked} />
+                                <input type="checkbox" className="size-6" checked={formValues.isAdmin} name="isAdmin" onChange={handleChecked} />
                                 <Label className=" font-semibold" >Join as property owner </Label>
 
                             </div>
