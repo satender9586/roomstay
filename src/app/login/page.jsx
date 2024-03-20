@@ -104,7 +104,7 @@ const Login = () => {
 
 
                 </div>
-                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-500" >
+                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-400" >
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />
