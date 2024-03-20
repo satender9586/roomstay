@@ -45,10 +45,10 @@ export function deleteAllCookies() {
 
 // Authentication cookie function
 
-export function setLoginCredentials(obj, extraDays = false) {
+export function setCredentials(obj, extraDays = false) {
   if (typeof window !== "undefined") {
-    setCookie("userId", obj?.userId, extraDays);
-    setCookie("token", obj?.token, extraDays);
+      setCookie("token", obj?.token, extraDays);
+      // setCookie("userId", obj?.userId, extraDays);
   }
 }
 

@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { tokenVerification } from "../../api/userApi";
-import { getToken } from "../../utils/auth";
+import { getUserToken } from "../../utils/cookies";
 import { useRouter } from "next/navigation";
 
 export const ADMINROUTEOBJ = Object.freeze({ 
@@ -27,7 +27,7 @@ const isBrowser = () => typeof window !== "undefined";
 const ProtectedRoute = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const token = getToken();
+  const token = getUserToken();
 
   const fetchUser = async () => {
     if (token) {

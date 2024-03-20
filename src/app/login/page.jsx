@@ -8,6 +8,7 @@ import { login } from "../../../api/userApi";
 import { useState } from "react";
 import { setToken } from "../../../utils/auth";
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
+import { setCredentials } from "../../../utils/cookies";
 
 const Login = () => {
 
@@ -38,7 +39,10 @@ const Login = () => {
         try {
             const response = await login(apiData);
             if (response.success) {
-                setToken(response.token);
+                const obj={
+                    token:response.token,
+                }
+                setCredentials(obj)
                 router.push("/dashboard")
             }
         } catch (error) {
