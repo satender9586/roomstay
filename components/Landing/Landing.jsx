@@ -9,7 +9,7 @@ import Cards from './Cards'
 import Growth from './Growth'
 import Header from './Header'
 import { loadRazorpayScript } from '../../utils/payment'
-import { Button } from '@/components/ui/button'
+// import { Button } from '@/components/ui/button'
 import { paymentInit } from '../../api/payment'
 
 
@@ -89,7 +89,7 @@ const Landing = () => {
     }
     return (
         <>
-            <Button onClick={displayRazorpay}>Pay</Button>
+            {/* <Button onClick={displayRazorpay}>Pay</Button> */}
             <Header />
             <Offer />
             <Pricing />

@@ -1,12 +1,13 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Input from '../../../components/Tools/Input'
 import TextArea from '../../../components/Tools/TextArea'
 import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import { Button } from '@/components/ui/button'
 import { accountDeleteApi } from '../../../api/roomApi'
 import WarningModal from '../../../components/Modals/WarningModal'
-import { useRouter } from 'next/navigation'
+import { getProfile } from '../../../api/userApi'
 
 const Profile = () => {
     const [activeTab, setActiveTab] = useState(0)
@@ -28,6 +29,20 @@ const Profile = () => {
     const handleTabs = (tabNo = 0) => {
         setActiveTab(tabNo)
     }
+
+
+    const fetchUser = async () => {
+        try {
+            const response = await getProfile()
+            console.log(response)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        fetchUser()
+    }, [])
 
     return (
         <DashboardContainer>
@@ -114,19 +129,17 @@ const ProfileSettings = ({ form, handleChange }) => {
 
 
 const PrivacySettings = ({ form, handleChange }) => {
-    const router=useRouter()
+    const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
-    const [showDeleteModal,setDeleteModal]=useState(false)
+    const [showDeleteModal, setDeleteModal] = useState(false)
 
-    const handleDeleteAccount=async()=>{
-        try{
-            const response=await accountDeleteApi()
-            if(response?.success)
-            {
+    const handleDeleteAccount = async () => {
+        try {
+            const response = await accountDeleteApi()
+            if (response?.success) {
                 router.push('/')
             }
-        }catch(error)
-        {
+        } catch (error) {
             console.log(error)
         }
     }
@@ -150,7 +163,7 @@ const PrivacySettings = ({ form, handleChange }) => {
                 </div>
             </div>
 
-            <WarningModal show={showDeleteModal} buttonName='Delete' title='Permanent Delete Account' description='Are you sure you want to delete your account permanently?' handleSuccess={handleDeleteAccount}/>
+            <WarningModal show={showDeleteModal} buttonName='Delete' title='Permanent Delete Account' description='Are you sure you want to delete your account permanently?' handleSuccess={handleDeleteAccount} />
 
             {
                 showPassword && (
@@ -211,7 +224,7 @@ const PrivacySettings = ({ form, handleChange }) => {
                         This account contains 1388 posts. Deleting your account will remove all the content associated with it.
                     </div>
                 </div>
-                <Button onClick={()=>setDeleteModal(true)} variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
+                <Button onClick={() => setDeleteModal(true)} variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
 
             </div>
 

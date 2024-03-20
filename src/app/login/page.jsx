@@ -1,14 +1,13 @@
 "use client"
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { login } from "../../../api/userApi";
-import { useState } from "react";
-import { setToken } from "../../../utils/auth";
-import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { setCredentials } from "../../../utils/cookies";
+import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 
 const Login = () => {
 
@@ -39,8 +38,8 @@ const Login = () => {
         try {
             const response = await login(apiData);
             if (response.success) {
-                const obj={
-                    token:response.token,
+                const obj = {
+                    token: response.token,
                 }
                 setCredentials(obj)
                 router.push("/dashboard")
