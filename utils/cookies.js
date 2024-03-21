@@ -30,7 +30,7 @@ export function deleteCookie(cookieName) {
   }
 }
 
-export function deleteAllCookies() {
+export function clearAllCookies() {
   if (typeof window !== "undefined") {
     var cookies = document.cookie.split(";");
 

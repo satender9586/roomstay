@@ -8,9 +8,12 @@ import { useRouter } from "next/navigation";
 import { login } from "../../../api/userApi";
 import { setCredentials } from "../../../utils/cookies";
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
+import { giveUserSliceObj } from "../../../utils/sliceMethod";
+import { setUserSlice } from "../../../redux/reducers/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-
+    const dispatch=useDispatch()
     const router = useRouter();
     const [formValues, setFormValues] = useState({ email: '', password: "" });
     const [showPassword, setShowPassword] = useState(false);
@@ -38,10 +41,18 @@ const Login = () => {
         try {
             const response = await login(apiData);
             if (response.success) {
+
+                // Set user details in redux ( User Slice )
+                if (response?.user) {
+                    const userObj = giveUserSliceObj(response?.user);
+                    dispatch(setUserSlice(userObj));
+                }
+
                 const obj = {
                     token: response.token,
                 }
                 setCredentials(obj)
+
                 router.push("/dashboard")
             }
         } catch (error) {
