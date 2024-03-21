@@ -72,7 +72,7 @@ const Otp = () => {
         try {
             const response = await otpVerify(dummyData);
             if (response.success) {
-                router.push("/dashboard")
+                router.push("/login")
             }
         } catch (error) {
             console.log(error)
