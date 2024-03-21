@@ -8,6 +8,7 @@ import { signup } from "../../../api/userApi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
+import { setEmail } from "../../../redux/reducers/userSlice";
 
 const Signup = () => {
     const router = useRouter();
@@ -168,7 +169,7 @@ const Signup = () => {
                                         }
 
                                     </div>
-                                    
+
                                 </div>
 
                             </div>

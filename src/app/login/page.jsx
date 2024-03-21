@@ -40,7 +40,7 @@ const Login = () => {
 
         try {
             const response = await login(apiData);
-            if (response.success) {
+            if (response?.success) {
 
                 // Set user details in redux ( User Slice )
                 if (response?.user) {

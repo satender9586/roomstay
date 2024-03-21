@@ -8,8 +8,12 @@ import { Button } from '@/components/ui/button'
 import { accountDeleteApi } from '../../../api/roomApi'
 import WarningModal from '../../../components/Modals/WarningModal'
 import { getProfile } from '../../../api/userApi'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearAllCookies } from '../../../utils/cookies'
+import { clearUserSlice } from '../../../redux/reducers/userSlice'
 
 const Profile = () => {
+    const userRedux = useSelector(state => state?.user)
     const [activeTab, setActiveTab] = useState(0)
     const [profileForm, setProfileForm] = useState({ firstName: "", lastName: "", website: "", bio: "" })
     const [privacyForm, setPrivacyForm] = useState({ password: "", confirmPassword: "" })
@@ -32,17 +36,19 @@ const Profile = () => {
 
 
     const fetchUser = async () => {
-        try {
-            const response = await getProfile()
-            console.log(response)
-        } catch (error) {
-            console.log(error)
+        const obj = {
+            firstName: userRedux?.firstName,
+            lastName: userRedux?.lastName,
+            website: userRedux?.website || "",
+            bio: userRedux?.bio || ""
         }
+
+        setProfileForm(obj)
     }
 
     useEffect(() => {
         fetchUser()
-    }, [])
+    }, [userRedux?.firstName])
 
     return (
         <DashboardContainer>
@@ -91,6 +97,7 @@ const Profile = () => {
 export default Profile
 
 const ProfileSettings = ({ form, handleChange }) => {
+    const userRedux = useSelector(state => state?.user)
     return (
         <div className='mt-8 flex flex-col gap-4 w-[700px]'>
             <div className="text-black text-lg font-bold">Profile</div>
@@ -109,7 +116,7 @@ const ProfileSettings = ({ form, handleChange }) => {
 
             <Input value={form?.website} onChange={(value) => { handleChange(value) }} name="website" placeholder="Enter your email" label="Personal Website" />
 
-            <TextArea value={form?.lastName} onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
+            <TextArea value={form?.bio} onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
 
             <div className='mt-4'>
                 <Button className="bg-[#202142] hover:bg-[#141531] w-[150px] py-1" size="lg">Save</Button>
@@ -131,13 +138,15 @@ const ProfileSettings = ({ form, handleChange }) => {
 const PrivacySettings = ({ form, handleChange }) => {
     const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
-    const [showDeleteModal, setDeleteModal] = useState(false)
+    const dispatch = useDispatch()
 
     const handleDeleteAccount = async () => {
         try {
             const response = await accountDeleteApi()
             if (response?.success) {
-                router.push('/')
+                clearAllCookies()
+                dispatch(clearUserSlice())
+                router.push("/")
             }
         } catch (error) {
             console.log(error)
@@ -151,7 +160,7 @@ const PrivacySettings = ({ form, handleChange }) => {
                     <div className="text-black text-lg font-semibold">Email Address</div>
                     <div className="w-[60%] text-black text-md font-normal ">Your email address is {" "}
                         <span className='font-bold'>
-                            emailis@private.com
+                            email@private.com
                         </span>
                     </div>
 
@@ -163,7 +172,7 @@ const PrivacySettings = ({ form, handleChange }) => {
                 </div>
             </div>
 
-            <WarningModal show={showDeleteModal} buttonName='Delete' title='Permanent Delete Account' description='Are you sure you want to delete your account permanently?' handleSuccess={handleDeleteAccount} />
+
 
             {
                 showPassword && (
@@ -197,7 +206,7 @@ const PrivacySettings = ({ form, handleChange }) => {
 
             {
                 !showPassword && (
-                    <div className=" text-black text-md font-normal mt-8">Can’t remember your current password?
+                    <div className=" text-black text-md font-normal mt-6">Can’t remember your current password?
                         <Button variant="link" onClick={() => setShowPassword(true)}>
                             Reset your password
                         </Button>
@@ -215,16 +224,19 @@ const PrivacySettings = ({ form, handleChange }) => {
 
 
 
-            <div className='flex flex-col gap-6 mt-8'>
+            <div className='flex flex-col gap-6 mt-12'>
 
                 <div className='flex flex-col gap-2 w-[70%]'>
-                    <div className="text-black text-lg font-semibold">Delete account</div>
+                    <div className="text-black text-xl font-semibold">Delete account</div>
                     <div className='text-black text-md font-normal'>
                         Would you like to delete your account?
                         This account contains 1388 posts. Deleting your account will remove all the content associated with it.
                     </div>
                 </div>
-                <Button onClick={() => setDeleteModal(true)} variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
+
+                <WarningModal buttonName='Delete' title='Permanent Delete Account' description='Are you sure you want to delete your account permanently?' handleSuccess={handleDeleteAccount}>
+                    <Button variant="destructive" className=" w-[186px] py-1" size="lg">Delete Account</Button>
+                </WarningModal>
 
             </div>
 
