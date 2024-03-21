@@ -56,3 +56,11 @@ export const tokenVerification = async () => {
     }
     return response?.data
 }
+
+export const getProfile = async () => {
+    const response = await axios.get(`/profile`);
+    if (!response?.statusText === "OK") {
+        throw new Error("Something is wrong.");
+    }
+    return response?.data
+}

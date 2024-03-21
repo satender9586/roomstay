@@ -1,18 +1,22 @@
 "use client"
+import { useState } from "react";
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 import { useRouter } from "next/navigation";
 import { login } from "../../../api/userApi";
-import { useState } from "react";
-import { setToken } from "../../../utils/auth";
+import { setCredentials } from "../../../utils/cookies";
+import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
+import { giveUserSliceObj } from "../../../utils/sliceMethod";
+import { setUserSlice } from "../../../redux/reducers/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
-
+    const dispatch=useDispatch()
     const router = useRouter();
     const [formValues, setFormValues] = useState({ email: '', password: "" });
-
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,15 +33,26 @@ const Login = () => {
             return
         }
 
-        const dummyData = {
+        const apiData = {
             "email": formValues.email,
             "password": formValues.password
         }
 
         try {
-            const response = await login(dummyData);
+            const response = await login(apiData);
             if (response.success) {
-                setToken(response.token);
+
+                // Set user details in redux ( User Slice )
+                if (response?.user) {
+                    const userObj = giveUserSliceObj(response?.user);
+                    dispatch(setUserSlice(userObj));
+                }
+
+                const obj = {
+                    token: response.token,
+                }
+                setCredentials(obj)
+
                 router.push("/dashboard")
             }
         } catch (error) {
@@ -62,9 +77,25 @@ const Login = () => {
                                 <Input type="email" name={"email"} value={formValues.email} placeholder="Enter your email address" onChange={handleChange} className="h-[50px]" />
                             </div>
 
-                            <div >
+                            <div>
                                 <Label className=" font-semibold" >Password</Label>
-                                <Input type="password" name={"password"} value={formValues.password} placeholder="Enter password here" onChange={handleChange} className="h-[50px]" />
+
+                                <div className="relative">
+                                    <Input type={showPassword ? "text" : "password"} name={"password"} value={formValues.password} placeholder="Enter password here" onChange={handleChange} className="h-[50px]" />
+
+                                    <div className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer" onClick={() => { setShowPassword(!showPassword) }}>
+
+                                        {
+                                            showPassword ? (
+                                                <EyeOpenIcon width={20} height={20} />
+                                            ) : (
+                                                <EyeClosedIcon width={20} height={20} />
+                                            )
+                                        }
+
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
                         <div className="mt-10">
@@ -84,10 +115,10 @@ const Login = () => {
                         </div>
                     </div>
 
-                   
+
 
                 </div>
-                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-500" >
+                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-400" >
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />

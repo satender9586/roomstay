@@ -4,10 +4,13 @@ import userImg from "../../assests/Images/user.png"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
-import { removeCredentials } from '../../utils/auth'
+import { clearAllCookies } from '../../utils/cookies'
+import { useDispatch } from 'react-redux'
+import { clearUserSlice } from '../../redux/reducers/userSlice'
 
 const SideBar = () => {
     const router = useRouter()
+    const dispatch = useDispatch()
 
     const handleRoute = (route = "") => {
         if (route) {
@@ -16,7 +19,8 @@ const SideBar = () => {
     }
 
     const handleLogOut = () => {
-        removeCredentials()
+        clearAllCookies()
+        dispatch(clearUserSlice())
         router.push("/")
     }
 

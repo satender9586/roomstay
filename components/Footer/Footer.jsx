@@ -4,12 +4,12 @@ import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <footer className='bg-[#ff3939] py-12'>
+        <footer className='bg-[#f29100] py-12'>
 
             <div className='container | grid grid-cols-5 | py-4  sm:py-6 md:py-8 lg:py-10 xl:py-12'>
 
                 <div className=' flex justify-center | text-white | row-span-2 md:row-span-1 col-span-5  sm:col-span-1'>
-                    <Image src={arrowIcon} alt='arrowicon' height={190} width={250} style={{ width: "auto", height: "auto" }} className='w-[150px] xl:w-[250px]'/>
+                    <Image src={arrowIcon} alt='arrowicon' height={190} width={250} style={{ width: "auto", height: "auto" }} className='w-[150px] xl:w-[250px]' />
 
                 </div>
                 <div className=' flex justify-center lg:justify-center | text-white py-4 sm:py-2  | col-span-5  sm:col-span-2 md:col-span-1'>
@@ -28,7 +28,7 @@ const Footer = () => {
                         <div>Help</div>
                     </div>
                 </div>
-               
+
                 <div className='flex md:hidden justify-center | text-white py-4 sm:py-2 | col-span-5 sm:col-span-2 md:col-span-2 '>
                     <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
                         <div className='leading-6'>Linked In</div>
@@ -36,7 +36,7 @@ const Footer = () => {
                         <div className='leading-6'>Facebook</div>
                     </div>
                 </div>
-               
+
                 <div className=' flex justify-center | text-white py-4 sm:py-2 | col-span-5 sm:col-span-2 md:col-span-2 '>
                     <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
                         <div className='leading-6'>Satender - sksatender59@gmail.com</div>
@@ -45,7 +45,7 @@ const Footer = () => {
                     </div>
                 </div>
 
-               
+
             </div>
 
 
