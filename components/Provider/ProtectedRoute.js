@@ -3,6 +3,9 @@ import { useEffect, useState } from "react";
 import { tokenVerification } from "../../api/userApi";
 import { getUserToken } from "../../utils/cookies";
 import { useRouter } from "next/navigation";
+import { giveUserSliceObj } from "../../utils/sliceMethod";
+import { useDispatch } from "react-redux";
+import { setUserSlice } from "../../redux/reducers/userSlice";
 
 export const ADMINROUTEOBJ = Object.freeze({ 
   DASHBOARD: "/dashboard",
@@ -27,13 +30,15 @@ const isBrowser = () => typeof window !== "undefined";
 const ProtectedRoute = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const dispatch=useDispatch()
   const token = getUserToken();
 
   const fetchUser = async () => {
     if (token) {
       try {
         const response = await tokenVerification();
-        console.log(response, "response");
+        const userObj=giveUserSliceObj(response?.user)
+        dispatch(setUserSlice(userObj))
         // If response is success then check if user is admin or user. 
         // If user is admin then find in admin route check function. 
         // If user is user then find in user route check function. 
