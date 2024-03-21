@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { signup } from "../../../api/userApi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
-import { createAccount } from "../../../redux/reducers/userSlice";
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 
 const Signup = () => {
@@ -50,7 +49,7 @@ const Signup = () => {
             const response = await signup(apiData)
 
             if (response.success) {
-                dispatch(createAccount(apiData))
+                dispatch(setEmail(formValues.email))
                 router.push("/otp")
             }
         } catch (error) {

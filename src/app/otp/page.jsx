@@ -10,8 +10,7 @@ import { CheckCircledIcon } from "@radix-ui/react-icons";
 
 const Otp = () => {
 
-    const emailRex = useSelector((state) => state?.user?.userObj?.email);
-    const emailForgetRex = useSelector((state) => state?.user?.email);
+    const emailRedux = useSelector((state) => state?.user?.email);
     const router = useRouter();
     const searchParams = useSearchParams()
     const type = searchParams?.get('type') || false
@@ -40,15 +39,15 @@ const Otp = () => {
                 return
             }
 
-            const dummyData = {
+            const apiData = {
                 "otp": formValues.otp,
-                "email": emailForgetRex,
+                "email": emailRedux,
                 "password": formValues.password,
                 "confirmPassword": formValues.confirmPassword
             }
 
             try {
-                const response = await changePassword(dummyData);
+                const response = await changePassword(apiData);
                 if (response.success) {
                     router.push("/login")
                     alert("Password changed successfully")
@@ -67,7 +66,7 @@ const Otp = () => {
 
         const dummyData = {
             "otp": formValues.otp,
-            "email": emailRex
+            "email": emailRedux
         }
 
         try {
@@ -86,7 +85,7 @@ const Otp = () => {
 
         if (type === "forget") {
             const dummyData = {
-                "email": emailForgetRex,
+                "email": emailRedux,
             }
 
             try {
@@ -100,7 +99,7 @@ const Otp = () => {
             }
         }
         const dummyData = {
-            "email": emailRex
+            "email": emailRedux
         }
 
         try {
