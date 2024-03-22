@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import Footer from '../Footer/Footer'
 import Offer from './Offer'
@@ -8,18 +9,15 @@ import Cards from './Cards'
 import Growth from './Growth'
 import Header from './Header'
 
-
-
-
 const Landing = () => {
     return (
         <>
-            <Header/>
+            <Header />
             <Offer />
             <Pricing />
             <Content />
-            <Growth/>
-            <Cards/>
+            <Growth />
+            <Cards />
             <FourBoxes />
             <Footer />
         </>

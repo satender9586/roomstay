@@ -3,10 +3,12 @@ import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import roomstayLogo from "../../assests/official/roomstay.png"
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const Header = () => {
     const router = useRouter();
-
+    const isAdmin = useSelector((state) => state?.user?.isAdmin)
+    console.log(isAdmin, "admin");
     return (
 
         <div className="bg-[#265fe5]">
@@ -16,9 +18,17 @@ const Header = () => {
                     <span className="text-xl cursor-pointer">RoomStay</span>
                 </div>
                 <div className=" sm:flex space-x-4">
-                    <div className="flex items-center mr-2 cursor-pointer" onClick={() => { router.push('/dashboard') }}>Dashboard</div>
-                    <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
-                    <Button onClick={() => router.push('/signup')}>Signup</Button>
+
+                    {
+                        isAdmin ? (
+                            <Button className="rounded-full" onClick={() => router.push('/dashboard')}>Dashboard</Button>
+                        ) : (
+                            <>
+                                <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
+                                <Button onClick={() => router.push('/signup')}>Signup</Button>
+                            </>
+                        )
+                    }
                 </div>
             </header>
         </div>
