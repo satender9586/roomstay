@@ -1,24 +1,26 @@
 "use client";
 import { useEffect, useState } from "react";
 import { tokenVerification } from "../../api/userApi";
-import { getToken } from "../../utils/auth";
+import { getUserToken } from "../../utils/cookies";
 import { useRouter } from "next/navigation";
+import { giveUserSliceObj } from "../../utils/sliceMethod";
+import { useDispatch } from "react-redux";
+import { setUserSlice } from "../../redux/reducers/userSlice";
 
-export const ADMINROUTEOBJ = Object.freeze({ 
+export const ADMINROUTEOBJ = Object.freeze({
   DASHBOARD: "/dashboard",
   BILL: "/bill",
 });
 
 export const USERROUTEOBJ = Object.freeze({
-  LANDING: "/"
+  LANDING: "/",
 });
 
 const UNPROTECTEDROUTEOBJ = Object.freeze({
   LANDING: "/",
   LOGIN: "/login",
   SIGN_UP: "/signup",
-  FORGET: '/forget'
-
+  FORGET: "/forget",
 });
 
 //check if you are on the client (browser) or server
@@ -27,19 +29,29 @@ const isBrowser = () => typeof window !== "undefined";
 const ProtectedRoute = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const token = getToken();
+  const dispatch = useDispatch();
+  const token = getUserToken();
 
   const fetchUser = async () => {
+    console.log(token, "mera token");
     if (token) {
       try {
         const response = await tokenVerification();
-        console.log(response, "response");
-        // If response is success then check if user is admin or user. 
-        // If user is admin then find in admin route check function. 
-        // If user is user then find in user route check function. 
+
+        // If response is success then check if user is admin or user.
+        // If user is admin then find in admin route check function.
+        // If user is user then find in user route check function.
         // If user is not admin or user then check for unprotected routes
 
         if (response?.success) {
+          // Set user details in redux ( User Slice )
+
+          if(response?.user)
+          {
+            const userObj = giveUserSliceObj(response?.user);
+            dispatch(setUserSlice(userObj));
+          }
+
           if (response?.user?.isAdmin) {
             adminProtectedRoutesFun();
           } else {
