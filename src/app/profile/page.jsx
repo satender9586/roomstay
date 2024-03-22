@@ -102,21 +102,21 @@ const ProfileSettings = ({ form, handleChange }) => {
             <div className='flex justify-between'>
 
                 <div className='flex-[0.48]'>
-                    <Input value={form?.firstName} onChange={(value) => { handleChange(value) }} name="firstName" placeholder="Enter first name" label="First Name" />
+                    <Input value={form?.firstName} disabled onChange={(value) => { handleChange(value) }} name="firstName" placeholder="Enter first name" label="First Name" />
                 </div>
 
                 <div className='flex-[0.48]'>
-                    <Input value={form?.lastName} onChange={(value) => { handleChange(value) }} name="lastName" placeholder="Enter last name" label="Last Name" />
+                    <Input value={form?.lastName} disabled onChange={(value) => { handleChange(value) }} name="lastName" placeholder="Enter last name" label="Last Name" />
                 </div>
 
             </div>
 
-            <Input value={form?.website} onChange={(value) => { handleChange(value) }} name="website" placeholder="Enter your email" label="Personal Website" />
+            <Input value={form?.website} disabled onChange={(value) => { handleChange(value) }} name="website" placeholder="Enter your email" label="Personal Website" />
 
-            <TextArea value={form?.bio} onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
+            <TextArea value={form?.bio} disabled onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
 
             <div className='mt-4'>
-                <Button className="bg-[#202142] hover:bg-[#141531] w-[150px] py-1" size="lg">Save</Button>
+                <Button disabled className="bg-[#202142] hover:bg-[#141531] w-[150px] py-1" size="lg">Save</Button>
             </div>
 
             {/* <div className="text-black text-lg font-bold mt-2 ">Personal Website</div>
