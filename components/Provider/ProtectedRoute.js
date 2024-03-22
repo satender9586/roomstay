@@ -33,7 +33,6 @@ const ProtectedRoute = ({ children }) => {
   const token = getUserToken();
 
   const fetchUser = async () => {
-    console.log(token, "mera token");
     if (token) {
       try {
         const response = await tokenVerification();

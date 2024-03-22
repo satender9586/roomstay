@@ -24,7 +24,6 @@ const userSlice = createSlice({
       state.isVerified = obj.isVerified;
       state.plan = obj.plan;
       state.isLoggedIn = true;
-      console.log(state, "set user slice");
     },
     clearUserSlice: (state) => {
       state.email = "";
@@ -34,7 +33,6 @@ const userSlice = createSlice({
       state.isVerified = false;
       state.plan = "free";
       state.isLoggedIn = false;
-      console.log(state, "clear user slice");
     },
   },
 });
