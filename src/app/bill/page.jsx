@@ -6,6 +6,7 @@ import visaImg from "../../../assests/Images/visa.png"
 import AdminPlanModal from '../../../components/Modals/AdminPlanModal'
 import { loadRazorpayScript } from '../../../utils/payment'
 import { paymentInit } from '../../../api/payment'
+import { ROOMSTAY_LOGO } from '../../../utils/constants'
 
 const Billing = () => {
 
@@ -19,10 +20,10 @@ const Billing = () => {
       }
 
       // creating a new order
-      const result = await paymentInit({ amount: Math.floor(amountRupee*100) })
+      const result = await paymentInit({ amount: Math.floor(amountRupee * 100) })
 
       if (!result) {
-        alert("Server error. Are you online?");
+        alert("Server error, Are you online?");
         return;
       }
 
@@ -34,7 +35,7 @@ const Billing = () => {
         currency: currency,
         name: "Roomstay Organization",
         description: "Test Transaction",
-        image: "https://roomstay.netlify.app/_ipx/w_32,q_75/%2F_next%2Fstatic%2Fmedia%2Froomstay.657192db.png?url=%2F_next%2Fstatic%2Fmedia%2Froomstay.657192db.png&w=32&q=75",
+        image: ROOMSTAY_LOGO,
         order_id: order_id,
         handler: async function (response) {
           const data = {
@@ -44,7 +45,7 @@ const Billing = () => {
             razorpaySignature: response.razorpay_signature,
           };
           try {
-            console.log("Rzaro padone", data)
+            console.log("Razorpay payment", data)
             // const response = await paymentSuccess(data)
             // if (response.status) {
             //     const apiData = {
@@ -82,7 +83,7 @@ const Billing = () => {
     }
   }
 
-  const handlePayment=(amount)=>{
+  const handlePayment = (amount) => {
     displayRazorpay(amount)
   }
 
@@ -129,7 +130,7 @@ const Billing = () => {
           </div>
           <div className='flex-[0.4]'>
 
-            <div className="w-[265px] h-[221px] p-8 bg-[#EE4D37] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
+            <div className="w-[265px] h-[221px] p-8 bg-[#FF493C] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
               <div className="text-white text-base font-normal">Your plan</div>
 
               <div className="flex flex-col justify-start items-start gap-1">
@@ -138,8 +139,8 @@ const Billing = () => {
               </div>
 
 
-              <AdminPlanModal>
-                <Button className="px-4 py-2 rounded-lg border border-white border-opacity-50 hover:bg-red-600 cursor-pointer text-white text-base font-normal">Upgrade Subscription</Button>
+              <AdminPlanModal handleSuccess={handlePayment}>
+                <Button className="px-4 py-4 rounded-xl border border-white border-opacity-50 hover:bg-red-600 cursor-pointer text-white text-base font-normal">Upgrade Subscription</Button>
               </AdminPlanModal>
 
             </div>

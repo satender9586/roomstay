@@ -32,7 +32,6 @@ const CustomSelect = ({
               <SelectItem
                 key={obj?.id}
                 value={obj?.name}
-                className="capitalize"
               >
                 {obj?.name || "Default"}
               </SelectItem>
