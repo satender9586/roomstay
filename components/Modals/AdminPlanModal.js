@@ -12,32 +12,28 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import CustomSelect from "../Tools/CustomSelect";
-import { Input } from "@/components/ui/input";
 
 const planJson = [
   {
     id: "free",
-    name: "free",
-    price: "0",
+    name: "Free",
+    amount: "0",
   },
   {
     id: "silver",
-    name: "silver",
-    price: "500",
+    name: "Silver",
+    amount: "500",
   },
   {
     id: "gold",
-    name: "gold",
-    price: "1000",
+    name: "Gold",
+    amount: "1000",
   },
 ];
 
 const AdminPlanModal = ({ handleSuccess = false, children }) => {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({
-    price: "0",
-    plan: "free",
-  });
+  const [form, setForm] = useState({ amount: "0", plan: "Free" });
 
   const handleFormChange = ({ name, value }) => {
     const newForm = {
@@ -47,10 +43,9 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
       const selectedPlan = planJson?.find((obj) => {
         return obj?.name === value;
       });
-      newForm["price"] = selectedPlan?.price;
+      newForm["amount"] = selectedPlan?.amount;
     }
     newForm[name] = value;
-    console.log(newForm);
 
     setForm(newForm);
   };
@@ -61,12 +56,18 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleSuccess(form?.price);
+    handleSuccess(form?.amount);
+    setOpen(false);
     clearForm();
   };
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      open={open}
+      onOpenChange={(value) => {
+        setOpen(value);
+      }}
+    >
       <DialogTrigger asChild>
         {children ? children : <Button variant="outline">Create Hotel</Button>}
       </DialogTrigger>
@@ -82,19 +83,11 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
-                ₹ Price
+                ₹ Amount
               </Label>
-              <Input
-                name="price"
-                value={form?.price}
-                disabled
-                onChange={(e) =>
-                  handleFormChange(e.target.name, e.target.value)
-                }
-                id="name"
-                placeholder="$0"
-                className="col-span-3"
-              />
+              <div className="col-span-3  h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors text-slate-600 cursor-not-allowed">
+                {form?.amount || 0}
+              </div>
             </div>
 
             <div className="grid grid-cols-4 items-center gap-4">
@@ -114,8 +107,8 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
             </div>
           </div>
           <DialogFooter>
-            <Button disabled={form?.plan === "free"} type="submit">
-              Buy
+            <Button disabled={form?.plan === "Free"} type="submit">
+              Buy Plan
             </Button>
           </DialogFooter>
         </form>
