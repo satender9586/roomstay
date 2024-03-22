@@ -82,7 +82,7 @@ const ProtectedRoute = ({ children }) => {
 
     //If path not found then redirect admin to dashboard
     if (isBrowser() && pathNotFound) {
-      router.replace(ADMINPROTECTEDROUTES.DASHBOARD);
+      router.replace(ADMINROUTEOBJ.DASHBOARD);
     }
   };
 
