@@ -7,7 +7,7 @@ import DashboardContainer from '../../../components/Dashboard/DashboardContainer
 import { Button } from '@/components/ui/button'
 import { accountDeleteApi } from '../../../api/roomApi'
 import WarningModal from '../../../components/Modals/WarningModal'
-import { getProfile } from '../../../api/userApi'
+import { getProfile, updatePassword } from '../../../api/userApi'
 import { useDispatch, useSelector } from 'react-redux'
 import { clearAllCookies } from '../../../utils/cookies'
 import { clearUserSlice } from '../../../redux/reducers/userSlice'
@@ -15,8 +15,8 @@ import { clearUserSlice } from '../../../redux/reducers/userSlice'
 const Profile = () => {
     const userRedux = useSelector(state => state?.user)
     const [activeTab, setActiveTab] = useState(0)
-    const [profileForm, setProfileForm] = useState({ firstName: "", lastName: "", website: "", bio: "" })
-    const [privacyForm, setPrivacyForm] = useState({ password: "", confirmPassword: "" })
+    const [profileForm, setProfileForm] = useState({ firstName: "", lastName: "", website: "", bio: "", email: "" })
+
 
     const handleProfileValue = (e) => {
         const name = e.target.name
@@ -24,11 +24,7 @@ const Profile = () => {
         setProfileForm({ ...profileForm, [name]: value })
     }
 
-    const handlePrivacyValue = (e) => {
-        const name = e.target.name
-        const value = e.target.value;
-        setPrivacyForm({ ...privacyForm, [name]: value })
-    }
+
 
     const handleTabs = (tabNo = 0) => {
         setActiveTab(tabNo)
@@ -40,7 +36,8 @@ const Profile = () => {
             firstName: userRedux?.firstName,
             lastName: userRedux?.lastName,
             website: userRedux?.website || "",
-            bio: userRedux?.bio || ""
+            bio: userRedux?.bio || "",
+            email: userRedux?.email || ""
         }
 
         setProfileForm(obj)
@@ -81,7 +78,7 @@ const Profile = () => {
 
                 {
                     activeTab === 1 && (
-                        <PrivacySettings form={privacyForm} handleChange={handlePrivacyValue} />
+                        <PrivacySettings email={profileForm?.email} />
                     )
                 }
 
@@ -97,7 +94,6 @@ const Profile = () => {
 export default Profile
 
 const ProfileSettings = ({ form, handleChange }) => {
-    const userRedux = useSelector(state => state?.user)
     return (
         <div className='mt-8 flex flex-col gap-4 w-[700px]'>
             <div className="text-black text-lg font-bold">Profile</div>
@@ -105,21 +101,21 @@ const ProfileSettings = ({ form, handleChange }) => {
             <div className='flex justify-between'>
 
                 <div className='flex-[0.48]'>
-                    <Input value={form?.firstName} onChange={(value) => { handleChange(value) }} name="firstName" placeholder="Enter first name" label="First Name" />
+                    <Input value={form?.firstName} disabled onChange={(value) => { handleChange(value) }} name="firstName" placeholder="Enter first name" label="First Name" />
                 </div>
 
                 <div className='flex-[0.48]'>
-                    <Input value={form?.lastName} onChange={(value) => { handleChange(value) }} name="lastName" placeholder="Enter last name" label="Last Name" />
+                    <Input value={form?.lastName} disabled onChange={(value) => { handleChange(value) }} name="lastName" placeholder="Enter last name" label="Last Name" />
                 </div>
 
             </div>
 
-            <Input value={form?.website} onChange={(value) => { handleChange(value) }} name="website" placeholder="Enter your email" label="Personal Website" />
+            <Input value={form?.website} disabled onChange={(value) => { handleChange(value) }} name="website" placeholder="Enter your email" label="Personal Website" />
 
-            <TextArea value={form?.bio} onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
+            <TextArea value={form?.bio} disabled onChange={(value) => { handleChange(value) }} name="lastName" label='Bio' rows={5} placeholder="Something about yourself" />
 
             <div className='mt-4'>
-                <Button className="bg-[#202142] hover:bg-[#141531] w-[150px] py-1" size="lg">Save</Button>
+                <Button disabled className="bg-[#202142] hover:bg-[#141531] w-[150px] py-1" size="lg">Save</Button>
             </div>
 
             {/* <div className="text-black text-lg font-bold mt-2 ">Personal Website</div>
@@ -135,10 +131,43 @@ const ProfileSettings = ({ form, handleChange }) => {
 }
 
 
-const PrivacySettings = ({ form, handleChange }) => {
+const PrivacySettings = ({ email }) => {
     const router = useRouter()
     const [showPassword, setShowPassword] = useState(false)
     const dispatch = useDispatch()
+    const [privacyForm, setPrivacyForm] = useState({ oldPassword: "", newPassword: "", confirmPassword: "" })
+
+    const handleFormChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value;
+        setPrivacyForm({ ...privacyForm, [name]: value })
+    }
+
+    const clearPrivacyForm = () => {
+        setPrivacyForm({ oldPassword: "", newPassword: "", confirmPassword: "" })
+    }
+
+    const handleUpdatePassword = async () => {
+        if (privacyForm?.newPassword !== privacyForm?.confirmPassword || !privacyForm?.oldPassword) {
+            return;
+        }
+
+        try {
+            const apiData = {
+                oldPassword: privacyForm?.oldPassword,
+                newPassword: privacyForm?.newPassword,
+                confirmPassword: privacyForm?.confirmPassword
+            }
+            const response = await updatePassword(apiData)
+            if (response?.success) {
+                clearPrivacyForm()
+                setShowPassword(false)
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
 
     const handleDeleteAccount = async () => {
         try {
@@ -154,13 +183,13 @@ const PrivacySettings = ({ form, handleChange }) => {
     }
 
     return (
-        <div className='mt-8 w-[700px] flex flex-col'>
+        <div className='mt-8 w-[800px] flex flex-col'>
             <div className='flex'>
                 <div className='flex-[0.9] flex flex-col gap-2'>
                     <div className="text-black text-lg font-semibold">Email Address</div>
                     <div className="w-[60%] text-black text-md font-normal ">Your email address is {" "}
-                        <span className='font-bold'>
-                            email@private.com
+                        <span className='font-semibold text-slate-800'>
+                            {email}
                         </span>
                     </div>
 
@@ -189,15 +218,23 @@ const PrivacySettings = ({ form, handleChange }) => {
 
                         </div>
 
-                        <div>
+                        <div className='space-y-6'>
+
                             <div className='flex justify-between'>
-                                <div className='flex-[0.48]'>
-                                    <Input value={form?.password} onChange={(value) => { handleChange(value) }} name="password" placeholder="Enter new Password" label="New Password" />
-                                </div>
-                                <div className='flex-[0.48]'>
-                                    <Input value={form?.confirmPassword} onChange={(value) => { handleChange(value) }} name="confirmPassword" placeholder="Enter confirm Password" label="Confirm Password" />
+                                <div className='flex-1'>
+                                    <Input value={privacyForm?.oldPassword} onChange={(value) => { handleFormChange(value) }} name="oldPassword" placeholder="Enter new Password" label="Old Password" />
                                 </div>
                             </div>
+
+                            <div className='flex justify-between'>
+                                <div className='flex-[0.48]'>
+                                    <Input value={privacyForm?.newPassword} onChange={(value) => { handleFormChange(value) }} name="newPassword" placeholder="Enter new Password" label="New Password" />
+                                </div>
+                                <div className='flex-[0.48]'>
+                                    <Input value={privacyForm?.confirmPassword} onChange={(value) => { handleFormChange(value) }} name="confirmPassword" placeholder="Enter confirm Password" label="Confirm Password" />
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -217,7 +254,7 @@ const PrivacySettings = ({ form, handleChange }) => {
             {
                 showPassword && (
                     <div className='mt-6'>
-                        <Button disabled={form?.password?.length < 5 || form?.confirmPassword?.length < 5} className="bg-[#202142] hover:bg-[#141531] w-[186px] py-1 disabled:bg-gray-200" size="lg">Save Password</Button>
+                        <Button disabled={privacyForm?.newPassword?.length < 5 || privacyForm?.confirmPassword?.length < 5} className="bg-[#202142] hover:bg-[#141531] w-[186px] py-1 disabled:bg-gray-200" size="lg" onClick={handleUpdatePassword}>Save Password</Button>
                     </div>
                 )
             }

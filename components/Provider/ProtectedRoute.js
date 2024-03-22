@@ -34,7 +34,6 @@ const ProtectedRoute = ({ children }) => {
   const token = getUserToken();
 
   const fetchUser = async () => {
-    console.log(token, "mera token");
     if (token) {
       try {
         const response = await tokenVerification();
@@ -83,7 +82,7 @@ const ProtectedRoute = ({ children }) => {
 
     //If path not found then redirect admin to dashboard
     if (isBrowser() && pathNotFound) {
-      router.replace(ADMINPROTECTEDROUTES.DASHBOARD);
+      router.replace(ADMINROUTEOBJ.DASHBOARD);
     }
   };
 
