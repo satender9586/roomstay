@@ -94,7 +94,6 @@ const Profile = () => {
 export default Profile
 
 const ProfileSettings = ({ form, handleChange }) => {
-    const userRedux = useSelector(state => state?.user)
     return (
         <div className='mt-8 flex flex-col gap-4 w-[700px]'>
             <div className="text-black text-lg font-bold">Profile</div>
