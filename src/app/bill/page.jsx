@@ -5,12 +5,16 @@ import DashboardContainer from '../../../components/Dashboard/DashboardContainer
 import visaImg from "../../../assests/Images/visa.png"
 import AdminPlanModal from '../../../components/Modals/AdminPlanModal'
 import { loadRazorpayScript } from '../../../utils/payment'
-import { paymentInit } from '../../../api/payment'
+import { paymentInit } from '../../../api/paymentApi'
 import { ROOMSTAY_LOGO } from '../../../utils/constants'
+import { createOrder } from '../../../api/orderApi'
+import { useSelector } from 'react-redux'
 
 const Billing = () => {
+  const userRedux = useSelector((state) => state?.user)
+  console.log(userRedux)
 
-  const displayRazorpay = async (amountRupee) => {
+  const displayRazorpay = async ({ amountRupee, planId }) => {
     try {
       const res = await loadRazorpayScript();
 
@@ -27,8 +31,7 @@ const Billing = () => {
         return;
       }
 
-      const { amount, razorpayId, currency, KEY_ID } = result.data;
-      console.log(razorpayId, "payment init order id")
+      const { amount, razorpayId, currency, KEY_ID, paymentId } = result.data;
 
       const options = {
         key: KEY_ID, // Enter the Key ID generated from the Dashboard
@@ -39,35 +42,26 @@ const Billing = () => {
         image: ROOMSTAY_LOGO,
         order_id: razorpayId,
         handler: async function (response) {
+
           const data = {
             razorpayPaymentId: response.razorpay_payment_id,
             razorpayId: response.razorpay_order_id,
             razorpaySignature: response.razorpay_signature,
+            paymentId: paymentId,
+            plan: planId
           };
 
           try {
-            console.log("Razorpay payment", data)
-            // const response = await paymentSuccess(data)
-            // if (response.status) {
-            //     const apiData = {
-            //         cart: cart,
-            //         shippingAddress: shipping,
-            //         paymentId: response?.data?._id
-            //     }
-            //     const order = await createOrderApi(apiData)
-            //     if (order.status) {
-            //         navigate(`/order/${order?.orderId}`)
-            //         dispatch(clearCart())
-            //     }
-            // }
+            const response = await createOrder(data)
           } catch (error) {
             console.log(error)
           }
+
         },
         prefill: {
-          name: "Suraj",
-          email: "suraj23@gmail.com",
-          contact: "1285887788",
+          name: `${userRedux?.firstName} ${userRedux?.lastName}`,
+          email: userRedux?.email || "abc@mail.com",
+          contact: "9876543210",
         },
         notes: {
           address: "Roomstay Corporate",
@@ -84,8 +78,8 @@ const Billing = () => {
     }
   }
 
-  const handlePayment = (amount) => {
-    displayRazorpay(amount)
+  const handlePayment = ({ amountRupee, planId }) => {
+    displayRazorpay({ amountRupee, planId })
   }
 
   return (

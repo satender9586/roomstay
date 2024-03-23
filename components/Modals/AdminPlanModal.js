@@ -12,8 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import CustomSelect from "../Tools/CustomSelect";
-import { getPlans } from "../../api/payment";
-
+import { getPlans } from "../../api/paymentApi";
 
 const AdminPlanModal = ({ handleSuccess = false, children }) => {
   const [open, setOpen] = useState(false);
@@ -38,15 +37,11 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
     setForm(newForm);
   };
 
-  const clearForm = () => {
-    setForm({ name: "", plan: "" });
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    handleSuccess(form?.amount);
+    handleSuccess({ amountRupee: form?.amount, planId: form?.plan });
     setOpen(false);
-    clearForm();
   };
 
   const fetchPlans = async () => {
