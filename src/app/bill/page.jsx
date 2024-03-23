@@ -12,7 +12,6 @@ import { useSelector } from 'react-redux'
 
 const Billing = () => {
   const userRedux = useSelector((state) => state?.user)
-  console.log(userRedux)
 
   const displayRazorpay = async ({ amountRupee, planId }) => {
     try {
@@ -125,18 +124,25 @@ const Billing = () => {
           </div>
           <div className='flex-[0.4]'>
 
-            <div className="w-[265px] h-[221px] p-8 bg-[#FF493C] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
+            <div className={` ${userRedux?.plan === "free" ? "bg-gradient-to-r from-cyan-400 to-blue-500" : userRedux?.plan === "silver" ? "bg-gradient-to-r from-neutral-500 to-gray-300" : "bg-gradient-to-r from-amber-400 to-orange-500"} w-[265px] h-[221px] p-8 rounded-2xl shadow-lg || flex flex-col justify-start items-start gap-4`}>
               <div className="text-white text-base font-normal">Your plan</div>
 
               <div className="flex flex-col justify-start items-start gap-1">
-                <div className="text-white text-2xl font-bold">Pro Annual</div>
+                <div className="text-white text-2xl font-bold capitalize">{userRedux?.plan || "Free"}</div>
                 <div className="text-white text-sm font-normal">Renews on  Nov. 2021</div>
               </div>
 
-
-              <AdminPlanModal handleSuccess={handlePayment}>
-                <Button className="px-4 py-4 rounded-xl border border-white border-opacity-50 hover:bg-red-600 cursor-pointer text-white text-base font-normal">Upgrade Subscription</Button>
-              </AdminPlanModal>
+              {
+                userRedux?.plan === "free" ? (
+                  <AdminPlanModal handleSuccess={handlePayment}>
+                    <Button className="mt-2 py-5 px-8 rounded-full text-gray-600 font-medium text-md" variant="secondary">Upgrade Plan</Button>
+                  </AdminPlanModal>
+                ) : (
+                  <div className='text-2xl mt-2 font-semibold text-white'>
+                    180 Days Left
+                  </div>
+                )
+              }
 
             </div>
           </div>
