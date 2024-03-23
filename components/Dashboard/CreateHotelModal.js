@@ -2,7 +2,6 @@
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
 import {
-<<<<<<< HEAD
     Dialog,
     DialogContent,
     DialogDescription,
@@ -17,22 +16,6 @@ import CityJson from "../../utils/cities"
 import CustomTextArea from '../Tools/CustomTextArea'
 import CustomSelect from '../Tools/CustomSelect'
 import { createHotelApi } from '../../api/hotelApi'
-=======
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import CityJson from "../../utils/cities";
-import CustomTextArea from "../Tools/CustomTextArea";
-import CustomSelect from "../Tools/CustomSelect";
-import { createHotelApi } from "../../api/hotel";
->>>>>>> 02778c1 (room: room info page and and room listin page)
 
 const CreateHotelModal = ({ handleSuccess = false }) => {
   const [open, setOpen] = useState(false);
