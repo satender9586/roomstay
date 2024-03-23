@@ -31,7 +31,7 @@ const CustomSelect = ({
             return (
               <SelectItem
                 key={obj?.id}
-                value={obj?.name}
+                value={obj?.id}
               >
                 {obj?.name || "Default"}
               </SelectItem>

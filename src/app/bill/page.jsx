@@ -27,7 +27,8 @@ const Billing = () => {
         return;
       }
 
-      const { amount, order_id, currency, KEY_ID } = result.data;
+      const { amount, razorpayId, currency, KEY_ID } = result.data;
+      console.log(razorpayId, "payment init order id")
 
       const options = {
         key: KEY_ID, // Enter the Key ID generated from the Dashboard
@@ -36,14 +37,14 @@ const Billing = () => {
         name: "Roomstay Organization",
         description: "Test Transaction",
         image: ROOMSTAY_LOGO,
-        order_id: order_id,
+        order_id: razorpayId,
         handler: async function (response) {
           const data = {
-            orderCreationId: order_id,
             razorpayPaymentId: response.razorpay_payment_id,
-            razorpayOrderId: response.razorpay_order_id,
+            razorpayId: response.razorpay_order_id,
             razorpaySignature: response.razorpay_signature,
           };
+
           try {
             console.log("Razorpay payment", data)
             // const response = await paymentSuccess(data)
