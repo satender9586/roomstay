@@ -4,6 +4,7 @@ import Image from "next/image"
 import roomstayLogo from "../../assests/official/roomstay.png"
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
+import { PersonIcon } from "@radix-ui/react-icons";
 
 const Header = () => {
     const router = useRouter();
@@ -24,6 +25,8 @@ const Header = () => {
                             <Button className="rounded-full" onClick={() => router.push('/dashboard')}>Dashboard</Button>
                         ) : (
                             <>
+                                <Button variant="secondary" onClick={() => router.push('/order')} className="rounded-full"><PersonIcon/></Button>
+
                                 <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
                                 <Button onClick={() => router.push('/signup')}>Signup</Button>
                             </>

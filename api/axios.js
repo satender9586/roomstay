@@ -1,8 +1,7 @@
 import axios from 'axios';
-import { getToken } from '../utils/auth';
+import { getUserToken } from '../utils/cookies';
 
-
-const basePublicUrl = "http://localhost:3000"
+const basePublicUrl = process.env.NEXT_PUBLIC_URL
 
 const instance = axios.create({
     baseURL: basePublicUrl
@@ -11,7 +10,7 @@ const instance = axios.create({
 // Add request interceptor
 instance.interceptors.request.use(
     function (config) {
-        const token = getToken()
+        const token = getUserToken()
         if (token) {
             config.headers["Authorization"] = `Bearer ${token}`;
         }

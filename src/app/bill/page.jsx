@@ -1,15 +1,98 @@
 "use client"
+import Image from 'next/image'
 import { Button } from '@/components/ui/button'
 import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
 import visaImg from "../../../assests/Images/visa.png"
-import React from 'react'
-import Image from 'next/image'
+import AdminPlanModal from '../../../components/Modals/AdminPlanModal'
+import { loadRazorpayScript } from '../../../utils/payment'
+import { paymentInit } from '../../../api/payment'
+import { ROOMSTAY_LOGO } from '../../../utils/constants'
 
 const Billing = () => {
+
+  const displayRazorpay = async (amountRupee) => {
+    try {
+      const res = await loadRazorpayScript();
+
+      if (!res) {
+        alert("Razorpay SDK failed to load. Are you online?");
+        return;
+      }
+
+      // creating a new order
+      const result = await paymentInit({ amount: Math.floor(amountRupee * 100) })
+
+      if (!result) {
+        alert("Server error, Are you online?");
+        return;
+      }
+
+      const { amount, order_id, currency, KEY_ID } = result.data;
+
+      const options = {
+        key: KEY_ID, // Enter the Key ID generated from the Dashboard
+        amount: amount.toString(),
+        currency: currency,
+        name: "Roomstay Organization",
+        description: "Test Transaction",
+        image: ROOMSTAY_LOGO,
+        order_id: order_id,
+        handler: async function (response) {
+          const data = {
+            orderCreationId: order_id,
+            razorpayPaymentId: response.razorpay_payment_id,
+            razorpayOrderId: response.razorpay_order_id,
+            razorpaySignature: response.razorpay_signature,
+          };
+          try {
+            console.log("Razorpay payment", data)
+            // const response = await paymentSuccess(data)
+            // if (response.status) {
+            //     const apiData = {
+            //         cart: cart,
+            //         shippingAddress: shipping,
+            //         paymentId: response?.data?._id
+            //     }
+            //     const order = await createOrderApi(apiData)
+            //     if (order.status) {
+            //         navigate(`/order/${order?.orderId}`)
+            //         dispatch(clearCart())
+            //     }
+            // }
+          } catch (error) {
+            console.log(error)
+          }
+        },
+        prefill: {
+          name: "Suraj",
+          email: "suraj23@gmail.com",
+          contact: "1285887788",
+        },
+        notes: {
+          address: "Roomstay Corporate",
+        },
+        theme: {
+          color: "salmon",
+        },
+      };
+
+      const paymentObject = new window.Razorpay(options);
+      paymentObject.open();
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handlePayment = (amount) => {
+    displayRazorpay(amount)
+  }
+
   return (
     <DashboardContainer>
       <div>
         <div className="text-indigo-950 text-[32px] font-bold">Billing</div>
+
+
 
         <div className='mt-10 flex'>
           <div className='flex-[0.6] '>
@@ -47,7 +130,7 @@ const Billing = () => {
           </div>
           <div className='flex-[0.4]'>
 
-            <div className="w-[265px] h-[221px] p-8 bg-[#EE4D37] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
+            <div className="w-[265px] h-[221px] p-8 bg-[#FF493C] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
               <div className="text-white text-base font-normal">Your plan</div>
 
               <div className="flex flex-col justify-start items-start gap-1">
@@ -56,9 +139,10 @@ const Billing = () => {
               </div>
 
 
-              <div className="px-4 py-2 rounded-lg border border-white border-opacity-50 justify-start items-start gap-2.5 inline-flex hover:bg-red-600 cursor-pointer">
-                <div className="text-white text-base font-normal">Upgrade subscription</div>
-              </div>
+              <AdminPlanModal handleSuccess={handlePayment}>
+                <Button className="px-4 py-4 rounded-xl border border-white border-opacity-50 hover:bg-red-600 cursor-pointer text-white text-base font-normal">Upgrade Subscription</Button>
+              </AdminPlanModal>
+
             </div>
           </div>
 

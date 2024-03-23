@@ -11,11 +11,11 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
-import { getAdminHotelsApi } from '../../../api/hotel'
+import { getAdminHotelsApi } from '../../../api/hotelApi'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
-import { getAdminRoomByHotelApi } from '../../../api/room'
+import { getAdminRoomByHotelApi } from '../../../api/roomApi'
 
 const DashboardPage = () => {
     const searchParams = useSearchParams()
@@ -36,7 +36,7 @@ const DashboardPage = () => {
 
     const fetchAllRooms = async () => {
         try {
-            console.warn(hotelId,"hotel ki idd")
+            console.warn(hotelId, "hotel ki idd")
             const response = await getAdminRoomByHotelApi(hotelId);
             if (response.success) {
                 setRoomArr(response.data)
@@ -114,7 +114,7 @@ export function TableDemo({ hotelArr, roomArr, hotelId }) {
                         ))
                     ) : (
                         hotelArr.map((obj) => (
-                            <TableRow key={obj?._id} handleClick={() => { handleRoomRoute(obj?._id) }} className="cursor-pointer">
+                            <TableRow key={obj?._id} handleClick={() => { !hotelId && handleRoomRoute(obj?._id) }} className="cursor-pointer">
                                 <TableCell className="font-medium" >{obj?.name}</TableCell>
                                 <TableCell>{obj?.location}</TableCell>
                                 <TableCell>
