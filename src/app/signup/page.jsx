@@ -7,17 +7,35 @@ import { useRouter } from "next/navigation";
 import { signup } from "../../../api/userApi";
 import { useState } from "react";
 import { useDispatch } from 'react-redux';
+<<<<<<< HEAD
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { setEmail } from "../../../redux/reducers/userSlice";
+=======
+import { createAccount } from "../../../redux/reducers/userSlice";
+import * as Yup from 'yup';
+>>>>>>> 30332f8 (signup validation almost done)
 
 const Signup = () => {
     const router = useRouter();
     const dispatch = useDispatch()
 
     const [formValues, setFormValues] = useState({ fName: '', lName: '', email: '', password: '', confirmPassword: '', isAdmin: "" });
+<<<<<<< HEAD
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+=======
+    const [errors, setErrors] = useState({});
+
+    const validationSchema = Yup.object({
+        fName: Yup.string().required("First Name is required"),
+        lName: Yup.string().required("Last Name is required"),
+        email: Yup.string().required("Email is required").email("Invalid Email"),
+        password: Yup.string().required("Password is required").min(8, "Password must be at least 8 characters"),
+        confirmPassword: Yup.string().required("Confirm Password is required").oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    })
+
+>>>>>>> 30332f8 (signup validation almost done)
     const handleChecked = (e) => {
         setFormValues({ ...formValues, isAdmin: e.target.checked })
     }
@@ -25,17 +43,11 @@ const Signup = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        const newObject = { ...formValues, [name]: value };
-        setFormValues({ ...newObject });
+        setFormValues({ ...formValues, [name]: value });
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        if (!(formValues.fName && formValues.lName && formValues.email && formValues.password && formValues.confirmPassword)) {
-            alert("Please fill all the fields")
-            return
-        }
 
         const apiData = {
             "email": formValues.email,
@@ -45,16 +57,26 @@ const Signup = () => {
             "lastName": formValues.lName,
             "isAdmin": formValues.isAdmin
         }
-
+// Test@1234
         try {
+
+            await validationSchema.validate(formValues, { abortEarly: false });
+            console.log("Form Submitted", formValues);
             const response = await signup(apiData)
 
             if (response.success) {
                 dispatch(setEmail(formValues.email))
                 router.push("/otp")
+                setErrors({})
             }
         } catch (error) {
-            console.log(error)
+            const newErrors = {};
+
+            error.inner.forEach((err) => {
+                newErrors[err.path] = err.message;
+            });
+
+            setErrors(newErrors);
         }
     }
 
@@ -85,7 +107,7 @@ const Signup = () => {
                 </div>
 
                 <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <form onSubmit={handleSubmit}>
+                    <form className="form" onSubmit={handleSubmit}>
                         <div className="flex flex-col justify-center gap-8 p-16 w-full h-full ">
                             <div className="text-3xl pb-4">
                                 Create your account
@@ -99,6 +121,7 @@ const Signup = () => {
                                         value={formValues.fName}
                                         onChange={handleChange}
                                     />
+                                    {errors.fName && <div className="error text-xs pl-1 pt-1 text-red-600 font-semibold">{errors.fName}</div>}
                                 </div>
 
                                 <div>
@@ -108,6 +131,7 @@ const Signup = () => {
                                         value={formValues.lName}
                                         onChange={handleChange}
                                     />
+                                    {errors.lName && <div className="error text-xs pl-1 pt-1 text-red-600 font-semibold">{errors.lName}</div>}
                                 </div>
                             </div>
 
@@ -119,10 +143,12 @@ const Signup = () => {
                                     value={formValues.email}
                                     onChange={handleChange}
                                 />
+                                {errors.email && <div className="error text-xs pl-1 pt-1 text-red-600 font-semibold">{errors.email}</div>}
                             </div>
 
                             <div>
                                 <Label className=" font-semibold" >Password</Label>
+<<<<<<< HEAD
 
                                 <div className="relative">
                                     <Input
@@ -146,10 +172,19 @@ const Signup = () => {
 
                                     </div>
                                 </div>
+=======
+                                <Input type="password" placeholder="Enter password here" className="h-[50px]"
+                                    name='password'
+                                    value={formValues.password}
+                                    onChange={handleChange}
+                                />
+                                {errors.password && <div className="error text-xs pl-1 pt-1 text-red-600 font-semibold">{errors.password}</div>}
+>>>>>>> 30332f8 (signup validation almost done)
                             </div>
 
                             <div>
                                 <Label className=" font-semibold" >Confirm Password</Label>
+<<<<<<< HEAD
 
                                 <div className="relative">
 
@@ -172,12 +207,19 @@ const Signup = () => {
 
                                 </div>
 
+=======
+                                <Input type="password" placeholder="Enter confirm password here" className="h-[50px]"
+                                    name='confirmPassword'
+                                    value={formValues.confirmPassword}
+                                    onChange={handleChange}
+                                />
+                                {errors.confirmPassword && <div className="error text-xs pl-1 pt-1 text-red-600 font-semibold">{errors.confirmPassword}</div>}
+>>>>>>> 30332f8 (signup validation almost done)
                             </div>
 
                             <div className="flex items-center justify-start gap-2">
                                 <input type="checkbox" className="size-6" checked={formValues.isAdmin} name="isAdmin" onChange={handleChecked} />
                                 <Label className=" font-semibold" >Join as property owner </Label>
-
                             </div>
                             <Button className="w-[450px] h-[60px] rounded-xl  bg-neutral-700 hover:bg-neutral-900" onClick={handleSubmit}>Sign up</Button>
                         </div>
