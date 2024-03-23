@@ -24,17 +24,6 @@ const Header = () => {
                             <Button className="rounded-full" onClick={() => router.push('/dashboard')}>Dashboard</Button>
                         ) : (
                             <>
-                                <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
-                                <Button onClick={() => router.push('/signup')}>Signup</Button>
-                            </>
-                        )
-                    }
-
-                    {
-                        isAdmin ? (
-                            <Button className="rounded-full" onClick={() => router.push('/dashboard')}>Dashboard</Button>
-                        ) : (
-                            <>
                                 <Button variant="secondary" onClick={() => router.push('/order')} className="rounded-full"><PersonIcon/></Button>
                                 <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
                                 <Button onClick={() => router.push('/signup')}>Signup</Button>
@@ -48,4 +37,3 @@ const Header = () => {
 }
 
 export default Header;
-
