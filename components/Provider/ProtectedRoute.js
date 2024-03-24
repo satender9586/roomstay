@@ -21,6 +21,7 @@ const UNPROTECTEDROUTEOBJ = Object.freeze({
   LOGIN: "/login",
   SIGN_UP: "/signup",
   FORGET: "/forget",
+  FORGET: "/order",
 });
 
 //check if you are on the client (browser) or server

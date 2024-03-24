@@ -7,14 +7,20 @@ import { FaRupeeSign } from "react-icons/fa";
 
 
 const RoomListing = () => {
+  const arryLength = Array.from({ length: 4 });
+
+
+
   return (
     <div className='container mb-16'>
       <div className='p-4 grid grid-cols-5 gap-4 '>
-        <div className='col-span-1'>
+        <div className='col-span-1 mt-3'>
           <h1 className='font-md  text-sm md:text-[1.4rem]'>Filter</h1>
         </div>
         <div className='col-span-4 '>
-          <div className='grid grid-cols-5 gap-4'>
+         {
+          arryLength.map((data,index)=>(
+            <div className='grid grid-cols-5 gap-5 mt-3'>
             <div className='col-span-2'>
               <div>
                 <img
@@ -45,6 +51,8 @@ const RoomListing = () => {
               </div>
             </div>
           </div>
+          ))
+         }
         </div>
       </div>
     </div>
