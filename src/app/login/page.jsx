@@ -13,7 +13,7 @@ import { setUserSlice } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
 
 const Login = () => {
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
     const router = useRouter();
     const [formValues, setFormValues] = useState({ email: '', password: "" });
     const [showPassword, setShowPassword] = useState(false);
@@ -118,7 +118,7 @@ const Login = () => {
 
 
                 </div>
-                <div className="h-[800px] w-full bg-[#1E8FD5] rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-red-500 to-orange-400" >
+                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-emerald-400 to-emerald-600">
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />

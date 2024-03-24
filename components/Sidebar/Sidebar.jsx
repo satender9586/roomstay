@@ -63,11 +63,11 @@ const SideBar = () => {
                     <div className=" font-normal">Billing</div>
                 </div>
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/settings")}>
+                {/* <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/settings")}>
                     <HoverLine />
                     <GearIcon className="size-4" />
                     <div className=" font-normal">Settings</div>
-                </div>
+                </div> */}
 
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={handleLogOut}>
                     <HoverLine />

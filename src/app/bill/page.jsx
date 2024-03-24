@@ -5,12 +5,15 @@ import DashboardContainer from '../../../components/Dashboard/DashboardContainer
 import visaImg from "../../../assests/Images/visa.png"
 import AdminPlanModal from '../../../components/Modals/AdminPlanModal'
 import { loadRazorpayScript } from '../../../utils/payment'
-import { paymentInit } from '../../../api/payment'
+import { paymentInit } from '../../../api/paymentApi'
 import { ROOMSTAY_LOGO } from '../../../utils/constants'
+import { createOrder } from '../../../api/orderApi'
+import { useSelector } from 'react-redux'
 
 const Billing = () => {
+  const userRedux = useSelector((state) => state?.user)
 
-  const displayRazorpay = async (amountRupee) => {
+  const displayRazorpay = async ({ amountRupee, planId }) => {
     try {
       const res = await loadRazorpayScript();
 
@@ -27,7 +30,7 @@ const Billing = () => {
         return;
       }
 
-      const { amount, order_id, currency, KEY_ID } = result.data;
+      const { amount, razorpayId, currency, KEY_ID, paymentId } = result.data;
 
       const options = {
         key: KEY_ID, // Enter the Key ID generated from the Dashboard
@@ -36,37 +39,28 @@ const Billing = () => {
         name: "Roomstay Organization",
         description: "Test Transaction",
         image: ROOMSTAY_LOGO,
-        order_id: order_id,
+        order_id: razorpayId,
         handler: async function (response) {
+
           const data = {
-            orderCreationId: order_id,
             razorpayPaymentId: response.razorpay_payment_id,
-            razorpayOrderId: response.razorpay_order_id,
+            razorpayId: response.razorpay_order_id,
             razorpaySignature: response.razorpay_signature,
+            paymentId: paymentId,
+            plan: planId
           };
+
           try {
-            console.log("Razorpay payment", data)
-            // const response = await paymentSuccess(data)
-            // if (response.status) {
-            //     const apiData = {
-            //         cart: cart,
-            //         shippingAddress: shipping,
-            //         paymentId: response?.data?._id
-            //     }
-            //     const order = await createOrderApi(apiData)
-            //     if (order.status) {
-            //         navigate(`/order/${order?.orderId}`)
-            //         dispatch(clearCart())
-            //     }
-            // }
+            const response = await createOrder(data)
           } catch (error) {
             console.log(error)
           }
+
         },
         prefill: {
-          name: "Suraj",
-          email: "suraj23@gmail.com",
-          contact: "1285887788",
+          name: `${userRedux?.firstName} ${userRedux?.lastName}`,
+          email: userRedux?.email || "abc@mail.com",
+          contact: "9876543210",
         },
         notes: {
           address: "Roomstay Corporate",
@@ -83,8 +77,8 @@ const Billing = () => {
     }
   }
 
-  const handlePayment = (amount) => {
-    displayRazorpay(amount)
+  const handlePayment = ({ amountRupee, planId }) => {
+    displayRazorpay({ amountRupee, planId })
   }
 
   return (
@@ -130,18 +124,25 @@ const Billing = () => {
           </div>
           <div className='flex-[0.4]'>
 
-            <div className="w-[265px] h-[221px] p-8 bg-[#FF493C] rounded-2xl shadow || flex flex-col justify-start items-start gap-4">
+            <div className={` ${userRedux?.plan === "free" ? "bg-gradient-to-r from-cyan-400 to-blue-500" : userRedux?.plan === "silver" ? "bg-gradient-to-r from-neutral-500 to-gray-300" : "bg-gradient-to-r from-amber-400 to-orange-500"} w-[265px] h-[221px] p-8 rounded-2xl shadow-lg || flex flex-col justify-start items-start gap-4`}>
               <div className="text-white text-base font-normal">Your plan</div>
 
               <div className="flex flex-col justify-start items-start gap-1">
-                <div className="text-white text-2xl font-bold">Pro Annual</div>
+                <div className="text-white text-2xl font-bold capitalize">{userRedux?.plan || "Free"}</div>
                 <div className="text-white text-sm font-normal">Renews on  Nov. 2021</div>
               </div>
 
-
-              <AdminPlanModal handleSuccess={handlePayment}>
-                <Button className="px-4 py-4 rounded-xl border border-white border-opacity-50 hover:bg-red-600 cursor-pointer text-white text-base font-normal">Upgrade Subscription</Button>
-              </AdminPlanModal>
+              {
+                userRedux?.plan === "free" ? (
+                  <AdminPlanModal handleSuccess={handlePayment}>
+                    <Button className="mt-2 py-5 px-8 rounded-full text-gray-600 font-medium text-md" variant="secondary">Upgrade Plan</Button>
+                  </AdminPlanModal>
+                ) : (
+                  <div className='text-2xl mt-2 font-semibold text-white'>
+                    180 Days Left
+                  </div>
+                )
+              }
 
             </div>
           </div>
