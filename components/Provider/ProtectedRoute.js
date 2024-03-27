@@ -1,161 +1,135 @@
-"use client"
-import { useEffect, useLayoutEffect, useState } from "react";
-import { useDispatch, useSelector } from 'react-redux';
-import Loader from "../Tools/Loader";
-import { tokenVerificationAsync } from "../../redux/reducers/userSlice";
-import { useNavigate } from "react-router-dom";
+"use client";
+import { useEffect, useState } from "react";
+import { tokenVerification } from "../../api/userApi";
+import { getUserToken } from "../../utils/cookies";
+import { useRouter } from "next/navigation";
+import { giveUserSliceObj } from "../../utils/sliceMethod";
+import { useDispatch } from "react-redux";
+import { setUserSlice } from "../../redux/reducers/userSlice";
 
-export const ADMINPROTECTEDROUTES = Object.freeze({
-    DASHBOARD: '/dashboard',
-    PRODUCT_ADD: '/addProduct',
-    EDIT_PRODUCT: '/editProduct',
-    CONTACT_EMAIL: '/mails',
-})
+export const ADMINROUTEOBJ = Object.freeze({
+  DASHBOARD: "/dashboard",
+  BILL: "/bill",
+});
 
-export const USERPROTECTEDROUTES = Object.freeze({
-    SINGLE_ORDER:"/order",
-    ORDERS: "/orders"
-})
+export const USERROUTEOBJ = Object.freeze({
+  LANDING: "/",
+});
 
-const NORMALROUTES = Object.freeze({
-    LANDING: '/',
-    LOGIN: '/login',
-    SIGN_UP: '/signup',
-    SHOP: '/shop',
-    ABOUT: '/about',
-    CONTACT: '/contact',
-    CART: "/cart",
-})
-
-
-
-
+const UNPROTECTEDROUTEOBJ = Object.freeze({
+  LANDING: "/",
+  LOGIN: "/login",
+  SIGN_UP: "/signup",
+  FORGET: "/forget",
+  FORGET: "/order",
+});
 
 //check if you are on the client (browser) or server
 const isBrowser = () => typeof window !== "undefined";
 
 const ProtectedRoute = ({ children }) => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const [isLoading, setIsLoading] = useState(false)
-    const { status, isUserLogged, isAdminLogged } = useSelector((state) => state?.user)
-    // console.log(isUserLogged, isAdminLogged, "selector", status)
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const token = getUserToken();
 
-    const checkUserAuthentication = () => {
-        if (status === "success") {
+  const fetchUser = async () => {
+    if (token) {
+      try {
+        const response = await tokenVerification();
 
-            if (isAdminLogged) {
-                checkAdminProtectedRoutes()
-            }
-            else if (isUserLogged) {
-                checkUserProtectedRoutes()
-            }
-            else {
-                checkUnprotecedRoutes()
-            }
-            setIsLoading(false)
+        // If response is success then check if user is admin or user.
+        // If user is admin then find in admin route check function.
+        // If user is user then find in user route check function.
+        // If user is not admin or user then check for unprotected routes
 
-        } else if (status === "error") {
-            checkUnprotecedRoutes()
-            setIsLoading(false)
+        if (response?.success) {
+          // Set user details in redux ( User Slice )
+
+          if(response?.user)
+          {
+            const userObj = giveUserSliceObj(response?.user);
+            dispatch(setUserSlice(userObj));
+          }
+
+          if (response?.user?.isAdmin) {
+            adminProtectedRoutesFun();
+          } else {
+            userProtectedRoutesFun();
+          }
+        } else {
+          unprotecedRoutesFun();
         }
+      } catch (error) {
+        console.log(error, "error");
+        // check in unprotected routes
+        unprotecedRoutesFun();
+      }
 
-    }
-
-
-    const checkAdminProtectedRoutes = () => {
-        // Admin logged In
-        let myRoutes = [
-            ADMINPROTECTEDROUTES.DASHBOARD,
-            ADMINPROTECTEDROUTES.PRODUCT_ADD,
-            ADMINPROTECTEDROUTES.EDIT_PRODUCT,
-            ADMINPROTECTEDROUTES.CONTACT_EMAIL,
-            ADMINPROTECTEDROUTES.SERVICE_DETAIL
-        ];
-
-        let currentPath = location.pathname; 
-        let pathNotFound = myRoutes.indexOf(currentPath) === -1;
-
-        //If path not found then redirect admin to dashboard
-        if (isBrowser() && pathNotFound) {
-            navigate(ADMINPROTECTEDROUTES.DASHBOARD);
-        }
-    }
-
-
-    const checkUserProtectedRoutes = () => {
-        // User logged In
-        let myRoutes = [
-            NORMALROUTES.LANDING,
-            NORMALROUTES.SHOP,
-            NORMALROUTES.ABOUT,
-            NORMALROUTES.CONTACT,
-            NORMALROUTES.CART,
-            USERPROTECTEDROUTES.ORDERS,
-            USERPROTECTEDROUTES.SINGLE_ORDER,
-        ];
-
-        let currentPath = location.pathname;
-        
-        // Our order path is /order/12345 something, so we have to slice path to compare
-        if(currentPath.slice(0,6)===USERPROTECTEDROUTES.SINGLE_ORDER)
-        {
-            currentPath="/order"
-        }
-
-        let pathNotFound = myRoutes.indexOf(currentPath) === -1;
-
-        // When path not found in my routes make it redirect to index page
-        if (isBrowser() && pathNotFound) {
-            navigate(NORMALROUTES.LANDING);
-        }
-    }
-
-
-    const checkUnprotecedRoutes = () => {
-        // User not logged In
-        let myRoutes = [
-            NORMALROUTES.LANDING,
-            NORMALROUTES.LOGIN,
-            NORMALROUTES.SIGN_UP,
-            NORMALROUTES.FORGET,
-            NORMALROUTES.SHOP,
-            NORMALROUTES.ABOUT,
-            NORMALROUTES.CONTACT,
-            NORMALROUTES.CART,
-        ];
-
-        let currentPath = location.pathname;
-
-        let pathNotFound = myRoutes.indexOf(currentPath) === -1;
-
-        // When path not found in my routes make it redirect to index page
-        if (isBrowser() && pathNotFound) {
-            navigate(NORMALROUTES.LANDING);
-        }
-
-
-    }
-
-
-    useEffect(() => {
-        // Fetch user details when render
-        checkUserAuthentication()
-    }, [isUserLogged, isAdminLogged, status])
-
-    useLayoutEffect(() => {
-        setIsLoading(true)
-        dispatch(tokenVerificationAsync());
-    }, [])
-
-    if (isLoading) {
-        return <Loader />
+      setIsLoading(false);
     } else {
-        return children;
+      unprotecedRoutesFun();
+      setIsLoading(false);
     }
+  };
 
+  const adminProtectedRoutesFun = () => {
+    // Admin logged In
+    let myRoutes = [ADMINROUTEOBJ.DASHBOARD, ADMINROUTEOBJ.BILL];
+
+    let currentPath = location.pathname;
+    let pathNotFound = myRoutes.indexOf(currentPath) === -1;
+
+    //If path not found then redirect admin to dashboard
+    if (isBrowser() && pathNotFound) {
+      router.replace(ADMINROUTEOBJ.DASHBOARD);
+    }
+  };
+
+  const userProtectedRoutesFun = () => {
+    // User logged In
+    let myRoutes = [USERROUTEOBJ.LANDING];
+
+    let currentPath = location.pathname;
+
+    let pathNotFound = myRoutes.indexOf(currentPath) === -1;
+
+    console.log(currentPath, pathNotFound, myRoutes, "currentPath");
+    // When path not found in my routes make it redirect to index page
+    if (isBrowser() && pathNotFound) {
+      router.replace(UNPROTECTEDROUTEOBJ.LANDING);
+    }
+  };
+
+  const unprotecedRoutesFun = () => {
+    // User not logged In
+    let myRoutes = [
+      UNPROTECTEDROUTEOBJ.LANDING,
+      UNPROTECTEDROUTEOBJ.LOGIN,
+      UNPROTECTEDROUTEOBJ.SIGN_UP,
+      UNPROTECTEDROUTEOBJ.FORGET,
+    ];
+
+    let currentPath = location.pathname;
+
+    let pathNotFound = myRoutes.indexOf(currentPath) === -1;
+
+    // When path not found in my routes make it redirect to index page
+    if (isBrowser() && pathNotFound) {
+      router.replace(UNPROTECTEDROUTEOBJ.LANDING);
+    }
+  };
+
+  useEffect(() => {
+    // Fetch user details when render
+    fetchUser();
+  }, []);
+
+  if (isLoading) {
+    return null; // Ignore this loading or you can implement loading functionality
+  } else {
+    return children;
+  }
 };
 
 export default ProtectedRoute;
-
-

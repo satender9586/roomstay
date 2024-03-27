@@ -4,15 +4,13 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter, useSearchParams } from "next/navigation";
-import { changePassword, forget, otpVerify, resendOtp } from "../../../api/authentication";
+import { changePassword, forget, otpVerify, resendOtp } from "../../../api/userApi";
 import { useSelector } from "react-redux";
 import { CheckCircledIcon } from "@radix-ui/react-icons";
 
-
 const Otp = () => {
 
-    const emailRex = useSelector((state) => state?.user?.userObj?.email);
-    const emailForgetRex = useSelector((state) => state?.user?.email);
+    const emailRedux = useSelector((state) => state?.user?.email);
     const router = useRouter();
     const searchParams = useSearchParams()
     const type = searchParams?.get('type') || false
@@ -41,15 +39,15 @@ const Otp = () => {
                 return
             }
 
-            const dummyData = {
+            const apiData = {
                 "otp": formValues.otp,
-                "email": emailForgetRex,
+                "email": emailRedux,
                 "password": formValues.password,
                 "confirmPassword": formValues.confirmPassword
             }
 
             try {
-                const response = await changePassword(dummyData);
+                const response = await changePassword(apiData);
                 if (response.success) {
                     router.push("/login")
                     alert("Password changed successfully")
@@ -68,13 +66,13 @@ const Otp = () => {
 
         const dummyData = {
             "otp": formValues.otp,
-            "email": emailRex
+            "email": emailRedux
         }
 
         try {
             const response = await otpVerify(dummyData);
             if (response.success) {
-                router.push("/dashboard")
+                router.push("/login")
             }
         } catch (error) {
             console.log(error)
@@ -87,7 +85,7 @@ const Otp = () => {
 
         if (type === "forget") {
             const dummyData = {
-                "email": emailForgetRex,
+                "email": emailRedux,
             }
 
             try {
@@ -101,7 +99,7 @@ const Otp = () => {
             }
         }
         const dummyData = {
-            "email": emailRex
+            "email": emailRedux
         }
 
         try {
@@ -159,7 +157,7 @@ const Otp = () => {
                     </div>
 
                 </div>
-                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#B78FE8, rgb(139,92,246)" }}>
+                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20" style={{ background: "linear-gradient(#ec008c, #fc6767" }}>
                     <div className="flex flex-col gap-8 ">
                         <div className="flex flex-col w-[240px] gap-2">
                             <CheckCircledIcon color="white" width={32} height={32} />

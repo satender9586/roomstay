@@ -21,7 +21,7 @@ import { PaperPlaneIcon } from "@radix-ui/react-icons"
 
 const Content = () => {
     return (
-        <div className="bg-[#26e599] py-16 w-full flex flex-col justify-center items-center ">
+        <div className="bg-emerald-500 py-16 w-full flex flex-col justify-center items-center ">
             <div className="w-full h-full container">
                 <div className="flex flex-col gap-2 mb-20">
                     <div className="flex items-center gap-2">
@@ -98,7 +98,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Create</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -121,7 +121,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Manage</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -144,7 +144,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Distribute</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">
@@ -167,7 +167,7 @@ const Content = () => {
                             <CardHeader>
                                 <CardTitle>Analyse</CardTitle>
                                 <CardDescription>
-                                    Change your password here. After saving, you'll be logged out.
+                                    Change your password here. After saving, you will be logged out.
                                 </CardDescription>
                             </CardHeader>
                             <CardContent className="space-y-2">

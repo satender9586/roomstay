@@ -1,5 +1,17 @@
 
-# RoomStay 🚀
+# Roomstay Live
+
+https://roomstay.netlify.app/
+
+
+## Roomstay Backend Repository
+
+[Roomstay Backend](https://github.com/Jai-singh-2000/roomstay_backend)
+
+Checkout this repository to clone our backend
+
+
+## RoomStay 
 
 RoomStay helps you to find rooms for renting near your location.
 It is a personal project. You can use and modify code to add new features for yourself. 

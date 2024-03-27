@@ -26,7 +26,7 @@ const Growth = () => {
                                 <div className='h-full flex flex-col items-center justify-center p-7 gap-2'>
                                     <Image src={clockImg} className='w-16 h-16'/>
                                     <div className='font-bold'>Site Speed</div>
-                                    <div className='text-center font-sans text-md'>Fast storefronts, Don't take our word for it , start selling online and see it for yourself!</div>
+                                    <div className='text-center font-sans text-md'>Fast storefronts, Do not take our word for it , start selling online and see it for yourself!</div>
                                 </div>
                             </div>
                             <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg">
@@ -56,7 +56,7 @@ const Growth = () => {
                                 <div className='h-full flex flex-col items-center justify-center p-7 gap-2'>
                                     <Image src={androidImg} className='w-16 h-16'/>
                                     <div className='font-bold'>Site Speed</div>
-                                    <div className='text-center font-sans text-md'>The world is mobile, It's time your store is too. Get more loyal customers with your mobile app.</div>
+                                    <div className='text-center font-sans text-md'>The world is mobile, It is time your store is too. Get more loyal customers with your mobile app.</div>
                                 </div>
                             </div>
                             <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg">

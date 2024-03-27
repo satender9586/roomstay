@@ -4,26 +4,29 @@ import userImg from "../../assests/Images/user.png"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
-import { removeCredentials } from '../../utils/auth'
+import { clearAllCookies } from '../../utils/cookies'
+import { useDispatch } from 'react-redux'
+import { clearUserSlice } from '../../redux/reducers/userSlice'
 
 const SideBar = () => {
     const router = useRouter()
-    
-    const handleRoute=(route="")=>{
-        if(route)
-        {
+    const dispatch = useDispatch()
+
+    const handleRoute = (route = "") => {
+        if (route) {
             router.push(route)
         }
     }
 
-    const handleLogOut=()=>{
-        removeCredentials()
+    const handleLogOut = () => {
+        clearAllCookies()
+        dispatch(clearUserSlice())
         router.push("/")
     }
 
     return (
 
-        <div className='w-72 h-[100dvh] | px-6  bg-[#e8442e]'>
+        <div className='w-72 h-[100dvh] | px-6  bg-[#ff493c]'>
 
             <div className='flex py-8'>
 
@@ -41,34 +44,34 @@ const SideBar = () => {
             <div className='flex flex-col gap-1 text-white text-lg'>
 
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/dashboard")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/dashboard")}>
                     <HoverLine />
-                    <HomeIcon className="size-4"/>
+                    <HomeIcon className="size-4" />
                     <div className=" font-normal">Dashboard</div>
                 </div>
 
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/profile")}>
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/profile")}>
                     <HoverLine />
-                    <PersonIcon className="size-4"/>
-                    <div className=" font-normal">Profile</div>
+                    <PersonIcon className="size-4" />
+                    <div className=" font-normal">Account</div>
                 </div>
-                
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/bill")}>
+
+                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/bill")}>
                     <HoverLine />
-                    <MixIcon className="size-4"/>
+                    <MixIcon className="size-4" />
                     <div className=" font-normal">Billing</div>
                 </div>
 
-                <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={()=>handleRoute("/settings")}>
+                {/* <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={() => handleRoute("/settings")}>
                     <HoverLine />
-                    <GearIcon className="size-4"/>
+                    <GearIcon className="size-4" />
                     <div className=" font-normal">Settings</div>
-                </div>
+                </div> */}
 
                 <div className="h-12 pr-2 py-2 | flex justify-start items-center gap-2.5 | group | cursor-pointer" onClick={handleLogOut}>
                     <HoverLine />
-                    <ExitIcon className="size-4"/>
+                    <ExitIcon className="size-4" />
                     <div className=" font-normal">Log out</div>
                 </div>
 
