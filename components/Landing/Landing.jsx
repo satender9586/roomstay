@@ -17,8 +17,8 @@ import RoomListing from './RoomListing'
 const Landing = () => {
     return (
         <>
-           <RoomInfo/>
-           <RoomListing/>
+           {/* <RoomInfo/> */}
+           {/* <RoomListing/> */}
             <Header/>
             <Main />
             <Offer />

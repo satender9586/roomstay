@@ -19,6 +19,7 @@ const Header = () => {
                 </div>
                 <div className=" sm:flex space-x-4">
                     <div className="flex items-center mr-2 cursor-pointer" onClick={() => { router.push('/dashboard'); setToken(token) }}>Dashboard</div>
+                    <Button variant="secondary" >Hotels </Button>
                     <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>
                     <Button onClick={() => router.push('/signup')}>Signup</Button>
                 </div>
