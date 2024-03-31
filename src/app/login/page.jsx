@@ -11,7 +11,6 @@ import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { giveUserSliceObj } from "../../../utils/sliceMethod";
 import { setUserSlice } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
-import Header from "../../../components/Landing/Header";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -64,7 +63,7 @@ const Login = () => {
 
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="mt-10 flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl ">
+            <div className="my-10 flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl ">
 
 
                 <div className="flex flex-col flex-[0.8] lg:flex-[0.5] gap-6 items-center justify-center ">
