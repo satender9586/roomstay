@@ -11,6 +11,8 @@ import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { giveUserSliceObj } from "../../../utils/sliceMethod";
 import { setUserSlice } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
+import roomstayLogo from "../../../assests/official/roomstay.png"
+import Image from "next/image";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -63,7 +65,9 @@ const Login = () => {
 
     return (
         <div className="flex flex-col justify-center items-center">
-            <div className="my-10 flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl ">
+            <div className="flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl relative py-10 ">
+
+                <Image src={roomstayLogo} onClick={() => router.push("/")} alt="Logo" width={32} height={32} className="size-8 absolute top-5 left-4 cursor-pointer" />
 
 
                 <div className="flex flex-col flex-[0.8] lg:flex-[0.5] gap-6 items-center justify-center ">
