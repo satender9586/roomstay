@@ -11,6 +11,7 @@ import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
 import { giveUserSliceObj } from "../../../utils/sliceMethod";
 import { setUserSlice } from "../../../redux/reducers/userSlice";
 import { useDispatch } from "react-redux";
+import Header from "../../../components/Landing/Header";
 
 const Login = () => {
     const dispatch = useDispatch()
@@ -62,15 +63,28 @@ const Login = () => {
     }
 
     return (
+        <div className="flex flex-col justify-center items-center">
+            <div className="mt-10 flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl ">
 
-        <div className="flex flex-col justify-center items-center p-5 bg-slate-50 h-[100dvh]">
-            <div className=" flex flex-row  justify-center items-center w-full h-fill lg:w-[1110px] md:w-[800px] sm:w-[700px] p-10 bg-white border rounded-3xl shadow-sm  ">
-                <div className=" w-full  flex-[1.3] flex flex-col items-center justify-center ">
-                    <form onSubmit={handleSubmit}>
-                        <div className="flex flex-col justify-center gap-8  w-full h-full ">
-                            <div className="text-3xl pb-4">
-                                Login your account
-                            </div>
+
+                <div className="flex flex-col flex-[0.8] lg:flex-[0.5] gap-6 items-center justify-center ">
+
+                    <div className="flex flex-col items-center space-y-4">
+                        <div className="text-2xl sm:text-4xl font-semibold">
+                            Welcome back!
+                        </div>
+                        <div className="text-xs font-normal text-center w-[80%] lg:w-[60%]">
+                            Simplify your workflow and boost your productivity with{" "}
+                            <span className="font-bold text-orange-500">
+                                Roomstay
+                            </span>
+                            . Get started for free
+                        </div>
+                    </div>
+
+                    <form onSubmit={handleSubmit} className="w-full">
+                        <div className="flex flex-col justify-center gap-8 mb-10 w-full h-full ">
+
 
                             <div>
                                 <Label className=" font-semibold" >Email</Label>
@@ -98,48 +112,49 @@ const Login = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-10">
-                            <Button className="w-[450px] h-[60px] rounded-xl bg-neutral-700 hover:bg-neutral-900">Login</Button>
-                        </div>
+                        <Button className="w-full py-6 rounded-2xl bg-neutral-900 hover:bg-neutral-800">Login</Button>
                     </form>
 
-                    <div className="pt-6 pb-4">
-                        <div className=" cursor-pointer">
-                            Don’t Have an Account ? <span className="text-green-500" onClick={() => { router.push("/signup") }}>Sign up</span>
-                        </div>
-                    </div>
+                    <div className="flex flex-col items-center gap-2 text-sm">
 
-                    <div className="flex items-start">
-                        <div className=" cursor-pointer">
-                            Forget Account ? <span className="text-green-500" onClick={() => { router.push("/forget") }}> Forget</span>
+                        <div>
+                            Don’t Have an Account ? <span className="text-green-600 font-semibold cursor-pointer" onClick={() => { router.push("/signup") }}>Sign up</span>
                         </div>
-                    </div>
 
+                        <div>
+                            Forget Account ? <span className=" text-red-400 font-semibold cursor-pointer" onClick={() => { router.push("/forget") }}> Forget</span>
+                        </div>
+
+                    </div>
 
 
                 </div>
-                <div className="h-[800px] w-full rounded-2xl flex flex-[0.7] p-20 bg-gradient-to-r from-emerald-400 to-emerald-600">
-                    <div className="flex flex-col gap-8 ">
-                        <div className="flex flex-col w-[240px] gap-2">
-                            <CheckCircledIcon color="white" width={32} height={32} />
-                            <div className="text-xl text-white">Quick and free log-in</div>
-                            <div className="text-sm text-white">Enter your email address to login an account.</div>
+
+                <div className="hidden lg:flex w-full flex-[0.25] rounded-2xl lg:pt-12 lg:pb-24 lg:px-8 xl:pt-16 xl:pb-20 xl:pl-10 bg-gradient-to-r from-red-500 to-orange-500">
+                    <div className="flex flex-col gap-8 min-w-[200px]">
+                        <div className="flex flex-col w-full gap-2">
+                            <CheckCircledIcon color="white" width={28} height={28} />
+                            <div className="text-md xl:text-lg text-white">Quick and free log-in</div>
+                            <div className="text-xs text-white">Enter your email address to login an account.</div>
                         </div>
-                        <div className="flex flex-col  w-[240px] gap-2">
-                            <CheckCircledIcon color="white" width={32} height={32} />
-                            <div className="text-xl text-white">Cross-platform soluation</div>
-                            <div className="text-sm text-white">Preview your newsletters on any device before sending them out</div>
+                        <div className="flex flex-col  w-full gap-2">
+                            <CheckCircledIcon color="white" width={28} height={28} />
+                            <div className="text-md xl:text-lg text-white">Cross-platform soluation</div>
+                            <div className="text-xs text-white">Preview your newsletters on any device before sending them out</div>
                         </div>
 
-                        <div className="flex flex-col w-[240px] gap-2">
-                            <CheckCircledIcon color="white" width={32} height={32} />
-                            <div className="text-xl text-white">Start sending emails</div>
-                            <div className="text-sm text-white">Use our API or pick our pre-built templates.</div>
+                        <div className="flex flex-col w-full gap-2">
+                            <CheckCircledIcon color="white" width={28} height={28} />
+                            <div className="text-md xl:text-lg text-white">Start sending emails</div>
+                            <div className="text-xs text-white">Use our API or pick our pre-built templates.</div>
                         </div>
                     </div>
                 </div>
+
+
             </div>
         </div>
+
     )
 }
 
