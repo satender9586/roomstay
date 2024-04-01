@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dialog";
 import { Label } from "@/components/ui/label";
 import CustomSelect from "../Tools/CustomSelect";
-import { getPlans } from "../../api/paymentApi";
+import { getPlans } from "../../../api/paymentApi";
 
 const AdminPlanModal = ({ handleSuccess = false, children }) => {
   const [open, setOpen] = useState(false);
@@ -36,7 +36,6 @@ const AdminPlanModal = ({ handleSuccess = false, children }) => {
     newForm[name] = value;
     setForm(newForm);
   };
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();

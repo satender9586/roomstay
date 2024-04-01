@@ -1,5 +1,5 @@
 import React from 'react'
-import arrowIcon from "../../assests/Icons/arrowIcon.svg"
+import arrowIcon from "../../../assests/Icons/arrowIcon.svg"
 import Image from 'next/image'
 
 const Footer = () => {

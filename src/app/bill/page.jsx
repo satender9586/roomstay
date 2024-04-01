@@ -1,9 +1,9 @@
 "use client"
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
-import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
+import DashboardContainer from '../../components/Dashboard/DashboardContainer'
 import visaImg from "../../../assests/Images/visa.png"
-import AdminPlanModal from '../../../components/Modals/AdminPlanModal'
+import AdminPlanModal from '../../components/Modals/AdminPlanModal'
 import { loadRazorpayScript } from '../../../utils/payment'
 import { paymentInit } from '../../../api/paymentApi'
 import { ROOMSTAY_LOGO } from '../../../utils/constants'

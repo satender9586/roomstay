@@ -1,11 +1,11 @@
 "use client";
 import { useEffect, useState } from "react";
-import { tokenVerification } from "../../api/userApi";
-import { getUserToken } from "../../utils/cookies";
+import { tokenVerification } from "../../../api/userApi";
+import { getUserToken } from "../../../utils/cookies";
 import { useRouter } from "next/navigation";
-import { giveUserSliceObj } from "../../utils/sliceMethod";
+import { giveUserSliceObj } from "../../../utils/sliceMethod";
 import { useDispatch } from "react-redux";
-import { setUserSlice } from "../../redux/reducers/userSlice";
+import { setUserSlice } from "../../../redux/reducers/userSlice";
 
 export const ADMINROUTEOBJ = Object.freeze({
   DASHBOARD: "/dashboard",
@@ -46,8 +46,7 @@ const ProtectedRoute = ({ children }) => {
         if (response?.success) {
           // Set user details in redux ( User Slice )
 
-          if(response?.user)
-          {
+          if (response?.user) {
             const userObj = giveUserSliceObj(response?.user);
             dispatch(setUserSlice(userObj));
           }

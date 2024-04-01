@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 import { CiIceCream } from "react-icons/ci";
-import priceOneImg from "../../assests/Images/price1.png"
-import priceTwoImg from "../../assests/Images/price2.png"
-import priceThreeImg from "../../assests/Images/price3.png"
+import priceOneImg from "../../../assests/Images/price1.png"
+import priceTwoImg from "../../../assests/Images/price2.png"
+import priceThreeImg from "../../../assests/Images/price3.png"
 
 const Pricing = () => {
   return (
@@ -28,13 +28,13 @@ const Pricing = () => {
         {/*Three Cards */}
         <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5 lg:gap-10 xl:gap-18 py-4 lg:px-[12%]">
           <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
-            <PriceCard image={priceOneImg} heading={"Ice Mobile 10Gb"} text={'Up to 100mbit/s'} price={'299'} cardColor={"bg-[#FFFBEC]"}/>
+            <PriceCard image={priceOneImg} heading={"Ice Mobile 10Gb"} text={'Up to 100mbit/s'} price={'299'} cardColor={"bg-[#FFFBEC]"} />
           </div>
           <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
-            <PriceCard image={priceTwoImg} heading={"Telia Mobil 15GB"} text={'Up to 200mbit/s'} price={'350'} cardColor={"bg-[#F9ECFF]"}/>
+            <PriceCard image={priceTwoImg} heading={"Telia Mobil 15GB"} text={'Up to 200mbit/s'} price={'350'} cardColor={"bg-[#F9ECFF]"} />
           </div>
           <div className="w-full md:w-[60%] lg:w-[80%] xl:w-[30%] mb-6">
-            <PriceCard image={priceThreeImg} heading={"Ice Mobile 10Gb"} text={'Up to 400mbit/s'} price={'400'} cardColor={"bg-[#ECEEFF]"}/>
+            <PriceCard image={priceThreeImg} heading={"Ice Mobile 10Gb"} text={'Up to 400mbit/s'} price={'400'} cardColor={"bg-[#ECEEFF]"} />
           </div>
         </div>
 
@@ -53,7 +53,7 @@ const Pricing = () => {
 export default Pricing;
 
 
-const PriceCard = ({image,heading="",text="",price="200",cardColor="bg-[#FFFBEC]"}) => {
+const PriceCard = ({ image, heading = "", text = "", price = "200", cardColor = "bg-[#FFFBEC]" }) => {
   return (
     <div className={`h-[326px] ${cardColor} rounded-[14px] relative`}>
       <div className="h-full p-10 bg-white rounded-[14px] shadow absolute top-5 left-5 right-0">
