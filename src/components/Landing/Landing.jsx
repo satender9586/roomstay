@@ -8,17 +8,21 @@ import Content from './Content'
 import Cards from './Cards'
 import Growth from './Growth'
 import Header from './Header'
+import Top from './Top'
+import Team from './Team'
 
 const Landing = () => {
     return (
         <>
             <Header />
-            <Offer />
+            <Top />
+            {/* <Offer /> */}
             <Pricing />
             <Content />
             <Growth />
             <Cards />
             <FourBoxes />
+            <Team />
             <Footer />
         </>
     )

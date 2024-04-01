@@ -3,9 +3,11 @@ import React from 'react'
 import { TbAirConditioning } from "react-icons/tb";
 import { FaRupeeSign } from "react-icons/fa";
 import Header from '@/components/Landing/Header';
+import { useRouter } from 'next/navigation';
 
 const RoomListing = () => {
   const arryLength = Array.from({ length: 4 });
+  const router = useRouter()
 
   return (
     <>
@@ -18,7 +20,7 @@ const RoomListing = () => {
           <div className='col-span-4 space-y-10'>
             {
               arryLength.map((data, index) => (
-                <div className='grid grid-cols-5 gap-5 mt-3'>
+                <div className='grid grid-cols-5 gap-5 mt-3' onClick={() => { router.push("/rooms/123") }}>
                   <div className='col-span-2'>
                     <div>
                       <img
