@@ -1,12 +1,12 @@
 "use client"
 import React from 'react'
-import userImg from "../../assests/Images/user.png"
+import userImg from "../../../assests/Images/user.png"
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
-import { clearAllCookies } from '../../utils/cookies'
+import { clearAllCookies } from '../../../utils/cookies'
 import { useDispatch } from 'react-redux'
-import { clearUserSlice } from '../../redux/reducers/userSlice'
+import { clearUserSlice } from '../../../redux/reducers/userSlice'
 
 const SideBar = () => {
     const router = useRouter()

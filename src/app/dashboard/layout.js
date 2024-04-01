@@ -1,9 +1,5 @@
-import DashboardContainer from "../../../components/Dashboard/DashboardContainer";
+import DashboardContainer from "../../components/Dashboard/DashboardContainer";
 
 export default function DashboardLayout({ children }) {
-    return (
-        <DashboardContainer>
-            {children}
-        </DashboardContainer>
-    )
+  return <DashboardContainer>{children}</DashboardContainer>;
 }

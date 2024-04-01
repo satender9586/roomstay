@@ -8,9 +8,9 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
-import horseIcon from "../../assests/Icons/horse.png"
-import editIcon from "../../assests/Icons/editpen.png"
-import bussinessAnalyst from "../../assests/images/bussinessanalyst.jpg"
+import horseIcon from "../../../assests/Icons/horse.png"
+import editIcon from "../../../assests/Icons/editpen.png"
+import bussinessAnalyst from "../../../assests/images/bussinessanalyst.jpg"
 import {
     Tabs,
     TabsContent,

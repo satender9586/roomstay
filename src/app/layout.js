@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import StoreProvider from "../../redux/store/StoreProvider";
-import ProtectedRoute from "../../components/Provider/ProtectedRoute";
+import ProtectedRoute from "../components/Provider/ProtectedRoute";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {

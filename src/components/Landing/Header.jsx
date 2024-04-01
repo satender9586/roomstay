@@ -1,7 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import roomstayLogo from "../../assests/official/roomstay.png"
+import roomstayLogo from "../../../assests/official/roomstay.png"
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import { PersonIcon } from "@radix-ui/react-icons";

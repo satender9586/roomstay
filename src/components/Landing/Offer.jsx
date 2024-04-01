@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import telegramImg from "../../assests/Icons/telegram.webp"
+import telegramImg from "../../../assests/Icons/telegram.webp"
 
 const Offer = () => {
     return (
@@ -21,7 +21,7 @@ const Offer = () => {
 
 
                 <div className='relative flex items-start md:items-center'>
-                <Image src={telegramImg} unoptimized alt='telegram' height={489} width={157} className='w-full md:w[50%] lg:w-full' style={{ width: "auto", height: "auto" }} />
+                    <Image src={telegramImg} unoptimized alt='telegram' height={489} width={157} className='w-full md:w[50%] lg:w-full' style={{ width: "auto", height: "auto" }} />
                 </div>
 
 
