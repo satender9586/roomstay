@@ -10,10 +10,9 @@ const Header = () => {
     const router = useRouter();
     const { isAdmin, isLoggedIn } = useSelector((state) => state?.user?.isAdmin)
     return (
-
         <div className="bg-[#265fe5]">
             <header className="container text-white p-4 flex items-center justify-between" >
-                <div className="flex gap-4 items-center">
+                <div className="flex gap-4 items-center" onClick={() => router.push("/")}>
                     <Image src={roomstayLogo} alt="Logo" width={32} height={32} className="size-8" />
                     <span className="text-xl cursor-pointer">RoomStay</span>
                 </div>
