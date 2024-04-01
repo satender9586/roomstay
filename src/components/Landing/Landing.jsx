@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Footer from '../Footer/Footer'
+import Footer from '@/components/Footer/Footer'
 import Offer from './Offer'
 import FourBoxes from './FourBoxes'
 import Pricing from './Pricing'
