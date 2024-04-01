@@ -21,7 +21,7 @@ import { PaperPlaneIcon } from "@radix-ui/react-icons"
 
 const Content = () => {
     return (
-        <div className="bg-emerald-500 py-16 w-full flex flex-col justify-center items-center ">
+        <div className="bg-gradient-to-r from-violet-500 to-purple-500 py-16 w-full flex flex-col justify-center items-center ">
             <div className="w-full h-full container">
                 <div className="flex flex-col gap-2 mb-20">
                     <div className="flex items-center gap-2">
