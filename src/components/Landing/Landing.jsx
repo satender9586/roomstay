@@ -21,8 +21,8 @@ const Landing = () => {
             <Content />
             <Growth />
             <Cards />
-            <FourBoxes />
             <Team />
+            <FourBoxes />
             <Footer />
         </>
     )

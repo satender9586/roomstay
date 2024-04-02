@@ -6,16 +6,16 @@ import paperEyeIcon from "../../../assests/Icons/paperEyeIcon.svg"
 import Image from 'next/image'
 import { ChevronRightIcon } from '@radix-ui/react-icons'
 
-const FourBoxes = () => {
+const  FourBoxes = () => {
     return (
-        <div className='container py-20 bg-gray-50'>
-            <h2 className='font-heading font-medium text-3xl md:text-6xl | mb-12 lg:mb-14'>Get the Pepper Advantage</h2>
+        <div className='container py-20'>
+            <h2 className='font-heading font-medium text-3xl md:text-6xl | mb-12 lg:mb-14'>Get Booking Advantage</h2>
 
             <div className='flex justify-between '>
-                <Box colorHex={"bg-[#FFE599]"} icon={arrowIcon} heading='Scale content creation' title='Create content at scale with on-demand expertise and generative AI' />
-                <Box colorHex={"bg-[#FFCCE2]"} icon={paperEyeIcon} heading='Reduced CAC' title='Grow your organic presence and reduce dependence on paid channels with optimised content' />
-                <Box colorHex={"bg-[#BCF5D7]"} icon={tabsIcon} heading='Increase productivity' title='Bring your content, data, and SEO teams on a single platform that powers your content marketing lifecycle' />
-                <Box colorHex={"bg-[#D4BBF6]"} icon={graphIcon} heading='Measure content RoI' title='Prove and improve your content RoI by using our AI-powered platform integrated with the best-in-class tools' />
+                <Box colorHex={"bg-[#FFE599]"} icon={arrowIcon} heading='Easy Booking Process' title='Say goodbye to complicated booking procedures. With our user-friendly interface, booking a room is as easy as a few clicks.' />
+                <Box colorHex={"bg-[#FFCCE2]"} icon={paperEyeIcon} heading='Real-Time Availability' title='No more last-minute surprises! Our system provides real-time updates on room availability' />
+                <Box colorHex={"bg-[#BCF5D7]"} icon={tabsIcon} heading='Secure Payment Options' title='Your security is our top priority. We offer a variety of secure payment options to choose from' />
+                <Box colorHex={"bg-[#D4BBF6]"} icon={graphIcon} heading='24/7 Customer Support' title='Our dedicated customer support team is available round-the-clock to address any queries or concerns you may have.' />
             </div>
 
 

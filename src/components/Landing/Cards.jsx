@@ -5,7 +5,7 @@ import { FaHeart } from "react-icons/fa";
 const Cards = () => {
   const arryLength = Array.from({ length: 4 });
   return (
-    <div className="bg-[#f0f0f0] py-24">
+    <div className="bg-gray-50 py-24">
       <div className="container ">
         {/* image conatiner */}
         <div className="text-6xl font-medium">Featured Rooms</div>
