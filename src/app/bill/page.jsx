@@ -124,27 +124,33 @@ const Billing = () => {
           </div>
           <div className='flex-[0.4]'>
 
-            <div className={` ${userRedux?.plan === "free" ? "bg-gradient-to-r from-cyan-400 to-blue-500" : userRedux?.plan === "silver" ? "bg-gradient-to-r from-neutral-500 to-gray-300" : "bg-gradient-to-r from-amber-400 to-orange-500"} w-[265px] h-[221px] p-8 rounded-2xl shadow-lg || flex flex-col justify-start items-start gap-4`}>
-              <div className="text-white text-base font-normal">Your plan</div>
+            {
+              userRedux?.plan && (
+                <div className={` ${userRedux?.plan === "free" ? "bg-gradient-to-r from-cyan-400 to-blue-500" : userRedux?.plan === "silver" ? "bg-gradient-to-r from-neutral-500 to-gray-300" : "bg-gradient-to-r from-amber-400 to-orange-500"} w-[265px] h-[221px] p-8 rounded-2xl shadow-lg || flex flex-col justify-start items-start gap-4`}>
+                  <div className="text-white text-base font-normal">Your plan</div>
 
-              <div className="flex flex-col justify-start items-start gap-1">
-                <div className="text-white text-2xl font-bold capitalize">{userRedux?.plan || "Free"}</div>
-                <div className="text-white text-sm font-normal">Renews on  Nov. 2021</div>
-              </div>
-
-              {
-                userRedux?.plan === "free" ? (
-                  <AdminPlanModal handleSuccess={handlePayment}>
-                    <Button className="mt-2 py-5 px-8 rounded-full text-gray-600 font-medium text-md" variant="secondary">Upgrade Plan</Button>
-                  </AdminPlanModal>
-                ) : (
-                  <div className='text-2xl mt-2 font-semibold text-white'>
-                    180 Days Left
+                  <div className="flex flex-col justify-start items-start gap-1">
+                    <div className="text-white text-2xl font-bold capitalize">{userRedux?.plan || "Free"}</div>
+                    <div className="text-white text-sm font-normal">Renews on  Nov. 2021</div>
                   </div>
-                )
-              }
 
-            </div>
+                  {
+                    userRedux?.plan === "free" ? (
+                      <AdminPlanModal handleSuccess={handlePayment}>
+                        <Button className="mt-2 py-5 px-8 rounded-full text-gray-600 font-medium text-md" variant="secondary">Upgrade Plan</Button>
+                      </AdminPlanModal>
+                    ) : (
+                      <div className='text-2xl mt-2 font-semibold text-white'>
+                        180 Days Left
+                      </div>
+                    )
+                  }
+
+                </div>
+              )
+            }
+
+
           </div>
 
         </div>
