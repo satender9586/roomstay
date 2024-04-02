@@ -171,7 +171,7 @@ const Signup = () => {
                     type={showConfirmPassword ? "text" : "password"}
                     placeholder="Enter password here"
                     className="h-[50px]"
-                    name="password"
+                    name="confirmPassword"
                     value={formValues.confirmPassword}
                     onChange={handleChange}
                   />
