@@ -3,7 +3,7 @@ import React from "react"
 import { TbAirConditioning, TbWifi } from "react-icons/tb"
 import Header from "@/components/Landing/Header"
 import { useRouter } from "next/navigation"
-import Bussinessanalyst from "../../../assests/Images/hotelroom.jpg"
+import HotelRoom from "../../../assests/Images/hotelroom.jpg"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { StarIcon } from "@radix-ui/react-icons"
@@ -91,7 +91,7 @@ const RoomListing = () => {
           <div className="flex justify-center gap-4 p-4" key={index}>
             <div>
               <Image
-                src={Bussinessanalyst}
+                src={HotelRoom}
                 alt="image"
                 width={340}
                 className="rounded-xl border "
