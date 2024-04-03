@@ -7,7 +7,7 @@ import priceThreeImg from "../../../assests/Images/price3.png"
 
 const Pricing = () => {
   return (
-    <div className="py-16 bg-gray-50">
+    <div className="py-16">
       <div className=" container">
         <div className="flex flex-col items-start sm:items-center w-full">
           <h1 className="font-heading font-bold text-4xl sm:text-3xl md:text-4xl lg:text-4xl">

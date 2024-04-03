@@ -8,7 +8,7 @@ import analyst from "../../../assests/Icons/analyst.png"
 import Image from 'next/image'
 const Growth = () => {
     return (
-        <div className='py-16' >
+        <div className='py-16 bg-gray-50' >
             <div className='flex flex-1 flex-col h-[100%]'>
                 <div className=' flex-[0.15]  '>
                     <div className='w-full h-full flex flex-col items-center text-center justify-center '>

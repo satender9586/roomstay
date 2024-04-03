@@ -13,7 +13,7 @@ const Team = () => {
   return (
     <div
       id="team"
-      className="section relative pt-20 pb-8 md:pt-16 bg-gray-50 dark:bg-gray-800"
+      className="section relative pt-20 pb-8 md:pt-16 dark:bg-gray-800"
     >
       <div className="container xl:max-w-6xl mx-auto px-4">
         <header className="text-center mx-auto mb-12">
