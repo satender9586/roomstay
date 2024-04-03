@@ -18,9 +18,9 @@ const Top = () => {
                         </div>
                     </div>
 
-                    <div className="max-w-3xl text-center mx-auto">
+                    <div className="max-w-[46rem] text-center mx-auto">
                         <h1 className="block font-medium text-gray-200 text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
-                            Book with Ease, Travel with Peace.
+                            Book with Ease  Travel with Peace
                         </h1>
                     </div>
 

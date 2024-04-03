@@ -5,10 +5,10 @@ import { FaHeart } from "react-icons/fa";
 const Cards = () => {
   const arryLength = Array.from({ length: 4 });
   return (
-    <div className="bg-gray-50 py-24">
-      <div className="container ">
+    <div className="py-24">
+      < div className="container " >
         {/* image conatiner */}
-        <div className="text-6xl font-medium">Featured Rooms</div>
+        < div className="text-6xl font-medium" > Featured Rooms</div >
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6">
           {arryLength.map((data, index) => (
             <div key={index} className="bg-white p-2 rounded-lg">
@@ -43,8 +43,8 @@ const Cards = () => {
             </div>
           ))}
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 
