@@ -1,10 +1,10 @@
 import React from 'react'
-import arrowIcon from "../../assests/Icons/arrowIcon.svg"
+import arrowIcon from "../../../assests/Icons/arrowIcon.svg"
 import Image from 'next/image'
 
 const Footer = () => {
     return (
-        <footer className='bg-slate-600 py-12'>
+        <footer className='bg-gradient-to-r from-slate-900 to-slate-700 py-12'>
 
             <div className='container | grid grid-cols-5 | py-4  sm:py-6 md:py-8 lg:py-10 xl:py-12'>
 

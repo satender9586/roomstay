@@ -1,5 +1,5 @@
 "use client"
-import CreateHotelModal from '../../../components/Dashboard/CreateHotelModal'
+import CreateHotelModal from '../../components/Dashboard/CreateHotelModal'
 import {
     Table,
     TableBody,
@@ -10,7 +10,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import CreateRoomModal from '../../../components/Dashboard/CreateRoomModal'
+import CreateRoomModal from '../../components/Dashboard/CreateRoomModal'
 import { getAdminHotelsApi } from '../../../api/hotelApi'
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'

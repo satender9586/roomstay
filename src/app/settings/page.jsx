@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
-import DashboardContainer from '../../../components/Dashboard/DashboardContainer'
-import CustomCheckbox from '../../../components/Tools/CustomCheckbox'
+import DashboardContainer from '../../components/Dashboard/DashboardContainer'
+import CustomCheckbox from '../../components/Tools/CustomCheckbox'
 
 const Settings = () => {
     return (
