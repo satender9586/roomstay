@@ -11,6 +11,7 @@ import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons"
 import { setEmail } from "../../../redux/reducers/userSlice"
 import roomstayLogo from "../../../assests/official/roomstay.png"
 import Image from "next/image"
+import { toast } from "sonner"
 const Signup = () => {
   const router = useRouter()
   const dispatch = useDispatch()
@@ -67,6 +68,10 @@ const Signup = () => {
       if (response.success) {
         dispatch(setEmail(formValues.email))
         router.push("/otp")
+        toast("Otp sent successful", {
+          description: "Check your inbox please !",
+          position: "top-center",
+        });
       }
     } catch (error) {
       console.log(error)

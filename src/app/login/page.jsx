@@ -13,6 +13,7 @@ import { setUserSlice } from "../../../redux/reducers/userSlice"
 import { useDispatch } from "react-redux"
 import roomstayLogo from "../../../assests/official/roomstay.png"
 import Image from "next/image"
+import { toast } from "sonner"
 
 const Login = () => {
   const dispatch = useDispatch()
@@ -42,18 +43,21 @@ const Login = () => {
     try {
       const response = await login(apiData)
       if (response?.success) {
-        // Set user details in redux ( User Slice )
         if (response?.user) {
+          // Set user details in redux ( User Slice )
           const userObj = giveUserSliceObj(response?.user)
           dispatch(setUserSlice(userObj))
+          
+          const obj = {
+            token: response.token,
+          }
+          setCredentials(obj)
+          toast("Login successful", {
+            description: "Welcome hustler",
+            position: "top-center",
+          });
+          router.push("/dashboard")
         }
-
-        const obj = {
-          token: response.token,
-        }
-        setCredentials(obj)
-
-        router.push("/dashboard")
       }
     } catch (error) {
       console.log(error)

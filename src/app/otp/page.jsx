@@ -15,6 +15,7 @@ import { CheckCircledIcon } from "@radix-ui/react-icons"
 import roomstayLogo from "../../../assests/official/roomstay.png"
 import Image from "next/image"
 import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons"
+import { toast } from "sonner"
 
 const Otp = () => {
   const emailRedux = useSelector((state) => state?.user?.email)
@@ -60,10 +61,14 @@ const Otp = () => {
 
       try {
         const response = await changePassword(apiData)
-        if (response.success) {
+        if (response?.success) {
+          console.log(response)
           router.push("/login")
-          alert("Password changed successfully")
-          return
+          toast("Password changed successfully", {
+            description: "Login with new password",
+            position: "top-center",
+          });
+          return;
         }
       } catch (error) {
         console.log(error)
@@ -84,6 +89,11 @@ const Otp = () => {
       const response = await otpVerify(dummyData)
       if (response.success) {
         router.push("/login")
+        toast("Account created successfully", {
+          description: "Login please",
+          position: "top-center",
+        });
+        return;
       }
     } catch (error) {
       console.log(error)
@@ -101,8 +111,11 @@ const Otp = () => {
       try {
         const response = await forget(dummyData)
         if (response.success) {
-          alert("OTP resent successfully")
-          return
+          toast("Otp sent successfully", {
+            description: "Check your inbox!",
+            position: "top-center",
+          });
+          return;
         }
       } catch (error) {
         console.log(error)
@@ -115,8 +128,11 @@ const Otp = () => {
     try {
       const response = await resendOtp(dummyData)
       if (response.success) {
-        alert("OTP resent successfully")
-        return
+        toast("Otp resent successfully", {
+          description: "Check your inbox again!",
+          position: "top-center",
+        });
+        return;
       }
     } catch (error) {
       console.log(error)
@@ -166,7 +182,7 @@ const Otp = () => {
                     <Label className=" font-semibold">Password</Label>
                     <div className="w-full relative">
                       <Input
-                        type="password"
+                        type={showPassword ? "text" : "password"}
                         placeholder="Enter your password"
                         name={"password"}
                         value={formValues.password}
@@ -193,7 +209,7 @@ const Otp = () => {
                     <Label className="font-semibold">Confirm Password</Label>
                     <div className=" w-full relative">
                       <Input
-                        type="password"
+                        type={showConfirmPassword ? "text" : "password"}
                         value={formValues.confirmPassword}
                         name={"confirmPassword"}
                         placeholder="Enter your confirm password"
@@ -203,10 +219,10 @@ const Otp = () => {
                       <div
                         className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer"
                         onClick={() => {
-                          setShowPassword(!showPassword)
+                          setShowConfirmPassword(!showConfirmPassword)
                         }}
                       >
-                        {showPassword ? (
+                        {showConfirmPassword ? (
                           <EyeOpenIcon width={20} height={20} />
                         ) : (
                           <EyeClosedIcon width={20} height={20} />
