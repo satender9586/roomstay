@@ -10,6 +10,7 @@ import { setEmail } from "../../../redux/reducers/userSlice"
 import { useDispatch } from "react-redux"
 import roomstayLogo from "../../../assests/official/roomstay.png"
 import Image from "next/image"
+import { toast } from "sonner"
 
 const Forget = () => {
   const router = useRouter()
@@ -39,6 +40,10 @@ const Forget = () => {
       if (response.success) {
         dispatch(setEmail(formValues.email))
         router.push(`/otp?type=forget`)
+        toast("Otp sent successfully", {
+          description: "Please check your inbox !",
+          position: "top-center",
+        });
       }
     } catch (error) {
       console.log(error)
