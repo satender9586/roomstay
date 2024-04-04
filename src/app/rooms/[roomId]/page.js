@@ -1,72 +1,96 @@
-import React from "react";
-import { TbAirConditioning } from "react-icons/tb";
-import { IoIosRadioButtonOff } from "react-icons/io";
-import { FaRegStar } from "react-icons/fa";
-import { GiConfirmed } from "react-icons/gi";
-import { FaRupeeSign } from "react-icons/fa";
-import Header from "@/components/Landing/Header";
-
+import React from "react"
+import { TbAirConditioning, TbWifi } from "react-icons/tb"
+import { IoIosRadioButtonOff } from "react-icons/io"
+import { FaRegStar } from "react-icons/fa"
+import { GiConfirmed } from "react-icons/gi"
+import { FaRupeeSign } from "react-icons/fa"
+import Header from "@/components/Landing/Header"
+import HotelRoom from "../../../../assests/Images/hotelroom.jpg"
+import Image from "next/image"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Card, CardContent } from "@/components/ui/card"
+import { CheckCircledIcon } from "@radix-ui/react-icons"
 const HotelInfo = () => {
   return (
     <>
       <Header />
       <div className="container">
         {/* background image attached    */}
-        <div>
-          <img
-            width={"100%"}
-            height={"auto"}
-            className="rounded-[0px] h-[400px]"
-            src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+        <div className=" relative">
+          <Image
+            src={HotelRoom}
+            alt="image"
+            className="rounded-md border h-[500px] "
+            style={{ objectFit: "cover" }}
           />
+
+          {/* <div className=" absolute right-4 bottom-4">
+            <Carousel className="w-full max-w-[200px]">
+              <CarouselContent>
+                {Array.from({ length: 5 }).map((_, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                          <span className="text-4xl font-semibold">
+                            {index + 1}
+                          </span>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
+          </div> */}
         </div>
 
         <div className="grid grid-cols-3 gap-6 my-5">
           <div className="col-span-2">
             <div>
-              <h1 className="font-bold  text-sm md:text-[2rem]">
-                Flagship White Diamond
-              </h1>
-              <h1 className="mt-[15px] font-normal text-[#4C7F97] font-popplins text-sm md:text-[1.1rem]">
-                Flagship White Diamond Saare Jaha Se Acha Hindustan Hamara Hum
-                BullBulle hai uske
-              </h1>
+              <div className="text-[30px] font-bold">
+                Flagship white Diamond
+              </div>
+              <div className="text-blue-800 text-[15px] font-semibold">
+                Hotel Tourist Deluxe, 7361, Babu Ram Solanki Marg Ram Nagar, New
+                Delhi
+              </div>
             </div>
             <div className="mt-[24px]">
               <h1 className="font-normal md:font-bold text-[#222222] font-popplins text-sm md:text-[1.3rem]">
                 About this Room
               </h1>
-              <h1 className="mt-[8px] leading-6 font-normal text-[#4C7F97] font-popplins text-sm md:text-[0.9rem]">
-                Flagship White Diamond Saare Jaha Se Acha Hindustan Hamara Hum
-                BullBulle hai uske Flagship White Diamond Saare Jaha Se Acha
-                Hindustan Hamara Hum BullBulle hai uske Flagship White Diamond
-                Saare Jaha Se Acha Hindustan Hamara Hum BullBulle hai uske
-                Flagship White Diamond Saare Jaha Se Acha Hindustan Hamara Hum
-                BullBulle hai uske
+              <h1 className="mt-2 leading-6 font-normal text-gray-800 font-popplins text-sm md:text-[14px]">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged. It was
+                popularised in the 1960s
               </h1>
             </div>
             <div className="mt-[24px]">
               <h1 className="font-normal md:font-bold text-[#222222] font-popplins text-sm md:text-[1.3rem]">
                 Amenities
               </h1>
-              <div className="mt-3 grid grid-cols-3 gap-6">
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
+              <div className="flex gap-6">
+                <div className="flex flex-col justify-center items-center mt-2 pl-3">
+                  <TbAirConditioning className="size-6" />
+                  <div className="text-[12px]">AC</div>
                 </div>
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TbAirConditioning className="size-6" /> <span>AC</span>
+
+                <div className="flex flex-col justify-center items-center mt-2 pl-3">
+                  <TbWifi className="size-6" />
+                  <div className="text-[12px]">Wifi</div>
                 </div>
               </div>
             </div>
@@ -74,45 +98,47 @@ const HotelInfo = () => {
               <h1 className="font-normal md:font-bold text-[#222222] font-popplins text-sm md:text-[1.3rem]">
                 Hotel policies
               </h1>
-              <div className="mt-[10px]">
-                <h1 className="flex mt-1 items-center gap-2 font-normal text-[#4C7F97] font-popplins text-sm md:text-[0.9rem]">
+              <div className="mt-[10px] pl-2">
+                <div className="flex mt-1 items-center gap-2  text-gray-700 font-semibold text-sm font-popplins  md:text-[0.8rem]">
                   <IoIosRadioButtonOff /> Couples are welcome
-                </h1>
-                <h1 className="flex mt-1 items-center gap-2 font-normal text-[#4C7F97] font-popplins text-sm md:text-[0.9rem]">
+                </div>
+                <div className="flex mt-1 items-center gap-2  text-gray-700 font-semibold text-sm font-popplins  md:text-[0.8rem]">
                   <IoIosRadioButtonOff /> Guests can check in using any local or
                   outstation ID proof (PAN card not accepted).
-                </h1>
-                <h1 className="flex mt-1 items-center gap-2 font-normal text-[#4C7F97] font-popplins text-sm md:text-[0.9rem]">
+                </div>
+                <div className="flex mt-1 items-center gap-2  text-gray-700 font-semibold text-sm font-popplins  md:text-[0.8rem]">
                   <IoIosRadioButtonOff /> As a complimentary benefit, your stay
                   is now insured by Ack
-                </h1>
-                <h1 className="flex mt-1 items-center gap-2 font-normal text-[#4C7F97] font-popplins text-sm md:text-[0.9rem]">
+                </div>
+                <div className="flex mt-1 items-center gap-2  text-gray-700 font-semibold text-sm font-popplins  md:text-[0.8rem]">
                   <IoIosRadioButtonOff />
                   This hotel is serviced under the trade name of White Diamond
                   as per quality standards of OYO
-                </h1>
+                </div>
               </div>
             </div>
-            <div className="mt-[24px] w-[80%]">
+            <div className="mt-[24px] w-[80%] ">
               <h1 className="font-normal md:font-bold text-[#222222] font-popplins text-sm md:text-[1.3rem]">
                 Choose Your Room
               </h1>
-              <div className="mt-[10px]">
-                <div className="flex items-center gap-1 bg-[#B7B7C7] font-bold font-popplins text-[0.9rem] text-[#FBFAFC] pl-5">
+              <div className="mt-[10px] ">
+                <div className="flex items-center gap-1 bg-gray-900  rounded-sm font-popplins text-[0.9rem] text-[#FBFAFC] pl-5">
                   <FaRegStar className="text-[#FFDC64]" />{" "}
-                  <h1>SELECTED CATEGORY</h1>
+                  <div>SELECTED CATEGORY</div>
                 </div>
                 <div
-                  className="p-4 flex justify-between"
+                  className="p-4 flex justify-between rounded-xl mt-2"
                   style={{ border: "1px solid #E9E9E9" }}
                 >
                   <div>
-                    <h1 className="flex items-center  font-medium text-[1.5rem] ">
-                      Classic{" "}
-                      <span>
-                        <GiConfirmed />
-                      </span>
-                    </h1>
+                    <div className="flex gap-2 items-center">
+                      <div className="flex items-center  font-medium text-[1.5rem] ">
+                        Classic{" "}
+                      </div>
+                      <div>
+                        <CheckCircledIcon />
+                      </div>
+                    </div>
                     <h1 className="flex items-center  font-medium text-[0.9rem]">
                       Room size: 100 sqft{" "}
                     </h1>
@@ -121,21 +147,22 @@ const HotelInfo = () => {
                         <TbAirConditioning className="size-6" /> <span>AC</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <TbAirConditioning className="size-6" /> <span>AC</span>
+                        <TbWifi className="size-6" /> <span>Wifi</span>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <img
-                      width={"100%"}
-                      height={"auto"}
-                      className="rounded-[2px] h-[100px]"
-                      src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                    <Image
+                      src={HotelRoom}
+                      alt="image"
+                      width={240}
+                      className="rounded-xl border "
+                      style={{ objectFit: "cover" }}
                     />
                   </div>
                 </div>
                 <div
-                  className="p-4 flex justify-between"
+                  className="p-4 flex justify-between rounded-xl mt-1"
                   style={{ border: "1px solid #E9E9E9" }}
                 >
                   <div>
@@ -155,11 +182,11 @@ const HotelInfo = () => {
                     </h1>
                   </div>
                   <div
-                    className="flex items-center justify-center px-10"
+                    className="flex items-center justify-center px-10 rounded-xl"
                     style={{ border: "1px solid #E9E9E9" }}
                   >
-                    <h1 className="text-[0.9rem] flex items-center gap-1">
-                      <GiConfirmed />
+                    <h1 className="text-[0.9rem] flex items-center gap-1 ">
+                      <CheckCircledIcon />
                       SELECT
                     </h1>
                   </div>
@@ -208,7 +235,7 @@ const HotelInfo = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default HotelInfo;
+export default HotelInfo

@@ -70,8 +70,8 @@ const Login = () => {
           </div>
         </div>
         <div className="w-[70%]">
-          {arr.map((item) => (
-            <div className="flex justify-center items-center p-2">
+          {arr.map((item,index) => (
+            <div key={index} className="flex justify-center items-center p-2">
               <div className="w-[100%]  ">
                 <div className="h-[130px] px-3  w-full border p-2 flex flex-1 gap-6 items-centershadow-lg rounded-lg">
                   <div className="flex gap-6 flex-[0.7] justify-center">
