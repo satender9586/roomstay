@@ -20,7 +20,7 @@ const Hotels = () => {
           </div>
           <div className="col-span-4 ">
             {arryLength.map((data, index) => (
-              <div className="grid grid-cols-5 gap-5 mt-3">
+              <div key={index} className="grid grid-cols-5 gap-5 mt-3">
                 <div className="col-span-2">
                   <div>
                     <img
