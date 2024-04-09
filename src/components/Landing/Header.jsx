@@ -8,7 +8,7 @@ import { PersonIcon } from "@radix-ui/react-icons";
 
 const Header = () => {
     const router = useRouter();
-    const { isAdmin, isLoggedIn } = useSelector((state) => state?.user?.isAdmin)
+    const { isAdmin, isLoggedIn, firstName } = useSelector((state) => state?.user)
     return (
         <div className="bg-[#265fe5]">
             <header className="container text-white p-4 flex items-center justify-between" >
@@ -25,7 +25,7 @@ const Header = () => {
                             <>
                                 {
                                     isLoggedIn ? (
-                                        <Button variant="secondary" onClick={() => router.push('/order')} className="rounded-full"><PersonIcon /></Button>
+                                        <Button variant="secondary" onClick={() => router.push('/order')} className="rounded-full flex gap-3 items-center"><PersonIcon /> {firstName}</Button>
                                     ) : (
                                         <>
                                             <Button variant="secondary" onClick={() => router.push('/login')}>Login</Button>

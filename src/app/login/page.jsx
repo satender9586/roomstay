@@ -47,7 +47,8 @@ const Login = () => {
           // Set user details in redux ( User Slice )
           const userObj = giveUserSliceObj(response?.user)
           dispatch(setUserSlice(userObj))
-          
+          console.log(userObj, "userobj")
+
           const obj = {
             token: response.token,
           }
@@ -55,8 +56,13 @@ const Login = () => {
           toast("Login successful", {
             description: "Welcome hustler",
             position: "top-center",
-          });
-          router.push("/dashboard")
+          })
+
+          if (userObj?.isAdmin) {
+            router.push("/dashboard")
+          } else {
+            router.push("/")
+          }
         }
       }
     } catch (error) {
