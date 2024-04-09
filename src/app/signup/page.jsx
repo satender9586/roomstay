@@ -22,7 +22,7 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    isAdmin: "",
+    isAdmin: false,
   })
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
@@ -71,7 +71,7 @@ const Signup = () => {
         toast("Otp sent successful", {
           description: "Check your inbox please !",
           position: "top-center",
-        });
+        })
       }
     } catch (error) {
       console.log(error)
