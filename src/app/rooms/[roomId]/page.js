@@ -20,7 +20,11 @@ import { CheckCircledIcon } from "@radix-ui/react-icons"
 import { loadRazorpayScript } from "../../../../utils/payment"
 import { paymentInit } from "../../../../api/paymentApi"
 import { createOrder } from "../../../../api/orderApi"
+import { ROOMSTAY_LOGO } from "../../../../utils/constants"
+import { useSelector } from "react-redux"
 const HotelInfo = () => {
+  const userRedux = useSelector((state) => state?.user)
+
   const displayRazorpay = async ({ amountRupee, planId }) => {
     try {
       const res = await loadRazorpayScript()
@@ -301,7 +305,7 @@ const HotelInfo = () => {
                 <button
                   className="p-[1.1rem] px-[2rem]  bg-green-500 rounded-full text-lg text-white "
                   onClick={() => {
-                    handlePayment(200, "abs")
+                    handlePayment({ amountRupee: 200, planId: "abs" })
                   }}
                 >
                   Continue($500)
