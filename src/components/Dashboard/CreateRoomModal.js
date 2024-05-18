@@ -181,7 +181,7 @@ const CreateRoomModal = ({ handleSuccess = false }) => {
                 name={"price"}
                 value={form?.price}
                 onChange={handleFormChange}
-                placeholder="Enter name"
+                placeholder="Enter price"
                 className="col-span-3"
               />
             </div>

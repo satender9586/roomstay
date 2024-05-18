@@ -1,3 +1,4 @@
+"use client"
 import React from "react"
 import { TbAirConditioning, TbWifi } from "react-icons/tb"
 import { IoIosRadioButtonOff } from "react-icons/io"
@@ -16,7 +17,84 @@ import {
 } from "@/components/ui/carousel"
 import { Card, CardContent } from "@/components/ui/card"
 import { CheckCircledIcon } from "@radix-ui/react-icons"
+import { loadRazorpayScript } from "../../../../utils/payment"
+import { paymentInit } from "../../../../api/paymentApi"
+import { createOrder } from "../../../../api/orderApi"
+import { ROOMSTAY_LOGO } from "../../../../utils/constants"
+import { useSelector } from "react-redux"
+import { useRouter } from "next/navigation"
 const HotelInfo = () => {
+  const userRedux = useSelector((state) => state?.user)
+const router = useRouter();
+  const displayRazorpay = async ({ amountRupee, planId }) => {
+    try {
+      const res = await loadRazorpayScript()
+
+      if (!res) {
+        alert("Razorpay SDK failed to load. Are you online?")
+        return
+      }
+
+      // creating a new order
+      const result = await paymentInit({
+        amount: Math.floor(amountRupee * 100),
+      })
+
+      if (!result) {
+        alert("Server error, Are you online?")
+        return
+      }
+
+      const { amount, razorpayId, currency, KEY_ID, paymentId } = result.data
+
+      const options = {
+        key: KEY_ID, // Enter the Key ID generated from the Dashboard
+        amount: amount.toString(),
+        currency: currency,
+        name: "Roomstay Organization",
+        description: "Test Transaction",
+        image: ROOMSTAY_LOGO,
+        order_id: razorpayId,
+        handler: async function (response) {
+          const data = {
+            razorpayPaymentId: response.razorpay_payment_id,
+            razorpayId: response.razorpay_order_id,
+            razorpaySignature: response.razorpay_signature,
+            paymentId: paymentId,
+            plan: planId,
+          }
+
+          try {
+            const response = await createOrder(data)
+            router.push("/order")
+          } catch (error) {
+            console.log(error)
+          }
+        },
+        prefill: {
+          name: `${userRedux?.firstName} ${userRedux?.lastName}`,
+          email: userRedux?.email || "abc@mail.com",
+          contact: "9876543210",
+        },
+        notes: {
+          address: "Roomstay Corporate",
+        },
+        theme: {
+          color: "salmon",
+        },
+      }
+
+      const paymentObject = new window.Razorpay(options)
+      paymentObject.open()
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  const handlePayment = ({ amountRupee, planId }) => {
+    displayRazorpay({ amountRupee, planId })
+  }
+
   return (
     <>
       <Header />
@@ -70,9 +148,9 @@ const HotelInfo = () => {
               </h1>
               <h1 className="mt-2 leading-6 font-normal text-gray-800 font-popplins text-sm md:text-[14px]">
                 Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
+                industry. Lorem Ipsum has been the industry standard dummy text
+                ever since the 1500s, when an unknown printer took a galley of
+                type and scrambled it to make a type specimen book. It has
                 survived not only five centuries, but also the leap into
                 electronic typesetting, remaining essentially unchanged. It was
                 popularised in the 1960s
@@ -226,7 +304,12 @@ const HotelInfo = () => {
                 </div>
               </div>
               <div className="mt-[2.5rem] flex item-center justify-center">
-                <button className="p-[1.1rem] px-[2rem]  bg-green-500 rounded-full text-lg text-white ">
+                <button
+                  className="p-[1.1rem] px-[2rem]  bg-green-500 rounded-full text-lg text-white "
+                  onClick={() => {
+                    handlePayment({ amountRupee: 200, planId: "abs" })
+                  }}
+                >
                   Continue($500)
                 </button>
               </div>

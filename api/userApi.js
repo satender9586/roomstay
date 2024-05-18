@@ -71,3 +71,11 @@ export const getProfile = async () => {
   }
   return response?.data;
 };
+
+export const accountDeleteApi = async () => {
+  const response = await axios.delete(`/deleteUser`);
+  if (!response?.statusText === "OK") {
+      throw new Error("Something is wrong.");
+  }
+  return response?.data
+}

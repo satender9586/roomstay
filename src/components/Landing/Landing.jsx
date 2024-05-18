@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect } from "react"
+import React, { useEffect, useLayoutEffect } from "react"
 import Footer from "@/components/Footer/Footer"
 import FourBoxes from "./FourBoxes"
 import Pricing from "./Pricing"
@@ -13,16 +13,16 @@ import { toast } from "sonner"
 // import Offer from './Offer'
 
 const Landing = () => {
-  useEffect(() => {
-    toast("Email: jai@mailsac.com, Password:Test@1234", {
-      description: "Website is on progress ! ",
-      position: "top-center",
-      action: {
-        label: "Close",
-        onClick: () => console.log("Close"),
-      },
-    })
-  }, [])
+  // useLayoutEffect(() => {
+  //   toast("Email: jai@mailsac.com, Password:Test@1234", {
+  //     description: "Website is on progress ! ",
+  //     position: "top-center",
+  //     action: {
+  //       label: "Close",
+  //       onClick: () => console.log("Close"),
+  //     },
+  //   })
+  // }, [])
   return (
     <>
       <Header />
