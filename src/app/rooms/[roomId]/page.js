@@ -22,9 +22,10 @@ import { paymentInit } from "../../../../api/paymentApi"
 import { createOrder } from "../../../../api/orderApi"
 import { ROOMSTAY_LOGO } from "../../../../utils/constants"
 import { useSelector } from "react-redux"
+import { useRouter } from "next/navigation"
 const HotelInfo = () => {
   const userRedux = useSelector((state) => state?.user)
-
+const router = useRouter();
   const displayRazorpay = async ({ amountRupee, planId }) => {
     try {
       const res = await loadRazorpayScript()
@@ -65,6 +66,7 @@ const HotelInfo = () => {
 
           try {
             const response = await createOrder(data)
+            router.push("/order")
           } catch (error) {
             console.log(error)
           }
