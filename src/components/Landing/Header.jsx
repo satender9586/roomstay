@@ -27,7 +27,7 @@ const Header = () => {
           <span className="text-xl font-bold cursor-pointer">RoomStay</span>
         </div>
         <div className=" sm:flex space-x-4 flex items-center cursor-pointer ">
-          <div className="flex gap-1 hover:text-gray-200 rounded-lg border px-2">
+          <div className="flex gap-1 hover:text-gray-200 rounded-lg border px-4 p-[2px]">
             <FaDoorClosed className="w-6 h-6" />
 
             <div
