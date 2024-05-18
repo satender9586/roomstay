@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 import { useSelector } from "react-redux"
 import { PersonIcon } from "@radix-ui/react-icons"
 import HeaderMenu from "./HeaderMenu"
-
+import { FaDoo, FaDoorClosed } from "react-icons/fa"
 const Header = () => {
   const router = useRouter()
   const { isAdmin, isLoggedIn, firstName } = useSelector((state) => state?.user)
@@ -24,17 +24,22 @@ const Header = () => {
             height={32}
             className="size-8"
           />
-          <span className="text-xl cursor-pointer">RoomStay</span>
+          <span className="text-xl font-bold cursor-pointer">RoomStay</span>
         </div>
-        <div className=" sm:flex space-x-4 flex items-center">
-          <div
-            className="cursor-pointer"
-            onClick={() => {
-              router.push("/rooms")
-            }}
-          >
-            Rooms
+        <div className=" sm:flex space-x-4 flex items-center cursor-pointer ">
+          <div className="flex gap-1 hover:text-gray-200 rounded-lg border px-2">
+            <FaDoorClosed className="w-6 h-6" />
+
+            <div
+              className=" font-semibold"
+              onClick={() => {
+                router.push("/rooms")
+              }}
+            >
+              Rooms
+            </div>
           </div>
+
           {isAdmin ? (
             <Button
               className="rounded-full"
