@@ -17,8 +17,10 @@ export const getAdminRoomByHotelApi = async (hotelId) => {
     return response?.data
 }
 
-export const accountDeleteApi = async () => {
-    const response = await axios.delete(`/deleteUser`);
+
+
+export const getAllRooms = async () => {
+    const response = await axios.get(`/getAllRooms`);
     if (!response?.statusText === "OK") {
         throw new Error("Something is wrong.");
     }
