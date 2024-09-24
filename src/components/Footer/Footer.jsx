@@ -12,12 +12,12 @@ const Footer = () => {
         <Image
           src={footerUmg}
           alt="Footer Image"
-          className="w-full sm:h-[360px] object-cover h-full "
+          className="w-full sm:h-[500px] object-cover h-full "
         />
       </div>
 
       {/* Footer Columns */}
-      <div className="absolute bg-center snap-center text-center sm:top-0 md:top-10 xl:top-20  self-center  w-full">
+      <div className="absolute bg-center snap-center text-center sm:top-0 md:top-10 xl:top-28  self-center  w-full">
         <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
           {/* Column 1 */}
           <div className="flex justify-center gap-20">

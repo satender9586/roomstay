@@ -24,7 +24,7 @@ const Header = () => {
             height={32}
             className="size-8"
           />
-          <span className="text-xl cursor-pointer">RoomStay</span>
+          <span className="text-xl cursor-pointer font-extrabold">RoomStay</span>
         </div>
         <div className=" sm:flex space-x-4 flex items-center">
           <div
