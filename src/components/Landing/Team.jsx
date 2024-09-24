@@ -3,6 +3,7 @@ import {
   InstagramLogoIcon,
   LinkedInLogoIcon,
   DiscordLogoIcon,
+  GitHubLogoIcon,
 } from "@radix-ui/react-icons";
 import jaiImage from "../../../assests/Images/jai.jpeg";
 import surajImage from "../../../assests/Images/suraj.jpg";
@@ -24,18 +25,27 @@ const Team = () => {
         <div className="flex flex-wrap flex-row -mx-4 justify-center">
           <Profile
             name="Jai Singh"
-            role="Frontend developer"
+            role="Mern stack developer"
             image={jaiImage}
+            linkedin={"https://www.linkedin.com/in/jai-singh-dev/"}
+            instagram={"https://www.instagram.com/jai__bhandari/"}
+            github={"https://github.com/Jai-singh-20006"}
           />
           <Profile
             name="Suraj kumar"
-            role="Frontend developer"
+            role="Mern stack developer"
             image={surajImage}
+            linkedin={"https://www.linkedin.com/in/suraj-kumar-developer/"}
+            github={"https://github.com/satender9586"}
+            instagram={"https://github.com/surajkumar540"}
           />
           <Profile
             name="Satender"
-            role="Full stack developer"
+            role="Mern stack developer"
             image={satenderImage}
+            linkedin={"https://www.linkedin.com/in/satender-kumar-dev/"}
+            instagram={"https://www.instagram.com/its_satenderahirwar/"}
+            github={"https://github.com/satender9586"}
           />
         </div>
       </div>
@@ -45,7 +55,7 @@ const Team = () => {
 
 export default Team;
 
-const Profile = ({ name, role, image = "" }) => {
+const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
   return (
     <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
       <div
@@ -66,23 +76,23 @@ const Profile = ({ name, role, image = "" }) => {
             <a
               className="hover:text-blue-700"
               aria-label="Twitter link"
-              href="#"
+              href={instagram}
             >
               <InstagramLogoIcon />
             </a>
             <a
               className="hover:text-blue-700"
               aria-label="Facebook link"
-              href="#"
+              href={linkedin}
             >
               <LinkedInLogoIcon />
             </a>
             <a
               className="hover:text-blue-700"
               aria-label="Instagram link"
-              href="#"
+              href={github}
             >
-              <DiscordLogoIcon />
+              <GitHubLogoIcon />
             </a>
           </div>
         </div>
