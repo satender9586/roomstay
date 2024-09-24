@@ -29,15 +29,15 @@ const Team = () => {
             image={jaiImage}
             linkedin={"https://www.linkedin.com/in/jai-singh-dev/"}
             instagram={"https://www.instagram.com/jai__bhandari/"}
-            github={"https://github.com/Jai-singh-20006"}
+            github={"https://github.com/Jai-singh-2000"}
           />
           <Profile
             name="Suraj kumar"
             role="Mern stack developer"
             image={surajImage}
             linkedin={"https://www.linkedin.com/in/suraj-kumar-developer/"}
-            github={"https://github.com/satender9586"}
-            instagram={"https://github.com/surajkumar540"}
+            instagram={"https://www.instagram.com/gautam_ediitsz/"}
+            github={"https://github.com/surajkumar540"}
           />
           <Profile
             name="Satender"
@@ -77,6 +77,7 @@ const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
               className="hover:text-blue-700"
               aria-label="Twitter link"
               href={instagram}
+              target="_"
             >
               <InstagramLogoIcon />
             </a>
@@ -84,6 +85,7 @@ const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
               className="hover:text-blue-700"
               aria-label="Facebook link"
               href={linkedin}
+              target="_"
             >
               <LinkedInLogoIcon />
             </a>
@@ -91,6 +93,7 @@ const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
               className="hover:text-blue-700"
               aria-label="Instagram link"
               href={github}
+              target="_"
             >
               <GitHubLogoIcon />
             </a>

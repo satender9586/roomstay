@@ -18,9 +18,7 @@ const TestimonialSection = () => {
           </svg>
           <blockquote>
             <p className="text-2xl font-medium text-gray-900 dark:text-white">
-              "Flowbite is just awesome. It contains tons of predesigned
-              components and pages starting from login screen to complex
-              dashboard. Perfect choice for your next SaaS application."
+              "I am extremely impressed with the check-in experience, amenities, and cleanliness of this hotel. The hotel offers excellent amenities that cater to all our needs, ensuring a comfortable stay. Moreover, the cleanliness of the hotel is top-notch, with spotlessly clean rooms and common areas. "
             </p>
           </blockquote>
           <figcaption className="flex items-center justify-center mt-6 space-x-3">
