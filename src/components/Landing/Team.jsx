@@ -65,7 +65,7 @@ const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
         <div className="relative overflow-hidden px-6">
           <Image
             src={image}
-            className="max-w-full h-auto mx-auto rounded-full bg-gray-50"
+            className="max-w-full h-auto mx-auto rounded-3xl shadow-xl border-2 bg-gray-50"
             alt="title image"
           />
         </div>

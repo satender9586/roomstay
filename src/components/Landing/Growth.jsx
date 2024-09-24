@@ -20,7 +20,7 @@ const Growth = () => {
           <div className="container mx-auto mt-8">
             <div className="flex flex-wrap justify-center gap-5 ">
               {/* First Row */}
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-tl-[50px] rounded-br-[50px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={clockImg} className="w-16 h-16" />
                   <div className="font-bold">Site Speed</div>
@@ -30,7 +30,7 @@ const Growth = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200 cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-l-[20px] rounded-r-[20px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={storeImg} className="w-16 h-16" />
                   <div className="font-bold">Multi-Warehouse</div>
@@ -40,7 +40,7 @@ const Growth = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200 cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-tr-[50px] rounded-bl-[50px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={shoppingImg} className="w-16 h-16" />
                   <div className="font-bold">Optimized Checkouts</div>
@@ -52,7 +52,7 @@ const Growth = () => {
               </div>
 
               {/* Second Row */}
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200 cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-tl-[50px] rounded-br-[50px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={accountingImg} className="w-16 h-16" />
                   <div className="font-bold">Staff Accounts</div>
@@ -62,7 +62,7 @@ const Growth = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200 cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-l-[20px] rounded-r-[20px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={androidImg} className="w-16 h-16" />
                   <div className="font-bold">Site Speed</div>
@@ -72,7 +72,7 @@ const Growth = () => {
                   </div>
                 </div>
               </div>
-              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-lg shadow-lg bg-gradient-to-r from-blue-400 to-gray-200 cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+              <div className="mb-4 bg-white w-[370px] h-[280px] flex items-center justify-center rounded-tl-[50px] rounded-br-[50px] shadow-lg bg-gradient-to-r from-white to-blue-50 border  cursor-pointer  hover:shadow-lg hover:scale-105 ease-in-out duration-500">
                 <div className="h-full flex flex-col items-center justify-center p-7 gap-2">
                   <Image src={analyst} className="w-16 h-16" />
                   <div className="font-bold">Site Speed</div>
