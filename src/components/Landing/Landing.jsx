@@ -28,9 +28,9 @@ const Landing = () => {
       <Header />
       <Top />
       {/* <Offer /> */}
-      {/* <Pricing />
+      <Pricing />
       <Cards />
-      <FourBoxes /> */}
+      <FourBoxes />
       {/* <Content /> */}
       <Growth />
       <Team />

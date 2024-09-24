@@ -66,7 +66,11 @@ const Login = () => {
         }
       }
     } catch (error) {
-      console.log(error)
+      console.log(error,"1")
+      toast("Something error", {
+        description: "Welcome hustler",
+        position: "top-center",
+      })
     }
   }
 
