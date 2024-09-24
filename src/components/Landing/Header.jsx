@@ -1,15 +1,17 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import roomstayLogo from "../../../assests/official/roomstay.png"
-import { useRouter } from "next/navigation"
-import { useSelector } from "react-redux"
-import { PersonIcon } from "@radix-ui/react-icons"
-import HeaderMenu from "./HeaderMenu"
+"use client";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import roomstayLogo from "../../../assests/official/roomstay.png";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { PersonIcon } from "@radix-ui/react-icons";
+import HeaderMenu from "./HeaderMenu";
 
 const Header = () => {
-  const router = useRouter()
-  const { isAdmin, isLoggedIn, firstName } = useSelector((state) => state?.user)
+  const router = useRouter();
+  const { isAdmin, isLoggedIn, firstName } = useSelector(
+    (state) => state?.user
+  );
   return (
     <div className="bg-[#265fe5]">
       <header className="container text-white p-4 flex items-center justify-between">
@@ -22,15 +24,17 @@ const Header = () => {
             alt="Logo"
             width={32}
             height={32}
-            className="size-8"
+            className="size-8 hover:scale-105 ease-in-out duration-500"
           />
-          <span className="text-xl cursor-pointer font-extrabold">RoomStay</span>
+          <span className="text-xl cursor-pointer font-extrabold hover:scale-105 ease-in-out duration-500">
+            RoomStay
+          </span>
         </div>
         <div className=" sm:flex space-x-4 flex items-center">
           <div
-            className="cursor-pointer"
+            className="cursor-pointer hover:scale-105 ease-in-out duration-500"
             onClick={() => {
-              router.push("/rooms")
+              router.push("/rooms");
             }}
           >
             Rooms
@@ -62,7 +66,7 @@ const Header = () => {
         </div>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

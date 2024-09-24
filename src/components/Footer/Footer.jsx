@@ -24,9 +24,9 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold">Jobs</h3>
               <ul className="mt-4 space-y-2">
-                <li>Enquiry</li>
-                <li>Others</li>
-                <li>Terms</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Enquiry</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Others</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Terms</li>
               </ul>
             </div>
 
@@ -34,9 +34,9 @@ const Footer = () => {
             <div>
               <h3 className="text-lg font-semibold">About</h3>
               <ul className="mt-4 space-y-2">
-                <li>Contact</li>
-                <li>Blog</li>
-                <li>Help</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Contact</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Blog</li>
+                <li className=" hover:scale-105 ease-in-out duration-500 cursor-pointer">Help</li>
               </ul>
             </div>
           </div>
@@ -46,7 +46,7 @@ const Footer = () => {
             <h3 className="text-lg font-semibold">Contact Information</h3>
             <ul className="mt-4 space-y-2 flex flex-col items-start justify-center  ">
               <li className="leading-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4  hover:scale-105 ease-in-out duration-500 cursor-pointer ">
                   <div className="flex items-center gap-[1px]">
                     <TbMail />
                     <p>suraj.kumar.corporate@gmail.com</p>
@@ -54,7 +54,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="leading-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4  hover:scale-105 ease-in-out duration-500 cursor-pointer">
                   <div className="flex items-center gap-[1px]">
                     <TbMail />
                     <p>jai.singh.corporate@gmail.com</p>
@@ -62,7 +62,7 @@ const Footer = () => {
                 </div>
               </li>
               <li className="leading-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4  hover:scale-105 ease-in-out duration-500 cursor-pointer">
                   <div className="flex items-center gap-[1px]">
                     <TbMail />
                     <p>sksatender59@gmail.com</p>

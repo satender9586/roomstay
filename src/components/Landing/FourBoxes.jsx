@@ -29,7 +29,7 @@ export default FourBoxes;
 
 const Box = ({ colorHex = "bg-[#FFE599]", icon = arrowIcon, heading = "", title = "" }) => {
     return (
-        <div className={`rounded-lg flex-[0.2] px-6 py-8 flex flex-col  md:grid md:grid-cols-1 md:grid-rows-[100px_1fr_auto_auto] ${colorHex} w-full sm:w-5/6 lg:w-[22%] `} >
+        <div className={`rounded-lg flex-[0.2] px-6 py-8 flex flex-col  md:grid md:grid-cols-1  hover:scale-105 ease-in-out duration-500 md:grid-rows-[100px_1fr_auto_auto] ${colorHex} w-full sm:w-5/6 lg:w-[22%] `} >
             <h3 className='font-heading font-medium text-4xl lg:text-3xl'>{heading}</h3>
             <p className='font-body text-base lg:text-xl mt-4 font-serif'>{title}</p>
             <Image src={icon} alt='icon' height={120} width={150} className='mt-4' />

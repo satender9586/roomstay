@@ -57,7 +57,7 @@ export default Team;
 
 const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
   return (
-    <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
+    <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6  hover:scale-105 ease-in-out duration-500">
       <div
         className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp visibility: visible; animation-duration: 1s; animation-name: fadeInUp"
         data-wow-duration="1s"
