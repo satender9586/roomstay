@@ -5,12 +5,13 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { PersonIcon, GearIcon, HomeIcon, MixIcon, ExitIcon } from '@radix-ui/react-icons'
 import { clearAllCookies } from '../../../utils/cookies'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { clearUserSlice } from '../../../redux/reducers/userSlice'
 
 const SideBar = () => {
     const router = useRouter()
     const dispatch = useDispatch()
+    const { firstName, lastName } = useSelector((state) => state?.user);
 
     const handleRoute = (route = "") => {
         if (route) {
@@ -35,8 +36,7 @@ const SideBar = () => {
                         <Image src={userImg} width={55} height={55} alt='user' className='rounded-full' />
                     </div>
                     <div className='text-white flex flex-col justify-center'>
-                        <div className="font-bold">OYO</div>
-                        <div className="text-slate-100 text-base ">Ahirwar</div>
+                        <div className="font-bold">{firstName + " " + lastName}</div>
                     </div>
                 </div>
             </div>

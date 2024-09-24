@@ -1,56 +1,80 @@
-import React from 'react'
-import arrowIcon from "../../../assests/Icons/arrowIcon.svg"
-import Image from 'next/image'
+import React from "react";
+import arrowIcon from "../../../assests/Icons/arrowIcon.svg";
+import Image from "next/image";
+import footerUmg from "../../../assests/Images/footerImg.jpg";
+import { TbMail } from "react-icons/tb";
 
 const Footer = () => {
-    return (
-        <footer className='bg-gradient-to-r from-slate-900 to-slate-700 py-12'>
+  return (
+    <footer className="bg-gray-100 border-t-[1px] relative w-full">
+      {/* Image with content overlay */}
+      <div className="relative hidden md:block">
+        <Image
+          src={footerUmg}
+          alt="Footer Image"
+          className="w-full sm:h-[360px] object-cover h-full "
+        />
+      </div>
 
-            <div className='container | grid grid-cols-5 | py-4  sm:py-6 md:py-8 lg:py-10 xl:py-12'>
-
-                <div className=' flex justify-center | text-white | row-span-2 md:row-span-1 col-span-5  sm:col-span-1'>
-                    <Image src={arrowIcon} alt='arrowicon' height={190} width={250} style={{ width: "auto", height: "auto" }} className='w-[150px] xl:w-[250px]' />
-
-                </div>
-                <div className=' flex justify-center lg:justify-center | text-white py-4 sm:py-2  | col-span-5  sm:col-span-2 md:col-span-1'>
-                    <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
-                        <div>Jobs</div>
-                        <div>Enquiry</div>
-                        <div>Others</div>
-                        <div>Terms</div>
-                    </div>
-                </div>
-                <div className=' flex justify-center lg:justify-center | text-white py-4 sm:py-2 | col-span-5 sm:col-span-2 md:col-span-1'>
-                    <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
-                        <div>About</div>
-                        <div>Contact</div>
-                        <div>Blog</div>
-                        <div>Help</div>
-                    </div>
-                </div>
-
-                <div className='flex md:hidden justify-center | text-white py-4 sm:py-2 | col-span-5 sm:col-span-2 md:col-span-2 '>
-                    <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
-                        <div className='leading-6'>Linked In</div>
-                        <div className='leading-6'>Twitter</div>
-                        <div className='leading-6'>Facebook</div>
-                    </div>
-                </div>
-
-                <div className=' flex justify-center | text-white py-4 sm:py-2 | col-span-5 sm:col-span-2 md:col-span-2 '>
-                    <div className=' flex flex-col gap-3 text-xs md:text-sm lg:text-lg xl:text-xl'>
-                        <div className='leading-6'>Satender - sksatender59@gmail.com</div>
-                        <div className='leading-6'>Jai Singh - jai.singh.corporate@gmail.com</div>
-                        <div className='leading-6'>Suraj - suraj.kumar.corporate@gmail.com</div>
-                    </div>
-                </div>
-
-
+      {/* Footer Columns */}
+      <div className="absolute bg-center snap-center text-center sm:top-0 md:top-10 xl:top-20  self-center  w-full">
+        <div className="max-w-7xl mx-auto py-8 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+          {/* Column 1 */}
+          <div className="flex justify-center gap-20">
+            <div>
+              <h3 className="text-lg font-semibold">Jobs</h3>
+              <ul className="mt-4 space-y-2">
+                <li>Enquiry</li>
+                <li>Others</li>
+                <li>Terms</li>
+              </ul>
             </div>
 
+            {/* Column 2 */}
+            <div>
+              <h3 className="text-lg font-semibold">About</h3>
+              <ul className="mt-4 space-y-2">
+                <li>Contact</li>
+                <li>Blog</li>
+                <li>Help</li>
+              </ul>
+            </div>
+          </div>
 
-        </footer>
-    )
-}
+          {/* Column 3 */}
+          <div className="flex justify-center sm:justify-start items-center md:items-start flex-col w-full ">
+            <h3 className="text-lg font-semibold">Contact Information</h3>
+            <ul className="mt-4 space-y-2 flex flex-col items-start justify-center  ">
+              <li className="leading-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-[1px]">
+                    <TbMail />
+                    <p>suraj.kumar.corporate@gmail.com</p>
+                  </div>
+                </div>
+              </li>
+              <li className="leading-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-[1px]">
+                    <TbMail />
+                    <p>jai.singh.corporate@gmail.com</p>
+                  </div>
+                </div>
+              </li>
+              <li className="leading-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-[1px]">
+                    <TbMail />
+                    <p>sksatender59@gmail.com</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;

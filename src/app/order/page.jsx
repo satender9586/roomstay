@@ -72,20 +72,13 @@ const Login = () => {
             </div>
           </div>
         </div> */}
-          <div className="w-[70%]">
+          {/* <div className="w-[70%]">
             {arr.map((item, index) => (
               <div key={index} className="flex justify-center items-center p-2">
                 <div className="w-[100%]  ">
                   <div className="h-[130px] px-3  w-full border p-2 flex flex-1 gap-6 items-centershadow-lg rounded-lg">
                     <div className="flex gap-6 flex-[0.7] justify-center">
                       <div className="flex items-center  h-full">
-                        {/* <img
-                        style={{ objectFit: "cover" }}
-                        width={60}
-                        height={60}
-                        className="rounded-[8px] h-[100px] w-[250px]"
-                        src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                      /> */}
                         <Image
                           src={storeImg}
                           style={{ objectFit: "cover" }}
@@ -117,7 +110,7 @@ const Login = () => {
                 </div>
               </div>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </>
