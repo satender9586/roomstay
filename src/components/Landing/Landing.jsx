@@ -1,5 +1,3 @@
-"use client";
-import React, { useEffect, useLayoutEffect } from "react";
 import Footer from "@/components/Footer/Footer";
 import FourBoxes from "./FourBoxes";
 import Pricing from "./Pricing";

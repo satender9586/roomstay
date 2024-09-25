@@ -71,7 +71,7 @@ const PriceCard = ({ image, heading = "", text = "", price = "200", cardColor = 
           </div>
         </div>
         <div className="flex items-center mt-10">
-          <button className="text-slate-900 text-base font-semibold  h-14 px-6 py-2 bg-slate-100 rounded-[41px] shadow border border-gray-100 flex justify-center items-center gap-2.5">
+          <button className="text-slate-900 text-base font-semibold  h-14 px-6 py-2 bg-slate-100 rounded-[41px] shadow border hover:bg-gray-50 border-gray-100 flex justify-center items-center gap-2.5">
             Add Subscription
           </button>
         </div>

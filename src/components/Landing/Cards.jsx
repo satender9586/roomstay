@@ -1,11 +1,8 @@
+"use client";
 import React, { useEffect, useState } from "react";
-import { FaStar } from "react-icons/fa6";
-import { FaHeart } from "react-icons/fa";
 import { getAllRooms } from "../../../api/roomApi";
 
 const Cards = () => {
-  const arryLength = Array.from({ length: 4 });
-
   const [allRooms, setAllRooms] = useState([]);
   const handleFetchRooms = async () => {
     try {
@@ -30,7 +27,10 @@ const Cards = () => {
         <div className="text-6xl font-medium"> Featured Rooms</div>
         <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-6 ">
           {allRooms.map((data, index) => (
-            <div key={index} className="bg-white p-2 rounded-lg hover:shadow-lg hover:scale-105 ease-in-out duration-500">
+            <div
+              key={index}
+              className="bg-white p-2 rounded-lg hover:shadow-lg hover:scale-105 ease-in-out duration-500"
+            >
               <div className="relative">
                 <img
                   width={"100%"}
