@@ -91,7 +91,7 @@ const Signup = () => {
       <div className="absolute inset-0 bg-black opacity-20 -z-10"></div>
       {/* Black overlay with 50% opacity */}
       {/* Content Overlay */}
-      <div className="flex justify-evenly items-center w-[95%] md:w-[900px] rounded-3xl relative py-10 bg-white/90 backdrop-blur-sm">
+      <div className="flex justify-evenly items-center w-[95%] md:w-[900px] rounded-3xl relative py-5 bg-white/90 backdrop-blur-sm">
         <div
           className="flex gap-4 items-center absolute top-5 left-4 cursor-pointer"
           onClick={() => router.push("/")}
@@ -121,7 +121,7 @@ const Signup = () => {
           </div>
 
           <form onSubmit={handleSubmit} className="w-full pt-4">
-            <div className="flex flex-col justify-center gap-6 mb-10 w-full h-full ">
+            <div className="flex flex-col justify-center gap-3 mb-4 w-full h-full ">
               <div className="flex gap-2 justify-between">
                 <div className="w-full">
                   <Label className=" font-semibold">First name</Label>
