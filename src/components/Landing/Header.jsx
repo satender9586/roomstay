@@ -8,8 +8,10 @@ import { PersonIcon } from "@radix-ui/react-icons"
 import HeaderMenu from "./HeaderMenu"
 import { FaDoo, FaDoorClosed } from "react-icons/fa"
 const Header = () => {
-  const router = useRouter()
-  const { isAdmin, isLoggedIn, firstName } = useSelector((state) => state?.user)
+  const router = useRouter();
+  const { isAdmin, isLoggedIn, firstName } = useSelector(
+    (state) => state?.user
+  );
   return (
     <div className="bg-[#265fe5]">
       <header className="container text-white p-4 flex items-center justify-between">
@@ -22,9 +24,9 @@ const Header = () => {
             alt="Logo"
             width={32}
             height={32}
-            className="size-8"
+            className="size-8 hover:scale-105 ease-in-out duration-500"
           />
-          <span className="text-xl font-bold cursor-pointer">RoomStay</span>
+          <span className="text-xl font-bold cursor-pointer hidden sm:block">RoomStay</span>
         </div>
         <div className=" sm:flex space-x-4 flex items-center cursor-pointer ">
           <div className="flex gap-1 hover:text-gray-200 rounded-lg border px-4 p-[2px]">
@@ -67,7 +69,7 @@ const Header = () => {
         </div>
       </header>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

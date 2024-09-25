@@ -16,7 +16,8 @@ import { getPlans } from "../../../api/paymentApi";
 
 const AdminPlanModal = ({ handleSuccess = false, children }) => {
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ plan: "", amount: 0, duration: "" });
+  const [form, setForm] = useState(
+    { plan: "", amount: 0, duration: "" });
   const [allPlans, setAllPlans] = useState([]);
 
   const handleFormChange = ({ name, value }) => {

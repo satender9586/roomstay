@@ -1,11 +1,11 @@
-import React from "react"
-import clockImg from "../../../assests/Icons/clock.svg"
-import storeImg from "../../../assests/Icons/store.png"
-import shoppingImg from "../../../assests/Icons/shoppingcart.png"
-import accountingImg from "../../../assests/Icons/accounting.jpg"
-import androidImg from "../../../assests/Icons/android.png"
-import analyst from "../../../assests/Icons/analyst.png"
-import Image from "next/image"
+import React from "react";
+import clockImg from "../../../assests/Icons/clock.svg";
+import storeImg from "../../../assests/Icons/store.png";
+import shoppingImg from "../../../assests/Icons/shoppingcart.png";
+import accountingImg from "../../../assests/Icons/accounting.jpg";
+import androidImg from "../../../assests/Icons/android.png";
+import analyst from "../../../assests/Icons/analyst.png";
+import Image from "next/image";
 const Growth = () => {
   return (
     <div className="py-16 bg-gray-50">
@@ -92,7 +92,7 @@ const Growth = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Growth
+export default Growth;

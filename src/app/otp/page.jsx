@@ -1,55 +1,56 @@
-"use client"
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useRouter, useSearchParams } from "next/navigation"
+"use client";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
   changePassword,
   forget,
   otpVerify,
   resendOtp,
-} from "../../../api/userApi"
-import { useSelector } from "react-redux"
-import { CheckCircledIcon } from "@radix-ui/react-icons"
-import roomstayLogo from "../../../assests/official/roomstay.png"
-import Image from "next/image"
-import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons"
-import { toast } from "sonner"
+} from "../../../api/userApi";
+import { useSelector } from "react-redux";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
+import roomstayLogo from "../../../assests/official/roomstay.png";
+import Image from "next/image";
+import { EyeOpenIcon, EyeClosedIcon } from "@radix-ui/react-icons";
+import backgroundImg from "../../../assests/Images/backgroundImg.png";
+import { toast } from "sonner";
 
 const Otp = () => {
-  const emailRedux = useSelector((state) => state?.user?.email)
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const type = searchParams?.get("type") || false
-  const [showPassword, setShowPassword] = useState(false)
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false)
+  const emailRedux = useSelector((state) => state?.user?.email);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const type = searchParams?.get("type") || false;
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [formValues, setFormValues] = useState({
     otp: "",
     password: "",
     confirmPassword: "",
-  })
+  });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    const newObject = { ...formValues, [name]: value }
-    setFormValues({ ...newObject })
-  }
+    const { name, value } = e.target;
+    const newObject = { ...formValues, [name]: value };
+    setFormValues({ ...newObject });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (type === "forget") {
       if (
         !(formValues.password && formValues.confirmPassword && formValues.otp)
       ) {
-        alert("Please fill all the fields")
-        return
+        alert("Please fill all the fields");
+        return;
       }
       if (formValues.password !== formValues.confirmPassword) {
-        alert("Passwords do not match")
-        return
+        alert("Passwords do not match");
+        return;
       }
 
       const apiData = {
@@ -57,13 +58,13 @@ const Otp = () => {
         email: emailRedux,
         password: formValues.password,
         confirmPassword: formValues.confirmPassword,
-      }
+      };
 
       try {
-        const response = await changePassword(apiData)
+        const response = await changePassword(apiData);
         if (response?.success) {
-          console.log(response)
-          router.push("/login")
+          console.log(response);
+          router.push("/login");
           toast("Password changed successfully", {
             description: "Login with new password",
             position: "top-center",
@@ -71,24 +72,24 @@ const Otp = () => {
           return;
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
 
     if (!formValues.otp) {
-      alert("Please fill otp field")
-      return
+      alert("Please fill otp field");
+      return;
     }
 
     const dummyData = {
       otp: formValues.otp,
       email: emailRedux,
-    }
+    };
 
     try {
-      const response = await otpVerify(dummyData)
+      const response = await otpVerify(dummyData);
       if (response.success) {
-        router.push("/login")
+        router.push("/login");
         toast("Account created successfully", {
           description: "Login please",
           position: "top-center",
@@ -96,20 +97,20 @@ const Otp = () => {
         return;
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   const resendOtpHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (type === "forget") {
       const dummyData = {
         email: emailRedux,
-      }
+      };
 
       try {
-        const response = await forget(dummyData)
+        const response = await forget(dummyData);
         if (response.success) {
           toast("Otp sent successfully", {
             description: "Check your inbox!",
@@ -118,15 +119,15 @@ const Otp = () => {
           return;
         }
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     }
     const dummyData = {
       email: emailRedux,
-    }
+    };
 
     try {
-      const response = await resendOtp(dummyData)
+      const response = await resendOtp(dummyData);
       if (response.success) {
         toast("Otp resent successfully", {
           description: "Check your inbox again!",
@@ -135,26 +136,44 @@ const Otp = () => {
         return;
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl relative py-10  ">
-        <Image
-          src={roomstayLogo}
+    <div className="relative flex flex-col justify-center items-center h-screen">
+      {/* Background Image */}
+      <Image
+        src={backgroundImg}
+        alt="Background"
+        layout="fill"
+        className="-z-20 object-contain" // Ensure the background image is behind everything
+      />
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black opacity-20 -z-10"></div>
+      {/* Black overlay with 50% opacity */}
+      {/* Content Overlay */}
+      <div className="flex justify-evenly items-center w-[95%] md:w-[600px] rounded-3xl relative py-10 bg-white/90 backdrop-blur-sm">
+        <div
+          className="flex gap-4 items-center absolute top-5 left-4 cursor-pointer"
           onClick={() => router.push("/")}
-          alt="Logo"
-          width={32}
-          height={32}
-          className="size-8 absolute top-5 left-4 cursor-pointer"
-        />
+        >
+          <Image
+            src={roomstayLogo}
+            alt="Logo"
+            width={32}
+            height={32}
+            className="size-8 hover:scale-105 ease-in-out duration-500"
+          />
+          <span className="text-xl cursor-pointer font-extrabold hover:scale-105 ease-in-out duration-500">
+            RoomStay
+          </span>
+        </div>
 
-        <div className="flex flex-col flex-[0.8] lg:flex-[0.5] gap-6 items-center justify-center pt-16 ">
+        <div className="flex flex-col flex-[0.8] lg:flex-[0.6] gap-6 items-center justify-center pt-16 ">
           <div className="flex flex-col items-center space-y-4 pb-6">
             <div className="text-2xl sm:text-4xl font-semibold">
-              Change Password
+              {`${type === "forget" ? "Change Password" : "Verify OTP"}`}
             </div>
             {/* <div className="text-xs font-normal text-center w-[80%] lg:w-[60%]">
               Simplify your workflow and boost your productivity with{" "}
@@ -193,7 +212,7 @@ const Otp = () => {
                       <div
                         className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer"
                         onClick={() => {
-                          setShowPassword(!showPassword)
+                          setShowPassword(!showPassword);
                         }}
                       >
                         {showPassword ? (
@@ -219,7 +238,7 @@ const Otp = () => {
                       <div
                         className="absolute h-full flex items-center right-0 top-0 px-4 cursor-pointer"
                         onClick={() => {
-                          setShowConfirmPassword(!showConfirmPassword)
+                          setShowConfirmPassword(!showConfirmPassword);
                         }}
                       >
                         {showConfirmPassword ? (
@@ -232,10 +251,6 @@ const Otp = () => {
                   </div>
                 </div>
               )}
-
-              {/* <Button className="w-[450px] h-[60px] mt-10 rounded-xl bg-neutral-700 hover:bg-neutral-900">
-                Verify
-              </Button> */}
             </div>
             <Button className="w-full py-6 rounded-2xl bg-neutral-900 hover:bg-neutral-800">
               Verify
@@ -244,14 +259,14 @@ const Otp = () => {
 
           <div className="pt-6">
             <div className=" cursor-pointer">
-              <span className="text-green-500" onClick={resendOtpHandler}>
+              <span className="text-blue-500 hover:text-blue-700" onClick={resendOtpHandler}>
                 {" "}
                 Resend OTP /
               </span>{" "}
               <span
-                className="text-green-500"
+                className="text-blue-500 hover:text-blue-700"
                 onClick={() => {
-                  router.push("/login")
+                  router.push("/login");
                 }}
               >
                 {" "}
@@ -283,7 +298,7 @@ const Otp = () => {
                   </div> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Otp
+export default Otp;

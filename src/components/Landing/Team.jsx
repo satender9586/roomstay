@@ -3,6 +3,7 @@ import {
   InstagramLogoIcon,
   LinkedInLogoIcon,
   DiscordLogoIcon,
+  GitHubLogoIcon,
 } from "@radix-ui/react-icons";
 import jaiImage from "../../../assests/Images/jai.jpeg";
 import surajImage from "../../../assests/Images/suraj.jpg";
@@ -13,7 +14,7 @@ const Team = () => {
   return (
     <div
       id="team"
-      className="section relative pt-20 pb-8 md:pt-16 dark:bg-gray-800"
+      className="section relative pt-20  md:pt-16 dark:bg-gray-800"
     >
       <div className="container xl:max-w-6xl mx-auto px-4">
         <header className="text-center mx-auto mb-12">
@@ -24,18 +25,27 @@ const Team = () => {
         <div className="flex flex-wrap flex-row -mx-4 justify-center">
           <Profile
             name="Jai Singh"
-            role="Frontend developer"
+            role="Mern stack developer"
             image={jaiImage}
+            linkedin={"https://www.linkedin.com/in/jai-singh-dev/"}
+            instagram={"https://www.instagram.com/jai__bhandari/"}
+            github={"https://github.com/Jai-singh-2000"}
           />
           <Profile
             name="Suraj kumar"
-            role="Frontend developer"
+            role="Mern stack developer"
             image={surajImage}
+            linkedin={"https://www.linkedin.com/in/suraj-kumar-developer/"}
+            instagram={"https://www.instagram.com/gautam_ediitsz/"}
+            github={"https://github.com/surajkumar540"}
           />
           <Profile
             name="Satender"
-            role="Full stack developer"
+            role="Mern stack developer"
             image={satenderImage}
+            linkedin={"https://www.linkedin.com/in/satender-kumar-dev/"}
+            instagram={"https://www.instagram.com/its_satenderahirwar/"}
+            github={"https://github.com/satender9586"}
           />
         </div>
       </div>
@@ -45,9 +55,9 @@ const Team = () => {
 
 export default Team;
 
-const Profile = ({ name, role, image = "" }) => {
+const Profile = ({ name, role, image = "", instagram, linkedin, github }) => {
   return (
-    <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6">
+    <div className="flex-shrink max-w-full px-4 w-2/3 sm:w-1/2 md:w-5/12 lg:w-1/4 xl:px-6  hover:scale-105 ease-in-out duration-500">
       <div
         className="relative overflow-hidden bg-white dark:bg-gray-800 mb-12 hover-grayscale-0 wow fadeInUp visibility: visible; animation-duration: 1s; animation-name: fadeInUp"
         data-wow-duration="1s"
@@ -55,7 +65,7 @@ const Profile = ({ name, role, image = "" }) => {
         <div className="relative overflow-hidden px-6">
           <Image
             src={image}
-            className="max-w-full h-auto mx-auto rounded-full bg-gray-50"
+            className="max-w-full h-auto mx-auto rounded-3xl shadow-xl border-2 bg-gray-50"
             alt="title image"
           />
         </div>
@@ -66,23 +76,26 @@ const Profile = ({ name, role, image = "" }) => {
             <a
               className="hover:text-blue-700"
               aria-label="Twitter link"
-              href="#"
+              href={instagram}
+              target="_"
             >
               <InstagramLogoIcon />
             </a>
             <a
               className="hover:text-blue-700"
               aria-label="Facebook link"
-              href="#"
+              href={linkedin}
+              target="_"
             >
               <LinkedInLogoIcon />
             </a>
             <a
               className="hover:text-blue-700"
               aria-label="Instagram link"
-              href="#"
+              href={github}
+              target="_"
             >
-              <DiscordLogoIcon />
+              <GitHubLogoIcon />
             </a>
           </div>
         </div>
