@@ -1,12 +1,12 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import Image from "next/image"
-import roomstayLogo from "../../../assests/official/roomstay.png"
-import { useRouter } from "next/navigation"
-import { useSelector } from "react-redux"
-import { PersonIcon } from "@radix-ui/react-icons"
-import HeaderMenu from "./HeaderMenu"
-import { FaDoo, FaDoorClosed } from "react-icons/fa"
+"use client";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import roomstayLogo from "../../../assests/official/roomstay.png";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { PersonIcon } from "@radix-ui/react-icons";
+import HeaderMenu from "./HeaderMenu";
+import { FaDoo, FaDoorClosed } from "react-icons/fa";
 const Header = () => {
   const router = useRouter();
   const { isAdmin, isLoggedIn, firstName } = useSelector(
@@ -26,7 +26,9 @@ const Header = () => {
             height={32}
             className="size-8 hover:scale-105 ease-in-out duration-500"
           />
-          <span className="text-xl font-bold cursor-pointer hidden sm:block">RoomStay</span>
+          <span className="text-xl font-bold cursor-pointer hidden sm:block">
+            RoomStay
+          </span>
         </div>
         <div className=" sm:flex space-x-4 flex items-center cursor-pointer ">
           <div className="flex gap-1 hover:text-gray-200 rounded-lg border px-4 p-[2px]">
@@ -35,7 +37,7 @@ const Header = () => {
             <div
               className=" font-semibold"
               onClick={() => {
-                router.push("/rooms")
+                router.push("/rooms");
               }}
             >
               Rooms
