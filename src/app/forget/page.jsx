@@ -1,75 +1,94 @@
-"use client"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useRouter } from "next/navigation"
-import { CheckCircledIcon } from "@radix-ui/react-icons"
-import { useState } from "react"
-import { forget } from "../../../api/userApi"
-import { setEmail } from "../../../redux/reducers/userSlice"
-import { useDispatch } from "react-redux"
-import roomstayLogo from "../../../assests/official/roomstay.png"
-import Image from "next/image"
-import { toast } from "sonner"
+"use client";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useRouter } from "next/navigation";
+import { CheckCircledIcon } from "@radix-ui/react-icons";
+import { useState } from "react";
+import { forget } from "../../../api/userApi";
+import { setEmail } from "../../../redux/reducers/userSlice";
+import { useDispatch } from "react-redux";
+import roomstayLogo from "../../../assests/official/roomstay.png";
+import Image from "next/image";
+import { toast } from "sonner";
+import backgroundImg from "../../../assests/Images/backgroundImg.png";
 
 const Forget = () => {
-  const router = useRouter()
-  const dispatch = useDispatch()
-  const [formValues, setFormValues] = useState({ email: "" })
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const [formValues, setFormValues] = useState({ email: "" });
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    const newObject = { ...formValues, [name]: value }
-    setFormValues({ ...newObject })
-  }
+    const { name, value } = e.target;
+    const newObject = { ...formValues, [name]: value };
+    setFormValues({ ...newObject });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (!formValues.email) {
-      alert("Please fill all the fields")
-      return
+      alert("Please fill all the fields");
+      return;
     }
 
     const dummyData = {
       email: formValues.email,
-    }
+    };
 
     try {
-      const response = await forget(dummyData)
+      const response = await forget(dummyData);
       if (response.success) {
-        dispatch(setEmail(formValues.email))
-        router.push(`/otp?type=forget`)
+        dispatch(setEmail(formValues.email));
+        router.push(`/otp?type=forget`);
         toast("Otp sent successfully", {
           description: "Please check your inbox !",
           position: "top-center",
         });
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  };
 
   return (
-    <div className="flex flex-col justify-center items-center">
-      <div className="flex justify-evenly items-center w-full xl:w-[1200px] rounded-3xl relative py-10  ">
-        <Image
-          src={roomstayLogo}
+    <div className="relative flex flex-col justify-center items-center h-screen">
+      {/* Background Image */}
+      <Image
+        src={backgroundImg}
+        alt="Background"
+        layout="fill"
+        className="-z-20 object-contain" // Ensure the background image is behind everything
+      />
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black opacity-20 -z-10"></div>
+      {/* Black overlay with 50% opacity */}
+      {/* Content Overlay */}
+      <div className="flex justify-evenly items-center w-[95%] md:w-[800px] rounded-3xl relative py-10 bg-white/90 backdrop-blur-sm">
+        <div
+          className="flex gap-4 items-center absolute top-5 left-4 cursor-pointer"
           onClick={() => router.push("/")}
-          alt="Logo"
-          width={32}
-          height={32}
-          className="size-8 absolute top-5 left-4 cursor-pointer"
-        />
+        >
+          <Image
+            src={roomstayLogo}
+            alt="Logo"
+            width={32}
+            height={32}
+            className="size-8 hover:scale-105 ease-in-out duration-500"
+          />
+          <span className="text-xl cursor-pointer font-extrabold hover:scale-105 ease-in-out duration-500">
+            RoomStay
+          </span>
+        </div>
 
         <div className="flex flex-col flex-[0.8] lg:flex-[0.5] gap-6 items-center justify-center pt-16 ">
           <div className="flex flex-col items-center space-y-4">
             <div className="text-2xl sm:text-4xl font-semibold">
               Forget Password
             </div>
-            <div className="text-xs font-normal text-center w-[80%] lg:w-[60%]">
-              Simplify your workflow and boost your productivity with{" "}
-              <span className="font-bold text-orange-500">Roomstay</span>. Get
+            <div className="text-xs font-normal text-center w-[90%] ">
+              Simplify your workflow and boost your productivity with
+              <span className="font-bold text-orange-500"> Roomstay</span>. Get
               started for free
             </div>
           </div>
@@ -96,9 +115,9 @@ const Forget = () => {
           <div className=" cursor-pointer">
             Have an Account ?{" "}
             <span
-              className="text-green-500"
+              className="text-blue-600"
               onClick={() => {
-                router.push("/login")
+                router.push("/login");
               }}
             >
               Login
@@ -128,7 +147,7 @@ const Forget = () => {
                 </div> */}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Forget
+export default Forget;

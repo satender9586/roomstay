@@ -61,7 +61,7 @@ const Login = () => {
 
           if (userObj?.isAdmin) {
             router.push("/dashboard");
-          } else {
+          } else { 
             router.push("/");
           }
         }

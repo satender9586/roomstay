@@ -24,6 +24,7 @@ const UNPROTECTEDROUTEOBJ = Object.freeze({
   SIGN_UP: "/signup",
   FORGET: "/forget",
   ROOMS: "/rooms",
+  OTP: "/otp",
 })
 
 //check if you are on the client (browser) or server
@@ -110,6 +111,7 @@ const ProtectedRoute = ({ children }) => {
       UNPROTECTEDROUTEOBJ.SIGN_UP,
       UNPROTECTEDROUTEOBJ.FORGET,
       UNPROTECTEDROUTEOBJ.ROOMS,
+      UNPROTECTEDROUTEOBJ.OTP,
     ]
 
     let currentPath = location.pathname
