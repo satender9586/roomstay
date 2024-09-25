@@ -8,9 +8,8 @@ import Growth from "./Growth";
 import Header from "./Header";
 import Top from "./Top";
 import Team from "./Team";
-import { toast } from "sonner";
-import TestimonialSection from "./Testimonals";
 import BlogSection from "./Blogs";
+import Testimonial from "./Testimonals";
 // import Content from './Content'
 // import Offer from './Offer'
 
@@ -36,8 +35,8 @@ const Landing = () => {
       {/* <Content /> */}
       <Growth />
       <Team />
-      <BlogSection/>
-      <TestimonialSection />
+      <BlogSection />
+      <Testimonial />
       <Footer />
     </>
   );

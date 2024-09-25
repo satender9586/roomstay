@@ -1,10 +1,10 @@
 import React from "react";
 
-const TestimonialSection = () => {
+const Testimonial = () => {
   return (
     <section className="bg-white dark:bg-gray-900">
       <div className="max-w-screen-xl px-4 py-8 mx-auto text-center lg:py-16 lg:px-6">
-        <figure className="max-w-screen-md mx-auto">
+        <div className="max-w-screen-md mx-auto">
           <svg
             className="h-12 mx-auto mb-3 text-gray-400 dark:text-gray-600"
             viewBox="0 0 24 27"
@@ -16,12 +16,14 @@ const TestimonialSection = () => {
               fill="currentColor"
             />
           </svg>
-          <blockquote>
-            <p className="text-2xl font-medium text-gray-900 dark:text-white">
-              "I am extremely impressed with the check-in experience, amenities, and cleanliness of this hotel. The hotel offers excellent amenities that cater to all our needs, ensuring a comfortable stay. Moreover, the cleanliness of the hotel is top-notch, with spotlessly clean rooms and common areas. "
-            </p>
-          </blockquote>
-          <figcaption className="flex items-center justify-center mt-6 space-x-3">
+          <p className="text-2xl font-medium text-gray-900 dark:text-white">
+            I am extremely impressed with the check-in experience, amenities,
+            and cleanliness of this hotel. The hotel offers excellent amenities
+            that cater to all our needs, ensuring a comfortable stay. Moreover,
+            the cleanliness of the hotel is top-notch, with spotlessly clean
+            rooms and common areas.
+          </p>
+          <div className="flex items-center justify-center mt-6 space-x-3">
             <img
               className="w-6 h-6 rounded-full"
               src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/michael-gouch.png"
@@ -32,14 +34,15 @@ const TestimonialSection = () => {
                 Michael Gough
               </div>
               <div className="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">
-                CEO at Google
+                Traveler
               </div>
             </div>
-          </figcaption>
-        </figure>
+          </div>
+        </div>
       </div>
+      ss
     </section>
   );
 };
 
-export default TestimonialSection;
+export default Testimonial;
