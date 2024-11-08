@@ -126,8 +126,8 @@ const Footer = () => {
                 <li>suraj.kumar.corporate@gmail.com</li>
               </ul>
             </div>
-            <div className="space-y-3">
-              <div className="uppercase dark:text-gray-900">Social media</div>
+            <div className="space-y-3 md:space-x-4">
+              <div className="uppercase dark:text-gray-900  md:space-x-4">Social media</div>
               <div className="flex justify-start space-x-3">
                 <a
                   rel="noopener noreferrer"
