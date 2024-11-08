@@ -5,26 +5,29 @@ const BlogSection = () => {
     {
       id: 1,
       date: "Jan 01, 2024",
-      title: "Clever ways to invest in product to organize your portfolio",
+      title: "Planning To Visit Bali Soon? Read Our Detailed Guide To Know",
       description:
         "Discover smart investment strategies to streamline and organize your portfolio.",
-      imageUrl: "https://pagedone.io/asset/uploads/1696244317.png",
+      imageUrl:
+        "https://www.oyorooms.com/blog/wp-content/uploads/2019/09/bali.jpg",
     },
     {
       id: 2,
       date: "Feb 15, 2024",
-      title: "How to grow your profit through systematic investment with us",
+      title: "Girls’ Trip, Nostalgic Or Luxury: 10 OYOxDesign Homes For Al...",
       description:
-        "Unlock the power of systematic investment with us and watch your profits soar. Our...",
-      imageUrl: "https://pagedone.io/asset/uploads/1696244340.png",
+        "The musical decor of this house will put a tune to your lips the moment you step in. So, if you and your friends jam together, this holiday home in Goa is the perfect setting for you.",
+      imageUrl:
+        "https://www.oyorooms.com/blog/wp-content/uploads/2019/08/Banner-Image.jpg",
     },
     {
       id: 3,
       date: "Mar 04, 2024",
-      title: "How to analyze every holdings of your portfolio",
+      title: "15 Homestays In Delhi To Make You Fall In Love With The City!",
       description:
-        "Our comprehensive guide will equip you with the tools and insights needed to...",
-      imageUrl: "https://pagedone.io/asset/uploads/1696244356.png",
+        "Whether you’re in Delhi for a business trip or looking for a quick and comfortable stopover in the city, here’s a list of 15 homestays in Delhi  with modern amenities for utmost comfort...",
+      imageUrl:
+        "https://www.oyorooms.com/blog/wp-content/uploads/2019/07/shutterstock_1445767742.jpg",
     },
   ];
 
